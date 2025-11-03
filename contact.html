@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Contactez-nous | holisticview</title>
+  <link rel="stylesheet" href="style.css">
+  <input type="text" placeholder="Entrez le code captcha">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header-logo">
+      <a href="index.html">Holistic<span>View</span></a>
+    </div>
+
+    <nav class="nav">
+      <ul class="nav-items">
+        <li class="nav-item"><a href="index.html">Accueil</a></li>
+        <li class="nav-item"><a href="#">Solutions</a></li>
+        <li class="nav-item"><a href="#">Société</a></li>
+        <li class="nav-item"><a href="#">Clients</a></li>
+        <li class="nav-item"><a href="#">Actualités</a></li>
+        <li class="nav-item"><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+
+
+
+
+    
+<div class="lang-switch">
+  <button class="lang-btn" onclick="setLanguage('fr')">
+    <img src="img/fr.png" alt="Français">
+  </button>
+  <button class="lang-btn" onclick="setLanguage('en')">
+    <img src="img/en.png" alt="English">
+  </button>
+</div>
+
+
+<!-- Bouton de démonstration -->
+<button class="demo-btn" id="openVideo">Demander une démonstration</button>
+
+<!-- Fenêtre modale pour la vidéo -->
+<div id="videoModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <iframe
+      id="demoVideo"
+      src="https://www.youtube.com/watch?v=YOR_lZt3NEA"
+      title="Vidéo de démonstration"
+      frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+  </header>
+
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <main>
+    <section class="contact-intro">
+      <h2>Contactez-nous</h2>
+      <p>Vous avez une question ou vous souhaitez nous faire part de votre projet de MES ?
+
+L’équipe vous répondra au plus vite</p>
+    </section>
+
+    <section class="contact-section">
+      <form class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nom :</label>
+            <input type="text" required>
+          </div>
+          <div class="form-group">
+            <label>Prénom :</label>
+            <input type="text" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Société :</label>
+            <input type="text">
+          </div>
+          <div class="form-group">
+            <label>Email :</label>
+            <input type="email" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Comment avez-vous entendu parler de nous ?</label>
+          <select>
+            <option>Réseaux sociaux</option>
+            <option>Internet</option>
+            <option>Recommandation</option>
+            <option>Autre</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Objet :</label>
+          <input type="text">
+        </div>
+
+        <div class="form-group">
+          <label>Votre message :</label>
+          <textarea rows="5" required></textarea>
+        </div>
+
+  <div class="form-group captcha">
+  <div class="captcha-box">
+    <span id="captcha-text">HkBs</span>
+    <button type="button" id="refresh-captcha">
+       <img src="img/refraicher.png" alt="Rafraîchir le captcha">
+    </button>
+  </div>
+  <input type="text" placeholder="Recopiez le code ci-dessus" required>
+</div>
+
+        <button type="submit" class="btn-orange">Envoyer</button>
+      </form>
+    </section>
+      <!--COORDONNEES -->
+          <footer>
+  <div class="footer-container">
+    <!-- Bloc gauche -->
+    <div class="footer-left">
+      <img src="logo-holisticview.png" alt="Holistic VIEW" class="footer-logo">
+      <p><strong>HOLISTIC VIEW</strong> – 1, rue Henri Spriet, 14120 Mondeville</p>
+   
+  <p>
+    <img src="img/tel.png" alt="Téléphone" class="icon">
+    09 71 12 01 73
+  </p>
+  <p>
+    <img src="img/email.jpg" alt="E-mail" class="icon">
+    contact[@]holisticview.com
+  </p>
+     </div>
+
+    <!-- Bloc centre -->
+    <div class="footer-middle">
+      <h3>Dernières actus</h3>
+      <ul>
+        <li>Salon SEPEM Angers 2025</li>
+        <li>Salon Prod&Pack Lyon 2025</li>
+        <li>Article thématique : Le Management visuel</li>
+        <li>Partenariat Sofrastock</li>
+      </ul>
+    </div>
+
+    <!-- Bloc droit -->
+    <div class="footer-right">
+      <h3>Informations utiles</h3>
+      <ul>
+        <li><a href="#">Société Holistic View</a></li>
+        <li><a href="#">Contactez-nous</a></li>
+        <li><a href="#">Demander une démonstration</a></li>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">Plan du site</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- FIN COORDONNEES-->
+
+    <div class="social-container">
+      <p>Retrouvez-nous sur <strong>Linkedin</strong></p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com" class="linkedin-icon">in</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let captcha = "";
+    for (let i = 0; i < 4; i++) {
+      captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    document.getElementById("captcha-text").textContent = captcha;
+  });
+</script>
+<script>
+  // Fonction pour générer un code aléatoire
+  function generateCaptcha() {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let captcha = "";
+    for (let i = 0; i < 4; i++) {
+      captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return captcha;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const captchaText = document.getElementById("captcha-text");
+    const refreshBtn = document.getElementById("refresh-captcha");
+
+    // Génère le premier code
+    captchaText.textContent = generateCaptcha();
+
+    // Quand on clique sur 🔄, régénère le code
+    refreshBtn.addEventListener("click", () => {
+      captchaText.textContent = generateCaptcha();
+    });
+  });
+</script>
+</body>
+</html>
