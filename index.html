@@ -18,9 +18,9 @@
 
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
+    <title data-i18n="title">Mon site</title>
 
-    <link
-  rel="stylesheet"
+    <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <input type="text">
 
@@ -35,10 +35,13 @@
   <nav class="nav">
     <ul class="nav-items">
       <li class="nav-item"><a href="index.html">Accueil</a></li>
-      <li class="nav-item"><a href="#">Solutions</a></li>
-      <li class="nav-item"><a href="#">Société</a></li>
+        <li class="nav-item"><a href="societe.html">Société</a></li>
+      <li class="nav-item"><a href="solutions.html">Solutions</a></li>
+    
+      <!--CONTACT NOUS --*>
       <li class="nav-item"><a href="#">Clients</a></li>
-      <li class="nav-item"><a href="#">Actualités</a></li>
+      <!-CONTACT NOUS -->
+      <li class="nav-item"><a href="actualites.html">Actualités</a></li>
       <li class="nav-item"><a href="contact.html" class="active">Contact</a></li>
     </ul>
   </nav>
@@ -54,22 +57,41 @@
 
 
 <!-- Bouton de démonstration -->
-<button class="demo-btn" id="openVideo">Demander une démonstration</button>
+<a href="#form-demo" class="demo-btn">Demander une démonstration</a>
 
-<!-- Fenêtre modale pour la vidéo -->
-<div id="videoModal" class="modal">
+<!-- Fenêtre modale avec le tableau -->
+<div id="form-demo" class="modal">
   <div class="modal-content">
-    <span class="close">&times;</span>
-    <iframe
-      id="demoVideo"
-      src="https://www.youtube.com/watch?v=YOR_lZt3NEA"
-      title="Vidéo de démonstration"
-      frameborder="0"
-      allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
+    <div class="close"><a href="#">&times;</a></div>
+    <h2>Formulaire de demande</h2>
+    <form>
+      <table>
+        <tr>
+          <td><label for="nom">Nom complet :</label></td>
+          <td><input type="text" id="nom" name="nom" required></td>
+        </tr>
+        <tr>
+          <td><label for="email">Email :</label></td>
+          <td><input type="email" id="email" name="email" required></td>
+        </tr>
+        <tr>
+          <td><label for="entreprise">Entreprise :</label></td>
+          <td><input type="text" id="entreprise" name="entreprise" required></td>
+        </tr>
+        <tr>
+          <td><label for="telephone">Téléphone :</label></td>
+          <td><input type="tel" id="telephone" name="telephone"></td>
+        </tr>
+        <tr>
+          <td><label for="message">Message :</label></td>
+          <td><textarea id="message" name="message" rows="3"></textarea></td>
+        </tr>
+      </table>
+      <button type="submit">Envoyer</button>
+    </form>
   </div>
 </div>
+
 
       </header> 
 
@@ -148,12 +170,6 @@
   </form>
 </section>
 
-
-
-
-
-
-
 <!--FIN CONTACT NOUS -->
   <!--COORDONNEES -->
           <footer>
@@ -163,14 +179,10 @@
       <img src="logo-holisticview.png" alt="Holistic VIEW" class="footer-logo">
       <p><strong>HOLISTIC VIEW</strong> – 1, rue Henri Spriet, 14120 Mondeville</p>
    
-  <p>
-    <img src="img/tel.png" alt="Téléphone" class="icon">
+  <p> <img src="img/tel.png" alt="Téléphone" class="icon">
     09 71 12 01 73
-  </p>
-  <p>
-    <img src="img/email.jpg" alt="E-mail" class="icon">
-    contact[@]holisticview.com
-  </p>
+ </p>
+  <p><img src="img/email.jpg" alt="E-mail" class="icon"> contact[@]holisticview.com </p>
      </div>
 
     <!-- Bloc centre -->
@@ -244,7 +256,11 @@ window.onclick = function(event) {
   }
 };
 </script>
+  <footer>
+    <p data-i18n="copyright"></p>
+  </footer>
 
+  <script src="js/lang.js"></script>
 
   </body>
 </html>
