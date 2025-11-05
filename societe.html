@@ -17,9 +17,20 @@
     <nav class="nav">
       <ul class="nav-items">
         <li class="nav-item"><a href="index.html">Accueil</a></li>
-        <li class="nav-item"><a href="#">Solutions</a></li>
         <li class="nav-item"><a href="#">Société</a></li>
+
+        <nav class="nav">
+    <ul class="menu">
+      <li class="dropdown">
+        <a href="#" class="dropbtn" id="solutionsBtn">Solutions ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="data connexion.html">Data connexion</a></li>
+          <li><a href="data contextualisation.html">Data contextualisation</a></li>
+          <li><a href="analyse des causes racine.html">Analyse des causes racine</a></li>
+        </ul> </li>
+        <!--coment--**>
         <li class="nav-item"><a href="#">Clients</a></li>
+         <!--coment-->
         <li class="nav-item"><a href="#">Actualités</a></li>
         <li class="nav-item"><a href="contact.html" class="active">Contact</a></li>
       </ul>
@@ -40,7 +51,7 @@
 
 
 <!-- Bouton de démonstration -->
-<button class="demo-btn" id="openVideo">Demander une démonstration</button>
+<button class="demo-btn" id="openVideo">Demander une démo</button>
 
 <!-- Fenêtre modale pour la vidéo -->
 <div id="videoModal" class="modal">
@@ -72,7 +83,24 @@
 
 
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.querySelector(".dropdown");
+  const button = dropdown.querySelector(".dropbtn");
 
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dropdown.classList.toggle("show");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("show");
+    }
+  });
+});
+</script>
 
 
 
