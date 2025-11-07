@@ -1,27 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  background: #f1f1f1;
-  font-family: 'Montserrat', sans-serif;
+  overflow-y: scroll; /* garde la scrollbar visible en tout temps */
 }
-
 /* ===== HEADER ===== */
 .header {
   position: sticky;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   background: #fff;
-  padding: 30px 80px;   /* ↑ augmente l’espace vertical */
+  padding: 15px 60px;
   border-bottom: 2px solid #eee;
-  height: auto;         /* ← empêche une hauteur fixe */
+  box-sizing: border-box;
+  
 }
 
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 /* Logo */
 .header-logo a {
   text-decoration: none;
@@ -34,7 +42,7 @@ body {
 .nav {
   display: flex; /* ✅ Met les éléments du menu sur une seule ligne */
   justify-content: center;
-  flex-grow: 1; /* ✅ Le menu prend tout l’espace central */
+  flex-grow: 0; /* ✅ Le menu prend tout l’espace central */
   margin-right: 0px; /* ✅ décale toute la barre de navigation vers la gauche */
 }
 
@@ -105,52 +113,39 @@ body {
   display: block;
 }
 
-
-
-.workflow-img {
-  width: 80%;
-  max-width: 1000px;
-  display: block;
-  margin: 0 auto;
-  animation: pulse 6s ease-in-out infinite, float 10s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.15));
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); filter: brightness(1); }
-  50% { transform: scale(1.02); filter: brightness(1.1); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-
-
-
-
 /* ===== BOUTON BILINGUE ===== */
 .lang-switch {
   display: flex;
-  gap: 10px;
   align-items: center;
-   margin-left: 300px; /* ✅ espace entre la nav et les drapeaux */
+  gap: 10px;
+  padding: 10px;
 }
-.lang-btn {
-  border: none;
+
+/* enlève les bordures et le fond par défaut */
+.lang-switch button {
   background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  padding: 10;
 }
-.lang-btn img {
-  width: 20px;
-  height: 15px;
+
+/* optionnel : effet au survol */
+.lang-switch button:hover img {
+  transform: scale(1.1);
   transition: transform 0.2s ease;
 }
-.lang-btn img:hover {
-  transform: scale(1.1);
+
+/* ajuste la taille des drapeaux */
+.lang-switch img {
+  width: 20px;
+  height: 15px;
+  display: block;
+  border-radius: 3px;
+  margin: 0;
+  padding: 0;
+ 
 }
+
 /* BOUTON BILINGUE */
 
 /* --- DEMANDER UNE DEMONSTRATION --- */
