@@ -6,245 +6,182 @@ body {
   padding: 0;
   overflow-y: scroll; /* garde la scrollbar visible en tout temps */
 }
-/* ===== HEADER ===== */
+/* ======================== */
+/* 🌐 HEADER GLOBAL CLEAN   */
+/* ======================== */
+
 .header {
   position: sticky;
   top: 0;
-  left: 0;
   width: 100%;
-  z-index: 1000;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  background: #fff;
-  padding: 15px 60px;
+  padding: 0 60px;
+  background-color: #fff;
   border-bottom: 2px solid #eee;
+  z-index: 1000;
   box-sizing: border-box;
-  
+  font-family: 'Montserrat', sans-serif;
 }
 
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
 /* Logo */
 .header-logo a {
   text-decoration: none;
   color: #ad08e5;
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
-/* ===== NAVIGATION ===== */
-.nav {
-  display: flex; /* ✅ Met les éléments du menu sur une seule ligne */
-  justify-content: center;
-  flex-grow: 0; /* ✅ Le menu prend tout l’espace central */
-  margin-right: 0px; /* ✅ décale toute la barre de navigation vers la gauche */
-}
 
+/* NAVIGATION */
 .nav-items {
-  display: flex;
-  gap: 30px; /* espace entre les liens */
-  list-style: none;
-   margin: 0;
-  padding: 0;
-}
-
-.nav-item a {
-  text-decoration: none;
-  color: #000000;
-  font-weight: 800;
-  font-family: 'Verdana', sans-serif;
-  font-size: 15px;
-  transition: color 0.3s;
-}
-.nav-item a:hover {
-  color: #f22310;
-}
-
-/* MENU SOLUTION */
-
-.menu {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 30px;
   margin: 0;
   padding: 0;
 }
 
-.menu li {
+.nav-item a,
+.dropbtn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-item a:hover,
+.dropbtn:hover {
+  color: #f32121;
+}
+
+
+
+
+/* Empêche le gras persistant */
+.nav-item a:focus,
+.nav-item a:active,
+.dropbtn:focus,
+.dropbtn:active {
+  font-weight: 600 !important;
+  color: #000 !important;
+  outline: none;
+}
+
+/* DROPDOWN */
+.dropdown {
   position: relative;
 }
-
-.dropbtn {
-  text-decoration: none;
-  color: #000;
-  font-weight: bold;
-  cursor: pointer;
-}
-
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  border-radius: 6px;
-  min-width: 180px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
   z-index: 9999;
 }
-
 .dropdown-content a {
   display: block;
   padding: 10px 15px;
   color: #333;
-  text-decoration: none;
+  font-weight: 500;
+  text-decoration: none; /* supprime le soulignement */
+ 
 }
-
 .dropdown-content a:hover {
-  background-color: #007bff;
+  background: #f32121;
   color: #fff;
 }
-
-.dropdown.show .dropdown-content {
+.dropdown:hover .dropdown-content {
   display: block;
 }
+ul, ol {
+  list-style: none; /* supprime puces et numéros */
+  padding: 0;        /* supprime indentation */
+  margin: 0;
+}
 
-/* ===== BOUTON BILINGUE ===== */
+
+
+
+
+/* LANG SWITCH */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 .lang-switch {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px;
+  gap: 8px;
 }
-
-/* enlève les bordures et le fond par défaut */
-.lang-switch button {
+.lang-btn {
   background: none;
   border: none;
-  padding: 0;
   cursor: pointer;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-/* optionnel : effet au survol */
-.lang-switch button:hover img {
-  transform: scale(1.1);
+.lang-btn img {
+  width: 22px;
+  height: 16px;
+  border-radius: 3px;
+  object-fit: cover;
+  display: block;
   transition: transform 0.2s ease;
 }
-
-/* ajuste la taille des drapeaux */
-.lang-switch img {
-  width: 20px;
-  height: 15px;
-  display: block;
-  border-radius: 3px;
-  margin: 0;
-  padding: 0;
- 
+.lang-btn:hover img {
+  transform: scale(1.1);
 }
 
-/* BOUTON BILINGUE */
-
-/* --- DEMANDER UNE DEMONSTRATION --- */
+/* DEMO BUTTON (fixe et stable) */
 .demo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  width: 230px;
+  padding: 0;
   background-color: #f32121;
-  color: #ffffff;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
   border: none;
-  padding: 16px 25px;
   border-radius: 14px;
-  font-size: 20px;
-  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-left: 70px;
-  display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;
   text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 .demo-btn:hover {
-  background-color: #fcfafa;
-  color: #f32121;
-    }
-    /* --- Fenêtre modale (formulaire) --- */
- .modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-/* Quand on clique sur le bouton */
-#form-demo:target {
-  display: flex;
-}
-
-/* Contenu du formulaire */
-.modal-content {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 450px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  animation: fadeIn 0.4s ease;
-}
-
-    @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* Bouton de fermeture */
-.close {
-  text-align: right;
-  margin-bottom: 10px;
-}
-.close a {
-  color: #888;
-  text-decoration: none;
-  font-size: 1.5rem;
-}
-
-.close a:hover {
-  color: #000;
-}
-select {
-  appearance: none;
   background-color: #fff;
-  background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M5.516 7.548l4.484 4.486 4.484-4.486 1.06 1.06-5.544 5.546-5.544-5.546z"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 12px;
+  color: #f32121;
 }
-/* --- Message de confirmation --- */
-.success-message {
-  display: none;
-  text-align: center;
-  color: #000000;
-  font-weight: 600;
-  background: #e8f5e9;
-  border: 1px solid #a5d6a7;
-  border-radius: 8px;
-  padding: 15px;
-  margin-top: 15px;
-  animation: fadeIn 0.5s ease;
+.demo-btn:focus,
+.demo-btn:active {
+  outline: none;
+  box-shadow: none;
+  transform: none;
 }
-.success-message.active {
-  display: block;
+
+/* ACTIVE LINK (page en cours) */
+.nav-item.active a {
+  color: #f32121;
+  font-weight: 700;
 }
+
 
 /* GRANDE PHOTO */
 .slider-container {
@@ -566,3 +503,25 @@ footer {
     }
 /* .....................4 */
 
+/* Empêche le gras persistant sur "Solutions" */
+.nav-item a:focus,
+.nav-item a:active {
+  font-weight: 600 !important;
+  color: #000 !important;
+  outline: none;
+}
+
+/* Correction : retirer les puces de la navigation */
+.nav-items,
+.dropdown-content {
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Nettoyer les marges intérieures de la liste */
+.nav-items li,
+.dropdown-content li {
+  margin: 0;
+  padding: 0;
+}

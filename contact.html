@@ -2,75 +2,67 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Contactez-nous | holisticview</title>
+  <title>Contactez-nous | HolisticView</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
- 
 </head>
+
 <body>
 
   <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="header-logo">
-      <a href="index.html">Holistic<span>View</span></a>
+      <a href="index.html">HolisticView</a>
     </div>
 
     <nav class="nav">
       <ul class="nav-items">
         <li class="nav-item"><a href="index.html">Accueil</a></li>
-        <nav class="nav">
-    <ul class="menu">
-      <li class="dropdown">
-        <a href="#" class="dropbtn" id="solutionsBtn">Solutions ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="data connexion.html">Data connexion</a></li>
-          <li><a href="data contextualisation.html">Data contextualisation</a></li>
-          <li><a href="analyse des causes racine.html">Analyse des causes racine</a></li>
-        </ul>
-      </li>
-        <li class="nav-item"><a href="#">Société</a></li>
-        <!--comment--**>
-        <li class="nav-item"><a href="#">Clients</a></li>
-          <!--comment-->
-        <li class="nav-item"><a href="#">Actualités</a></li>
+        <li class="nav-item"><a href="societe.html">Société</a></li>
+    <!---comment--**>
+      <li class="nav-item"><a href="clients.html" data-i18n="nav.clients">Clients</a></li>
+     <!---comment-->
+
+        <li class="nav-item dropdown">
+          <a href="#" class="dropbtn" id="solutionsBtn">Solutions ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="data_connexion.html">Data connexion</a></li>
+            <li><a href="data_contextualisation.html">Data contextualisation</a></li>
+            <li><a href="analyse_causes_racine.html">Analyse des causes racine</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a href="actualites.html">Actualités</a></li>
         <li class="nav-item"><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
-<div class="lang-switch">
-  <button class="lang-btn" onclick="setLanguage('fr')">
-    <img src="img/fr.png" alt="Français">
-  </button>
-  <button class="lang-btn" onclick="setLanguage('en')">
-    <img src="img/en.png" alt="English">
-  </button>
-</div>
 
+    <div class="lang-switch">
+      <button class="lang-btn" onclick="setLanguage('fr')">
+        <img src="img/fr.png" alt="Français">
+      </button>
+      <button class="lang-btn" onclick="setLanguage('en')">
+        <img src="img/en.png" alt="English">
+      </button>
+    </div>
 
-<!-- Bouton de démonstration -->
-<button class="demo-btn" id="openVideo">Demander une démonstration</button>
-
-<!-- Fenêtre modale pour la vidéo -->
-<div id="videoModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <iframe
-      id="demoVideo"
-      src="https://www.youtube.com/watch?v=YOR_lZt3NEA"
-      title="Vidéo de démonstration"
-      frameborder="0"
-      allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
-</div>
+    <button class="demo-btn" id="openVideo">Demander une démo</button>
   </header>
+
+  <!-- Fenêtre modale pour la vidéo -->
+  <div id="videoModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+     
+    </div>
+  </div>
 
   <!-- ===== CONTENU PRINCIPAL ===== -->
   <main>
     <section class="contact-intro">
       <h2>Contactez-nous</h2>
-      <p>Vous avez une question ou vous souhaitez nous faire part de votre projet de MES ?
-
-L’équipe vous répondra au plus vite</p>
+      <p>Vous avez une question ou souhaitez nous faire part de votre projet de MES ?  
+      L’équipe vous répondra au plus vite.</p>
     </section>
 
     <section class="contact-section">
@@ -117,123 +109,92 @@ L’équipe vous répondra au plus vite</p>
           <textarea rows="5" required></textarea>
         </div>
 
-  <div class="form-group captcha">
-  <div class="captcha-box">
-    <span id="captcha-text">HkBs</span>
-    <button type="button" id="refresh-captcha">
-       <img src="img/refraicher.png" alt="Rafraîchir le captcha">
-    </button>
-  </div>
-  <input type="text" placeholder="Recopiez le code ci-dessus" required>
-</div>
+        <div class="form-group captcha">
+          <div class="captcha-box">
+            <span id="captcha-text">HkBs</span>
+            <button type="button" id="refresh-captcha">
+              <img src="img/refraicher.png" alt="Rafraîchir le captcha">
+            </button>
+          </div>
+          <input type="text" placeholder="Recopiez le code ci-dessus" required>
+        </div>
 
         <button type="submit" class="btn-orange">Envoyer</button>
       </form>
     </section>
-      <!--COORDONNEES -->
-          <footer>
-  <div class="footer-container">
-    <!-- Bloc gauche -->
-    <div class="footer-left">
-      <img src="logo-holisticview.png" alt="Holistic VIEW" class="footer-logo">
-      <p><strong>HOLISTIC VIEW</strong> – 1, rue Henri Spriet, 14120 Mondeville</p>
-   
-  <p>
-    <img src="img/tel.png" alt="Téléphone" class="icon">
-    09 71 12 01 73
-  </p>
-  <p>
-    <img src="img/email.jpg" alt="E-mail" class="icon">
-    contact[@]holisticview.com
-  </p>
-     </div>
 
-    <!-- Bloc centre -->
-    <div class="footer-middle">
-      <h3>Dernières actus</h3>
-      <ul>
-        <li>Salon SEPEM Angers 2025</li>
-        <li>Salon Prod&Pack Lyon 2025</li>
-        <li>Article thématique : Le Management visuel</li>
-        <li>Partenariat Sofrastock</li>
-      </ul>
-    </div>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-left">
+          <img src="logo-holisticview.png" alt="Holistic VIEW" class="footer-logo">
+          <p><strong>HOLISTIC VIEW</strong> – 1, rue Henri Spriet, 14120 Mondeville</p>
+          <p><img src="img/tel.png" alt="Téléphone" class="icon"> 09 71 12 01 73</p>
+          <p><img src="img/email.jpg" alt="E-mail" class="icon"> contact[@]holisticview.com</p>
+        </div>
 
-    <!-- Bloc droit -->
-    <div class="footer-right">
-      <h3>Informations utiles</h3>
-      <ul>
-        <li><a href="#">Société Holistic View</a></li>
-        <li><a href="#">Contactez-nous</a></li>
-        <li><a href="#">Demander une démonstration</a></li>
-        <li><a href="#">Mentions légales</a></li>
-        <li><a href="#">Plan du site</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
+        <div class="footer-middle">
+          <h3>Dernières actus</h3>
+          <ul>
+            <li>Salon SEPEM Angers 2025</li>
+            <li>Salon Prod&Pack Lyon 2025</li>
+            <li>Article thématique : Le Management visuel</li>
+            <li>Partenariat Sofrastock</li>
+          </ul>
+        </div>
 
-<!-- FIN COORDONNEES-->
+        <div class="footer-right">
+          <h3>Informations utiles</h3>
+          <ul>
+            <li><a href="societe.html">Société Holistic View</a></li>
+            <li><a href="contact.html">Contactez-nous</a></li>
+            <li><a href="#">Demander une démonstration</a></li>
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
 
     <div class="social-container">
-      <p>Retrouvez-nous sur <strong>Linkedin</strong></p>
+      <p>Retrouvez-nous sur <strong>LinkedIn</strong></p>
       <div class="social-icons">
         <a href="https://www.linkedin.com" class="linkedin-icon">in</a>
       </div>
     </div>
   </main>
 
+  <!-- ===== SCRIPTS ===== -->
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let captcha = "";
-    for (let i = 0; i < 4; i++) {
-      captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+    function generateCaptcha() {
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      let captcha = "";
+      for (let i = 0; i < 4; i++) {
+        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return captcha;
     }
-    document.getElementById("captcha-text").textContent = captcha;
-  });
-</script>
-<script>
-  // Fonction pour générer un code aléatoire
-  function generateCaptcha() {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let captcha = "";
-    for (let i = 0; i < 4; i++) {
-      captcha += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return captcha;
-  }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const captchaText = document.getElementById("captcha-text");
-    const refreshBtn = document.getElementById("refresh-captcha");
-
-    // Génère le premier code
-    captchaText.textContent = generateCaptcha();
-
-    // Quand on clique sur 🔄, régénère le code
-    refreshBtn.addEventListener("click", () => {
+    document.addEventListener("DOMContentLoaded", () => {
+      const captchaText = document.getElementById("captcha-text");
+      const refreshBtn = document.getElementById("refresh-captcha");
       captchaText.textContent = generateCaptcha();
+
+      refreshBtn.addEventListener("click", () => {
+        captchaText.textContent = generateCaptcha();
+      });
+
+      const dropdown = document.querySelector(".dropdown");
+      const button = dropdown.querySelector(".dropbtn");
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdown.classList.toggle("show");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!dropdown.contains(e.target)) dropdown.classList.remove("show");
+      });
     });
-  });
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const dropdown = document.querySelector(".dropdown");
-  const button = dropdown.querySelector(".dropbtn");
-
-  button.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    dropdown.classList.toggle("show");
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!dropdown.contains(e.target)) {
-      dropdown.classList.remove("show");
-    }
-  });
-});
-</script>
+  </script>
 </body>
 </html>
