@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Solutions | HolisticView</title>
+  <title data-i18n="title">HolisticView</title>
 
   <!-- Styles externes -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/glide.min.js"></script>
-  <link rel="stylesheet"
-        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -21,76 +19,114 @@
   <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="header-logo">
-      <a href="index.html">Holistic<span>View</span></a>
+      <a href="index.html" data-i18n="header.logo">HolisticView</a>
     </div>
 
     <nav class="nav">
       <ul class="nav-items">
-        <li class="nav-item"><a href="index.html">Accueil</a></li>
-        <li class="nav-item"><a href="societe.html">Société</a></li>
+        <li class="nav-item"><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+        <li class="nav-item"><a href="societe.html" data-i18n="nav.about">Société</a></li>
 
         <li class="dropdown">
-          <a href="#" class="dropbtn">Solutions ▾</a>
+          <a href="#" class="dropbtn" data-i18n="nav.solutions">Solutions ▾</a>
           <ul class="dropdown-content">
-            <li><a href="data_connexion.html">Data connexion</a></li>
-            <li><a href="data_contextualisation.html">Data contextualisation</a></li>
-            <li><a href="analyse_causes_racine.html">Analyse des causes racine</a></li>
+            <li><a href="data_connexion.html" data-i18n="solutions.dataConnexion">Data connexion</a></li>
+            <li><a href="data_contextualisation.html" data-i18n="solutions.dataContext">Data contextualisation</a></li>
+            <li><a href="analyse_des_causes_racine.html" data-i18n="solutions.rootCause">Analyse des causes racine</a></li>
           </ul>
         </li>
 
-        <!---comment--**>
-      <li class="nav-item"><a href="clients.html" data-i18n="nav.clients">Clients</a></li>
-     <!---comment-->
-     
-        <li class="nav-item"><a href="actualites.html">Actualités</a></li>
-        <li class="nav-item"><a href="contact.html">Contact</a></li>
+        <li class="nav-item"><a href="clients.html" data-i18n="nav.clients">Clients</a></li>
+        <li class="nav-item"><a href="actualites.html" data-i18n="nav.news">Actualités</a></li>
+        <li class="nav-item"><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
       </ul>
     </nav>
 
-    <div class="lang-switch">
-      <button class="lang-btn" onclick="setLanguage('fr')">
-        <img src="img/fr.png" alt="Français">
-      </button>
-      <button class="lang-btn" onclick="setLanguage('en')">
-        <img src="img/en.png" alt="English">
-      </button>
+    <div class="header-actions">
+      <div class="lang-switch">
+        <button class="lang-btn" data-lang="fr">
+          <img src="img/fr.png" alt="Français">
+        </button>
+        <button class="lang-btn" data-lang="en">
+          <img src="img/en.png" alt="English">
+        </button>
+      </div>
+      <a href="#form-demo" class="demo-btn" data-i18n="btn.demo">Demander une démo</a>
     </div>
-
-    <a href="#form-demo" class="demo-btn">Demander une démo</a>
   </header>
 
- 
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <main class="solutions-main">
+    <section class="solution" id="data-connexion">
+      <h2 data-i18n="solutions.dataConnexion">Data connexion</h2>
+      <p data-i18n="solutions.dataConnexionText">
+        Découvrez notre solution de data connexion pour intégrer vos machines et vos systèmes MES afin de collecter et centraliser vos données en temps réel.
+      </p>
+    </section>
 
+    <section class="solution" id="data-contextualisation">
+      <h2 data-i18n="solutions.dataContext">Data contextualisation</h2>
+      <p data-i18n="solutions.dataContextText">
+        Notre solution permet de contextualiser vos données industrielles pour faciliter l’analyse et la prise de décision.
+      </p>
+    </section>
 
+    <section class="solution" id="root-cause">
+      <h2 data-i18n="solutions.rootCause">Analyse des causes racine</h2>
+      <p data-i18n="solutions.rootCauseText">
+        Cette solution vous aide à identifier les causes principales des incidents pour améliorer vos processus et réduire les pertes.
+      </p>
+    </section>
+  </main>
 
-  <script>
-  // Menu déroulant
-  document.addEventListener("DOMContentLoaded", () => {
-    const dropdown = document.querySelector(".dropdown");
-    const button = dropdown.querySelector(".dropbtn");
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <p><strong data-i18n="footer.company">HOLISTIC VIEW</strong> – <span data-i18n="footer.address">1, rue Henri Spriet, 14120 Mondeville</span></p>
+        <p><span data-i18n="footer.phone">09 71 12 01 73</span></p>
+        <p><span data-i18n="footer.email">contact[@]holisticview.com</span></p>
+      </div>
+      <div class="footer-middle">
+        <h3 data-i18n="footer.newsTitle">Dernières actus</h3>
+        <ul>
+          <li data-i18n="footer.news1">Salon SEPEM Angers 2025</li>
+          <li data-i18n="footer.news2">Salon Prod&Pack Lyon 2025</li>
+          <li data-i18n="footer.news3">Article thématique : Le Management visuel</li>
+          <li data-i18n="footer.news4">Partenariat Sofrastock</li>
+        </ul>
+      </div>
+      <div class="footer-right">
+        <h3 data-i18n="footer.info">Informations utiles</h3>
+        <ul>
+          <li><a href="societe.html" data-i18n="footer.about">Société Holistic View</a></li>
+          <li><a href="contact.html" data-i18n="footer.contact">Contactez-nous</a></li>
+          <li><a href="#" data-i18n="footer.demo">Demander une démonstration</a></li>
+          <li><a href="#" data-i18n="footer.legal">Mentions légales</a></li>
+          <li><a href="#" data-i18n="footer.sitemap">Plan du site</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
-    button.addEventListener("click", (e) => {
-      // Laisse le lien fonctionner si c’est une vraie page
-      if (button.getAttribute("href") === "#") {
-        e.preventDefault();
-        e.stopPropagation();
-        dropdown.classList.toggle("show");
-      }
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove("show");
-      }
-    });
-  });
-  </script>
-
-
-
-<script src="lang.js" defer></script>
-
+  <script src="lang.js" defer></script>
   <script src="main.js" defer></script>
 
+  <script>
+    // Dropdown menu
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropdowns = document.querySelectorAll(".dropdown");
+      dropdowns.forEach(dropdown => {
+        const button = dropdown.querySelector(".dropbtn");
+        button.addEventListener("click", e => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropdown.classList.toggle("show");
+          dropdowns.forEach(d => { if (d !== dropdown) d.classList.remove("show"); });
+        });
+      });
+      document.addEventListener("click", () => { dropdowns.forEach(d => d.classList.remove("show")); });
+    });
+  </script>
 </body>
 </html>

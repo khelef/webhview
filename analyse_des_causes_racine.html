@@ -68,6 +68,36 @@
   
 
 
+ <main>
+    <section class="solution-content">
+      <h2 data-i18n="solutions.rootCause">Analyse des causes racine</h2>
+      <p data-i18n="solutions.rootCauseText">
+        Cette solution vous aide à identifier les causes principales des incidents pour améliorer vos processus et réduire les pertes.
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER identique -->
+  <footer> ... </footer>
+  <div class="social-container"> ... </div>
+
+  <script src="lang.js" defer></script>
+  <script src="main.js" defer></script>
+  <script>
+    // Dropdown menu
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropdown = document.querySelector(".dropdown");
+      const button = dropdown.querySelector(".dropbtn");
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdown.classList.toggle("show");
+      });
+      document.addEventListener("click", (e) => {
+        if (!dropdown.contains(e.target)) dropdown.classList.remove("show");
+      });
+    });
+  </script>
 
 
 
