@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html {
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
 
-
-body {
+ body {
   margin: 0;
   padding: 0;
-  overflow-y: scroll; /* garde la scrollbar visible en tout temps */
+  overflow-x: hidden !important; /* Supprime TOUT débordement horizontal */
 }
 /* ======================== */
 /* 🌐 HEADER GLOBAL CLEAN   */
@@ -34,8 +37,8 @@ body {
   font-weight: 700;
 }
 
-
 /* NAVIGATION */
+
 .nav-items {
   list-style: none;
   display: flex;
@@ -49,7 +52,7 @@ body {
 .dropbtn {
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
   color: #000;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -60,16 +63,13 @@ body {
   color: #f32121;
 }
 
-
-
-
 /* Empêche le gras persistant */
 .nav-item a:focus,
 .nav-item a:active,
 .dropbtn:focus,
 .dropbtn:active {
-  font-weight: 600 !important;
-  color: #000 !important;
+  font-weight: inherit !important;
+  color: inherit !important;
   outline: none;
 }
 
@@ -80,7 +80,7 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  background: #fff;
+  background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   min-width: 200px;
@@ -107,9 +107,18 @@ ul, ol {
   margin: 0;
 }
 
+nav a,
+nav a:hover,
+nav a.active {
+    font-weight: 500;  /* ou 400 */
+}
 
-
-
+a {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
 
 /* LANG SWITCH */
 .header-actions {
@@ -176,13 +185,6 @@ ul, ol {
   transform: none;
 }
 
-/* ACTIVE LINK (page en cours) */
-.nav-item.active a {
-  color: #f32121;
-  font-weight: 700;
-}
-
-
 /* GRANDE PHOTO */
 .slider-container {
 
@@ -196,12 +198,33 @@ ul, ol {
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(250, 250, 250, 0.4)), 
     url('img/photo.jpeg') center/cover no-repeat;
   filter: brightness(1.2);
-
+    margin-top: 80px; /* espace pour compenser le header sticky */
+    width: 100%; 
+  
+  overflow: hidden;  /* empêche le décalage */
 }
+
+.glide {
+    width: 100%;
+}
+.glide__slides {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+.slider-container,
+.glide,
+.glide__track {
+    position: relative;
+}
+
+
 /* FIN GRANDE PHOTO */
 
 /* Section principale */
 .hero {
+
     position: relative;
     background-image: url('img/industrie.jpg'); /* Remplace par ton image */
     background-size: cover;
@@ -212,6 +235,7 @@ ul, ol {
     justify-content: center;
     text-align: center;
     padding: 0 20px;
+    
 }
 
 /* Superposition sombre */
@@ -282,12 +306,9 @@ h2 {
     font-weight: 600;
     transition: background-color 0.3s ease;
 }
-
 .btn:hover {
     background-color: #ff9900;
 }
-
-
 
  /* .....................1 */
 .contact-intro {

@@ -10,7 +10,6 @@ const translations = {
     "nav.contact": "Contact",
     "btn.demo": "Demander une démo",
 
-    // Solutions
     "solutions.dataConnexion": "Data connexion",
     "solutions.dataContext": "Data contextualisation",
     "solutions.rootCause": "Analyse des causes racine",
@@ -18,7 +17,6 @@ const translations = {
     "solutions.dataContextText": "Notre solution permet de contextualiser vos données industrielles pour faciliter l’analyse et la prise de décision.",
     "solutions.rootCauseText": "Cette solution vous aide à identifier les causes principales des incidents pour améliorer vos processus et réduire les pertes.",
 
-    // Contact
     "contact.title": "Contactez-nous et boostez votre productivité !",
     "contact.text1": "Prêt à franchir le cap de la digitalisation industrielle ? <strong>Contactez notre équipe</strong> et découvrez comment <strong>Holistic View MES</strong> peut améliorer votre <strong>TRS</strong>, votre consommation énergétique et votre suivi qualité.",
     "contact.text2": "Parlez-nous de votre projet et obtenez une démonstration personnalisée !",
@@ -36,7 +34,6 @@ const translations = {
     "form.message": "Votre message :",
     "form.submit": "Envoyer",
 
-    // Footer
     "footer.company": "HOLISTIC VIEW",
     "footer.address": "1, rue Henri Spriet, 14120 Mondeville",
     "footer.phone": "09 71 12 01 73",
@@ -65,7 +62,6 @@ const translations = {
     "nav.contact": "Contact",
     "btn.demo": "Request a demo",
 
-    // Solutions
     "solutions.dataConnexion": "Data connection",
     "solutions.dataContext": "Data contextualization",
     "solutions.rootCause": "Root cause analysis",
@@ -73,7 +69,6 @@ const translations = {
     "solutions.dataContextText": "Our solution contextualizes your industrial data to facilitate analysis and decision-making.",
     "solutions.rootCauseText": "This solution helps identify the root causes of incidents to improve processes and reduce losses.",
 
-    // Contact
     "contact.title": "Contact us and boost your productivity!",
     "contact.text1": "Ready to take the leap into industrial digitalization? <strong>Contact our team</strong> and discover how <strong>Holistic View MES</strong> can improve your <strong>OEE</strong>, energy consumption, and quality tracking.",
     "contact.text2": "Tell us about your project and get a personalized demo!",
@@ -91,7 +86,6 @@ const translations = {
     "form.message": "Your message:",
     "form.submit": "Send",
 
-    // Footer
     "footer.company": "HOLISTIC VIEW",
     "footer.address": "1, rue Henri Spriet, 14120 Mondeville, France",
     "footer.phone": "+33 9 71 12 01 73",
@@ -111,13 +105,10 @@ const translations = {
   }
 };
 
-// Fonction pour appliquer la langue sur tous les éléments
 function setLanguage(lang) {
-  localStorage.setItem("lang", lang); // mémorise la langue
+  localStorage.setItem("lang", lang);
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
-    if (translations[lang][key]) {
-      el.innerHTML = translations[lang][key];
-    }
+    if (translations[lang][key]) el.innerHTML = translations[lang][key];
   });
 }
