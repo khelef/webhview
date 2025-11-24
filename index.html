@@ -26,48 +26,115 @@
   <div class="header-logo">
     <a href="index.html" data-i18n="header.logo">HolisticView</a>
   </div>
-
   <nav class="nav">
-    <ul class="nav-items"><li class="nav-item"><a href="index.html" data-i18n="nav.home">Accueil</a></li
-      ><li class="nav-item"><a href="societe.html" data-i18n="nav.about">Société</a></li
-      ><li class="nav-item"><a href="clients.html" data-i18n="nav.clients">Clients</a></li
-      ><li class="nav-item dropdown">
+    <ul class="nav-items"><li class="nav-item"><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li class="nav-item"><a href="societe.html" data-i18n="nav.about">Société</a></li>
+      <li class="nav-item dropdown">
         <a href="javascript:void(0)" class="dropbtn" data-i18n="nav.solutions">Solutions ▾</a>
         <ul class="dropdown-content">
           <li><a href="data_connexion.html" data-i18n="solutions.dataConnexion">Data connexion</a></li>
           <li><a href="data_contextualisation.html" data-i18n="solutions.dataContext">Data contextualisation</a></li>
           <li><a href="analyse_des_causes_racine.html" data-i18n="solutions.rootCause">Analyse des causes racine</a></li>
         </ul>
-      </li
-      ><li class="nav-item"><a href="actualites.html" data-i18n="nav.news">Actualités</a></li
-      ><li class="nav-item"><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </li>
+      <li class="nav-item"><a href="actualites.html" data-i18n="nav.news">Actualités</a></li> 
+      <li class="nav-item"><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
     </ul>
   </nav>
-
   <div class="header-actions">
     <div class="lang-switch">
-      <button class="lang-btn" onclick="setLanguage('fr')">
-        <img src="img/fr.png" alt="Français">
-      </button>
-      <button class="lang-btn" onclick="setLanguage('en')">
-        <img src="img/en.png" alt="English">
-      </button>
+      <button class="lang-btn" onclick="setLanguage('fr')"><img src="img/fr.png" alt="Français"></button>
+      <button class="lang-btn" onclick="setLanguage('en')"> <img src="img/en.png" alt="English"></button>
     </div>
+
     <a href="#form-demo" class="demo-btn" data-i18n="btn.demo">Demander une démo</a>
+
+<!-- Fenêtre modale avec le formulaire -->
+<div id="form-demo" class="modal">
+  <div class="modal-content">
+    <div class="close"><a href="#">&times;</a></div>
+    
+    <h2 data-i18n="form.title">Demande de démonstration</h2>
+    <h3 class="titre-formulaire" data-i18n="form.subtitle">Demande de démonstration</h3>
+
+    <form action="https://formspree.io/f/mkgaordo" method="POST">
+      <table>
+        <tr>
+          <td><label for="nom" data-i18n="form.name">Nom complet :</label></td>
+          <td><input type="text" id="nom" name="nom" required></td>
+        </tr>
+        <tr>
+          <td><label for="email" data-i18n="form.email">Email :</label></td>
+          <td><input type="email" id="email" name="email" required></td>
+        </tr>
+        <tr>
+          <td><label for="entreprise" data-i18n="form.company">Entreprise :</label></td>
+          <td><input type="text" id="entreprise" name="entreprise" required></td>
+        </tr>
+        <tr>
+          <td><label for="fonction" data-i18n="form.function">Fonction :</label></td>
+          <td>
+            <select id="fonction" name="fonction" required>
+              <option value="" data-i18n="form.selectFunction">-- Sélectionnez votre fonction --</option>
+              <option value="direction" data-i18n="form.func.direction">Direction générale</option>
+              <option value="marketing" data-i18n="form.func.marketing">Marketing / Communication</option>
+              <option value="commercial" data-i18n="form.func.commercial">Commercial / Vente</option>
+              <option value="informatique" data-i18n="form.func.it">Informatique / IT</option>
+              <option value="production" data-i18n="form.func.production">Production / Exploitation</option>
+              <option value="qualite" data-i18n="form.func.qse">Qualité / Sécurité / Environnement (QSE)</option>
+              <option value="logistique" data-i18n="form.func.logistique">Logistique / Supply Chain</option>
+              <option value="achats" data-i18n="form.func.achats">Achats / Approvisionnement</option>
+              <option value="rh" data-i18n="form.func.rh">Ressources humaines</option>
+              <option value="finance" data-i18n="form.func.finance">Finance / Comptabilité</option>
+              <option value="support" data-i18n="form.func.support">Support / Service client</option>
+              <option value="autre" data-i18n="form.func.autre">Autre</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="secteur" data-i18n="form.sector">Secteur :</label></td>
+          <td>
+            <select id="secteur" name="secteur" required>
+              <option value="" data-i18n="form.selectSector">-- Sélectionnez votre secteur --</option>
+              <option value="industrie" data-i18n="form.sector.industrie">Industrie</option>
+              <option value="banque" data-i18n="form.sector.banque">Banque / Assurance</option>
+              <option value="technologie" data-i18n="form.sector.tech">Technologie / Informatique</option>
+              <option value="sante" data-i18n="form.sector.sante">Santé / Pharmaceutique</option>
+              <option value="education" data-i18n="form.sector.agro">Agroalimentaire</option>
+              <option value="commerce" data-i18n="form.sector.commerce">Commerce / Distribution</option>
+              <option value="services" data-i18n="form.sector.services">Services</option>
+              <option value="public" data-i18n="form.sector.public">Secteur public</option>
+              <option value="transport" data-i18n="form.sector.transport">Transport / Logistique</option>
+              <option value="energie" data-i18n="form.sector.energie">Énergie / Environnement</option>
+              <option value="autre" data-i18n="form.sector.autre">Autre</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="message" data-i18n="form.message">Message :</label></td>
+          <td><textarea id="message" name="message" rows="3"></textarea></td>
+        </tr>
+      </table>
+      <button type="submit" data-i18n="form.submit">Envoyer</button>
+    </form>
+
+    <div id="successMessage" class="success-message" data-i18n="form.success">
+      ✅ Merci pour votre contact !<br>Nous vous répondrons dans les plus brefs délais.
+    </div>
   </div>
+</div>
 </header>
 
 <!--comment-->
-    <section class="slider-container">
-      <div class="glide">
-     <div class="glide__track" data-glide-el="track">
+  <section class="slider-container">
+  <div class="glide">
+  <div class="glide__track" data-glide-el="track">
   <ul class="glide__slides">
-    <li class="glide__slide"></li>
+  <li class="glide__slide"></li>
   </ul>
-</div>
-
-      </div>
-    </section>
+  </div>
+  </div>
+  </section>
 <!--comment-->
     <section class="contact-intro">
       <h2 data-i18n="contact.title">
@@ -83,53 +150,53 @@
         Parlez-nous de votre projet et obtenez une démonstration personnalisée&nbsp;!
       </p>
     </section>
-
     <section class="contact-section">
-      <form class="contact-form" action="#" method="post">
+      <form class="contact-form">
         <div class="form-row">
-          <div class="form-group">
-            <label for="nom" data-i18n="form.nom">Nom :</label>
-            <input type="text" id="nom" name="nom" required>
-          </div>
-          <div class="form-group">
-            <label for="prenom" data-i18n="form.prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" required>
-          </div>
-        </div>
+     <div class="form-group"> 
+      <label data-i18n="contact.label.nom">Nom :</label>
+     <input type="text" data-i18n="[placeholder]contact.placeholder.nom">
+     </div>
+     <div class="form-group"><label data-i18n="contact.label.prenom">Prénom :</label> 
+      <input type="text"  data-i18n="[placeholder]contact.placeholder.prenom">
+    </div>
+    </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="societe" data-i18n="form.societe">Société :</label>
-            <input type="text" id="societe" name="societe">
-          </div>
-          <div class="form-group">
-            <label for="email" data-i18n="form.email">E-mail :</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-        </div>
+      <div class="form-group">
+    <label data-i18n="contact.label.societe">Société :</label> 
+   <input type="text" data-i18n="[placeholder]contact.placeholder.societe">
+   </div> 
+   <div class="form-group"> <label data-i18n="contact.label.email">Email :</label> 
+    <input type="email" data-i18n="[placeholder]contact.placeholder.email" >
+   </div>
+   </div> 
+<div class="form-group"> 
+  <label data-i18n="contact.label.source">Comment avez-vous entendu parler de nous ?</label> 
+  <select>
+    <option value="reseaux" data-i18n="form.source1">Réseaux sociaux</option>
+    <option value="recommandation" data-i18n="form.source2">Recommandation</option>
+     <option value="reseaux" data-i18n="form.source3">Salon professionnel</option>
+         <option value="internet" data-i18n="form.source4">Moteur de recherche</option>
+    <option value="autre" data-i18n="form.source5">Autre</option>
+  </select> 
+</div>
 
-        <div class="form-group">
-          <label for="source" data-i18n="form.source">Comment avez-vous entendu parler de nous ?</label>
-          <select id="source" name="source">
-            <option data-i18n="form.source1">Réseaux sociaux</option>
-            <option data-i18n="form.source2">Recommandation</option>
-            <option data-i18n="form.source3">Salon professionnel</option>
-            <option data-i18n="form.source4">Recherche Internet</option>
-            <option data-i18n="form.source5">Autre</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="objet" data-i18n="form.objet">Objet :</label>
-          <input type="text" id="objet" name="objet">
-        </div>
-
-        <div class="form-group">
-          <label for="message" data-i18n="form.message">Votre message :</label>
-          <textarea id="message" name="message" rows="6"></textarea>
-        </div>
-
-        <button type="submit" class="btn-orange" data-i18n="form.submit">Envoyer</button>
+    <div class="form-group">
+     <label data-i18n="contact.label.objet">Objet :</label>
+    <input type="text" data-i18n="[placeholder]contact.placeholder.objet" >
+   </div> 
+   <div class="form-group">
+    <label data-i18n="contact.label.message">Votre message :</label>
+   <textarea rows="5" data-i18n="[placeholder]contact.placeholder.message"></textarea>
+   </div> 
+   <div class="form-group captcha"> <div class="captcha-box"> 
+    <span id="captcha-text">HkBs</span> <button type="button" id="refresh-captcha"> 
+    <img src="img/refraicher.png" alt="Rafraîchir le captcha" data-i18n="[alt]contact.captcha.refresh"> 
+  </button>
+  </div> 
+ <input type="text" data-i18n="[placeholder]contact.placeholder.captcha"> 
+  </div>
+   <button type="submit" class="btn-orange" data-i18n="contact.btn.envoyer">Envoyer</button>
       </form>
     </section>
 
@@ -171,6 +238,7 @@
         <a href="https://www.linkedin.com" class="linkedin-icon">in</a>
       </div>
     </div>
+    </main>
 
 <script src="js/main.js"></script>
     <script src="js/lang.js"></script>
@@ -202,6 +270,129 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-    
+    <script>
+  // Fonction pour générer un code aléatoire
+  function generateCaptcha() {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let captcha = "";
+    for (let i = 0; i < 4; i++) {
+      captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return captcha;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const captchaText = document.getElementById("captcha-text");
+    const refreshBtn = document.getElementById("refresh-captcha");
+
+    // Génère le premier code
+    captchaText.textContent = generateCaptcha();
+
+    // Quand on clique sur 🔄, régénère le code
+    refreshBtn.addEventListener("click", () => {
+      captchaText.textContent = generateCaptcha();
+    });
+  });
+</script>
+
+ <script>
+  // Afficher la fenêtre modale
+  function openModal() {
+    document.getElementById("demoModal").classList.add("active");
+  }
+
+  // Fermer la fenêtre modale
+  function closeModal() {
+    document.getElementById("demoModal").classList.remove("active");
+  }
+
+  // Message de confirmation après soumission
+  document.getElementById("demoForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Empêche le rechargement
+    const successMsg = document.getElementById("successMessage");
+    successMsg.classList.add("active");
+    // Réinitialise le formulaire
+    this.reset();
+    // Cache le message après 4 secondes
+    setTimeout(() => successMsg.classList.remove("active"), 4000);
+  });
+</script>
+<script>
+function validerEmail() {
+  const email = document.getElementById("email").value.trim();
+
+  // Liste des domaines personnels interdits
+  const domainesInterdits = [
+    "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "live.com",
+    "aol.com", "wanadoo.fr", "orange.fr", "free.fr", "icloud.com",
+    "protonmail.com", "laposte.net", "msn.com", "sfr.fr"
+  ];
+
+  // Récupère le domaine de l’adresse (ce qui est après le @)
+  const domaine = email.split("@")[1];
+
+  // Vérifie si l’adresse est interdite
+  if (!domaine || domainesInterdits.includes(domaine.toLowerCase())) {
+    alert("❌ Veuillez utiliser une adresse e-mail professionnelle (ex : prenom.nom@votre-entreprise.com).");
+    return false; // Bloque l’envoi du formulaire
+  }
+
+  // Si tout est bon
+  alert("✅ Merci pour votre contact ! Nous vous répondrons rapidement.");
+  return false; // (retirer le false si tu veux que le formulaire soit envoyé)
+}
+</script>
+
+<script>
+  lang.set(translations); // tes traductions
+  lang.init('fr'); // langue par défaut
+  // pour changer dynamiquement :
+  // lang.init('fr');
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  const modalForm = document.querySelector('#form-demo form');
+  const successMessage = document.getElementById('successMessage');
+
+  modalForm.addEventListener('submit', async function(e) {
+    e.preventDefault(); // Empêche le rechargement de la page
+    const data = new FormData(modalForm);
+
+    const response = await fetch(modalForm.action, {
+      method: modalForm.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      successMessage.style.display = 'block'; // Affiche le message
+      successMessage.style.opacity = 0;
+      // Animation fade-in
+      setTimeout(() => { successMessage.style.opacity = 1; }, 50);
+
+      modalForm.reset(); // Vide le formulaire
+
+      // Disparition automatique après 5 secondes
+      setTimeout(() => {
+        successMessage.style.opacity = 0;
+        setTimeout(() => { successMessage.style.display = 'none'; }, 500);
+      }, 5000);
+    } else {
+      alert('Une erreur est survenue, veuillez réessayer.');
+    }
+  });
+</script>
+
+
+
+
   </body>
 </html>

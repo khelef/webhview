@@ -30,3 +30,17 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdowns.forEach(d => d.classList.remove("show"));
   });
 });
+function applyTranslations(lang = 'fr') {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+}
+
+// Exemple : charger le français
+applyTranslations('fr');
+
+// Exemple : changer la langue au clic
+// applyTranslations('en');

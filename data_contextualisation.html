@@ -10,36 +10,107 @@
 
   <!-- ===== HEADER ===== -->
   <header class="header">
-    <div class="header-logo">
-      <a href="index.html" data-i18n="header.logo">HolisticView</a>
-    </div>
+  <div class="header-logo">
+    <a href="index.html" data-i18n="header.logo">HolisticView</a>
+  </div>
+  <nav class="nav">
+    <ul class="nav-items"><li class="nav-item"><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li class="nav-item"><a href="societe.html" data-i18n="nav.about">Société</a></li>
 
-    <nav class="nav">
-      <ul class="nav-items">
-        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
-        <li><a href="societe.html" data-i18n="nav.about">Société</a></li>
-        <li class="nav-item dropdown">
-          <a href="#" class="dropbtn" data-i18n="nav.solutions">Solutions ▾</a>
-          <ul class="dropdown-content">
-            <li><a href="data_connexion.html" data-i18n="solutions.dataConnexion">Data connexion</a></li>
-            <li><a href="data_contextualisation.html" data-i18n="solutions.dataContext">Data contextualisation</a></li>
-            <li><a href="analyse_des_causes_racine.html" data-i18n="solutions.rootCause">Analyse des causes racine</a></li>
-          </ul>
-        </li>
-        <!---comment--**>
-      <li class="nav-item"><a href="clients.html" data-i18n="nav.clients">Clients</a></li>
-     <!---comment-->
-        <li><a href="actualites.html" data-i18n="nav.news">Actualités</a></li>
-        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
-      </ul>
-    </nav>
-
+      <li class="nav-item dropdown">
+        <a href="javascript:void(0)" class="dropbtn" data-i18n="nav.solutions">Solutions ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="data_connexion.html" data-i18n="solutions.dataConnexion">Data connexion</a></li>
+          <li><a href="data_contextualisation.html" data-i18n="solutions.dataContext">Data contextualisation</a></li>
+          <li><a href="analyse_des_causes_racine.html" data-i18n="solutions.rootCause">Analyse des causes racine</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="actualites.html" data-i18n="nav.news">Actualités</a></li> 
+      <li class="nav-item"><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="header-actions">
     <div class="lang-switch">
-      <button class="lang-btn" data-lang="fr"><img src="img/fr.png" alt="Français"></button>
-      <button class="lang-btn" data-lang="en"><img src="img/en.png" alt="English"></button>
+      <button class="lang-btn" onclick="setLanguage('fr')"><img src="img/fr.png" alt="Français"></button>
+      <button class="lang-btn" onclick="setLanguage('en')"> <img src="img/en.png" alt="English"></button>
     </div>
+     <a href="#form-demo" class="demo-btn" data-i18n="btn.demo">Demander une démo</a>
 
-    <a href="#form-demo" class="demo-btn" data-i18n="btn.demo">Demander une démo</a>
+<!-- Fenêtre modale avec le formulaire -->
+<div id="form-demo" class="modal">
+  <div class="modal-content">
+    <div class="close"><a href="#">&times;</a></div>
+    
+    <h2 data-i18n="form.title">Demande de démonstration</h2>
+    <h3 class="titre-formulaire" data-i18n="form.subtitle">Demande de démonstration</h3>
+
+    <form id="demoForm">
+      <table>
+        <tr>
+          <td><label for="nom" data-i18n="form.name">Nom complet :</label></td>
+          <td><input type="text" id="nom" name="nom" required></td>
+        </tr>
+        <tr>
+          <td><label for="email" data-i18n="form.email">Email :</label></td>
+          <td><input type="email" id="email" name="email" required></td>
+        </tr>
+        <tr>
+          <td><label for="entreprise" data-i18n="form.company">Entreprise :</label></td>
+          <td><input type="text" id="entreprise" name="entreprise" required></td>
+        </tr>
+        <tr>
+          <td><label for="fonction" data-i18n="form.function">Fonction :</label></td>
+          <td>
+            <select id="fonction" name="fonction" required>
+              <option value="" data-i18n="form.selectFunction">-- Sélectionnez votre fonction --</option>
+              <option value="direction" data-i18n="form.func.direction">Direction générale</option>
+              <option value="marketing" data-i18n="form.func.marketing">Marketing / Communication</option>
+              <option value="commercial" data-i18n="form.func.commercial">Commercial / Vente</option>
+              <option value="informatique" data-i18n="form.func.it">Informatique / IT</option>
+              <option value="production" data-i18n="form.func.production">Production / Exploitation</option>
+              <option value="qualite" data-i18n="form.func.qse">Qualité / Sécurité / Environnement (QSE)</option>
+              <option value="logistique" data-i18n="form.func.logistique">Logistique / Supply Chain</option>
+              <option value="achats" data-i18n="form.func.achats">Achats / Approvisionnement</option>
+              <option value="rh" data-i18n="form.func.rh">Ressources humaines</option>
+              <option value="finance" data-i18n="form.func.finance">Finance / Comptabilité</option>
+              <option value="support" data-i18n="form.func.support">Support / Service client</option>
+              <option value="autre" data-i18n="form.func.autre">Autre</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="secteur" data-i18n="form.sector">Secteur :</label></td>
+          <td>
+            <select id="secteur" name="secteur" required>
+              <option value="" data-i18n="form.selectSector">-- Sélectionnez votre secteur --</option>
+              <option value="industrie" data-i18n="form.sector.industrie">Industrie</option>
+              <option value="banque" data-i18n="form.sector.banque">Banque / Assurance</option>
+              <option value="technologie" data-i18n="form.sector.tech">Technologie / Informatique</option>
+              <option value="sante" data-i18n="form.sector.sante">Santé / Pharmaceutique</option>
+              <option value="education" data-i18n="form.sector.agro">Agroalimentaire</option>
+              <option value="commerce" data-i18n="form.sector.commerce">Commerce / Distribution</option>
+              <option value="services" data-i18n="form.sector.services">Services</option>
+              <option value="public" data-i18n="form.sector.public">Secteur public</option>
+              <option value="transport" data-i18n="form.sector.transport">Transport / Logistique</option>
+              <option value="energie" data-i18n="form.sector.energie">Énergie / Environnement</option>
+              <option value="autre" data-i18n="form.sector.autre">Autre</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="message" data-i18n="form.message">Message :</label></td>
+          <td><textarea id="message" name="message" rows="3"></textarea></td>
+        </tr>
+      </table>
+      <button type="submit" data-i18n="form.submit">Envoyer</button>
+    </form>
+
+    <div id="successMessage" class="success-message" data-i18n="form.success">
+      ✅ Merci pour votre contact !<br>Nous vous répondrons dans les plus brefs délais.
+    </div>
+  </div>
+</div>
+
   </header>
 
   <!-- ===== CONTENU ===== -->
