@@ -44,3 +44,17 @@ applyTranslations('fr');
 
 // Exemple : changer la langue au clic
 // applyTranslations('en');
+const navItems = document.querySelectorAll(".nav-item");
+
+navItems.forEach(item => {
+  item.addEventListener("click", function(e) {
+    e.preventDefault();           // empêche le reload si href="#"
+
+    // retire la classe active de tous les items
+    navItems.forEach(i => i.classList.remove("active"));
+
+    // ajoute la classe active à l’élément cliqué
+    this.classList.add("active");
+  });
+});
+

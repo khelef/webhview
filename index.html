@@ -5,22 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/glide.min.js"></script>
     <link rel="stylesheet"href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"/>
    
     <title data-i18n="title">Holistic View</title>
-
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  
-      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" as="style" onload="this.rel='stylesheet'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" as="style" onload="this.rel='stylesheet'">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
   </head>
-
   <body>
  <header class="header">
   <div class="header-logo">
@@ -48,6 +42,7 @@
     </div>
 
     <a href="#form-demo" class="demo-btn" data-i18n="btn.demo">Demander une démo</a>
+   
 
 <!-- Fenêtre modale avec le formulaire -->
 <div id="form-demo" class="modal">
@@ -97,7 +92,7 @@
             <select id="secteur" name="secteur" required>
               <option value="" data-i18n="form.selectSector">-- Sélectionnez votre secteur --</option>
               <option value="industrie" data-i18n="form.sector.industrie">Industrie</option>
-              <option value="banque" data-i18n="form.sector.banque">Banque / Assurance</option>
+              <option value="banque" data-i18n="form.sector.banque">Automobile</option>
               <option value="technologie" data-i18n="form.sector.tech">Technologie / Informatique</option>
               <option value="sante" data-i18n="form.sector.sante">Santé / Pharmaceutique</option>
               <option value="education" data-i18n="form.sector.agro">Agroalimentaire</option>
@@ -119,7 +114,7 @@
     </form>
 
     <div id="successMessage" class="success-message" data-i18n="form.success">
-      ✅ Merci pour votre contact !<br>Nous vous répondrons dans les plus brefs délais.
+       Merci pour votre contact !<br>Nous vous répondrons dans les plus brefs délais.
     </div>
   </div>
 </div>
@@ -203,12 +198,15 @@
     <footer>
       <div class="footer-container">
         <div class="footer-left">
-          <p><strong data-i18n="footer.company">HOLISTIC VIEW</strong> – 
-          <span data-i18n="footer.address">1, rue Henri Spriet, 14120 Mondeville</span></p>
-          <p><span data-i18n="footer.phone">09 71 12 01 73</span></p>
-          <p><span data-i18n="footer.email">contact[@]holisticview.com</span></p>
-        </div>
+          <p><strong data-i18n="footer.company">HOLISTIC VIEW</strong></p>
 
+        <p><img src="img/addr.png" alt="adresse" class="icon">1,rue Henri Spriet, 14120 Mondeville</p>
+          
+        <p><img src="img/tel.png" alt="Téléphone" class="icon">09 71 12 01 73</p>
+           
+        <p> <img src="img/email.png" alt="Email" class="icon">contact[@]holisticview.com</p>
+
+        </div>
         <div class="footer-middle">
           <h3 data-i18n="footer.newsTitle">Dernières actus</h3>
           <ul>
@@ -222,12 +220,11 @@
         <div class="footer-right">
           <h3 data-i18n="footer.info">Informations utiles</h3>
           <ul>
-            <li><a href="#" data-i18n="footer.about">Société Holistic View</a></li>
-            <li><a href="#" data-i18n="footer.contact">Contactez-nous</a></li>
-            <li><a href="#" data-i18n="footer.demo">Demander une démonstration</a></li>
-            <li><a href="#" data-i18n="footer.legal">Mentions légales</a></li>
-            <li><a href="#" data-i18n="footer.sitemap">Plan du site</a></li>
-          </ul>
+  <li><a href="societe.html" data-i18n="footer.societe">Société Holistic View</a></li>
+  <li><a href="contact.html" data-i18n="footer.contact">Contactez-nous</a></li>
+  <li><a href="demo.html" data-i18n="footer.demo">Demander une démonstration</a></li>
+  <li><a href="legal.html" data-i18n="footer.legal">Mentions légales</a></li>
+</ul>
         </div>
       </div>
     </footer>

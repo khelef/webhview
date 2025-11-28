@@ -3,46 +3,88 @@
  body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden !important; /* Supprime TOUT débordement horizontal */
+  overflow-x: hidden !important; /* Supprime TOUT debordement horizontal */
   
 }
-/* 🌐 HEADER GLOBAL CLEAN   */
+/* HEADER GLOBAL CLEAN   */
 .header {
   position: sticky;
   top: 0;
   width: 100%;
   height: 80px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 60px;
+  justify-content: space-between;
+  padding: 10px 40px;
   background-color: #fff;
   border-bottom: 2px solid #eee;
   z-index: 1000;
   box-sizing: border-box;
-  font-family:  "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
+  gap: 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  font-weight: 600;
+  font-size: 1rem; /* adaptable au zoom */
 }
 
 /* Logo */
 .header-logo a {
-  text-decoration: none;
-  color: #5e047c;
-  font-size: 30px;
-  font-weight: 800;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 35px;
+    font-weight: 800;
+    color: #8E24AA;
+    letter-spacing: 1px;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.15);
 }
+
+
 /* NAVIGATION */
 .nav-items {
-  list-style: none;
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin: 0;
-  padding: 0;
+  padding: 10px 20px;
+  gap: 30px; /* espace uniforme entre éléments de navigation */
+  flex-wrap: nowrap; /* 🌟 empêche le saut de ligne */
 }
+
+
+.nav-items > li > a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+/* Trait invisible par défaut */
+.nav-items > li > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;        /* éloigne le trait du texte */
+  width: 0;
+  height: 4px;         /* épaisseur du trait */
+  background-color: #8E24AA;
+  transition: width 0.3s ease;
+}
+
+.nav-items > li > a:hover::after {
+  width: 100%;
+}
+
+/* Garder le texte sur une ligne pour les liens principaux */
+.nav-items > li > a {
+  white-space: nowrap;
+}
+
+.nav-items li a {
+  white-space: nowrap; /* le texte ne passe PAS sur 2 lignes */
+}
+
 .nav-item a,
 .dropbtn {
   font-family:"Roboto", sans-serif;
-  font-size: 17px; /* regler la taille de la police  */
+  font-size: 18px; /* regler la taille de la police  */
   font-weight: 600;
   color: #000;
   text-decoration: none;
@@ -50,7 +92,9 @@
 }
 .nav-item a:hover,
 .dropbtn:hover {
-  color: #f32121;
+  color: #e097f5;
+  font-weight: 600;
+   white-space: nowrap; /* 🔒 empêche le texte du bouton de passer à la ligne */
 }
 /* Empêche le gras persistant */
 .nav-item a:focus,
@@ -67,9 +111,10 @@
   position: relative;
 }
 .dropdown-content {
+
   display: none;
   position: absolute;
-  background: #ffffff;
+  background: color #fffffF;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   min-width: 200px;
@@ -84,7 +129,7 @@
  
 }
 .dropdown-content a:hover {
-  background: #f32121;
+  background: #8E24AA;  /* la couleur des sous titre solutions */
   color: #fff;
 }
 .dropdown:hover .dropdown-content {
@@ -109,18 +154,29 @@ a:visited {
     text-decoration: none;
 }
 
+
+
 /* LANG SWITCH */
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 70px;  /* espace entre le groupe de boutons de langue et le bouton demo */
-  margin-left: 80px; /* décale toute la barre de nav vers la droite, réduire pour aller plus à gauche */
+  gap: 25px;  /* espace entre le groupe de boutons de langue et le bouton demo */
+  margin-left: 100px; /* décale toute la barre de nav vers la droite, réduire pour aller plus à gauche */
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+.header-actions img {
+  width: 28px;
+  height: auto;
 }
 .lang-switch {
   display: flex;
   align-items: center;
-  gap: 23px;   /* augmente l'espace entre les boutons langue */
+  gap: 10px;   /* augmente l'espace entre les boutons langue */
+  flex-shrink: 0;   /* 🔥 les drapeaux ne compressent plus le bouton */
+  white-space: nowrap;
 }
+
 .lang-btn {
   background: none;
   border: none;
@@ -145,28 +201,35 @@ a:visited {
 
 /*   BOUTON DEMANDER UNE DEMO    */
 .demo-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px; /* augmenter la hauteur  */
-  width: 300px;  /* augmenter la largeur*/
-  padding: 0;
-  background-color: #f32121;
-  color: #fff;
-  font-family:  "Roboto", sans-serif;
-  font-size: 18px;
+
+  width: 200px;          /* largeur fixe du bouton */
+  height: 50px;          /* hauteur fixe du bouton */
+
+  font-size: 1;       /* texte à taille normale */
   font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  white-space: nowrap;   /* texte sur une seule ligne */
+  overflow: hidden;      /* empêche le texte de déborder si trop long */
+  text-overflow: ellipsis; /* “…” si texte trop long */
+
+  background-color: #8E24AA;
+  color: #fff;
   border: none;
-  border-radius: 10px;  /* regler la taille des bordure*/
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  text-decoration: none;
-  white-space: nowrap;
+
   box-sizing: border-box;
+  transition: 0.3s ease;
 }
+
+
 .demo-btn:hover {
   background-color: #fff;
-  color: #f32121;
+  color: #8E24AA;
 }
 
 /*          MODAL POPUP          */
@@ -256,7 +319,7 @@ input:focus, select:focus, textarea:focus {
 button[type="submit"] {
   padding: 10px 20px;
   margin-top: 15px;
-  background: #f32121;
+  background: #8E24AA;
   color: #ffffff;
   border: none;
   font-size: 17px;
@@ -269,7 +332,7 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background: #fcfffd;
-  color: #e02222;
+  color:#8E24AA;
 }
 
 /*   MESSAGE DE CONFIRMATION     */
@@ -290,7 +353,7 @@ button[type="submit"]:hover {
   font-weight: 750;
   text-align: center;
   margin: 10px 0 50px 0;
-  color: #f32121;
+  color: #8E24AA;
 }
 
 /* GRANDE PHOTO */
@@ -301,7 +364,7 @@ button[type="submit"]:hover {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
-  background:  linear-gradient(rgba(0, 0, 0, 0.4), rgba(250, 250, 250, 0.4)),url('img/photo.jpeg') center/cover no-repeat;
+  background: url('img/Image.png') center/cover no-repeat;
   filter: brightness(1.2);
   width: 100%; 
 }
@@ -322,11 +385,12 @@ button[type="submit"]:hover {
 }
 /* FIN GRANDE PHOTO */
 
+
 /* Section principale */
 .hero {
 
     position: relative;
-    background-image: url('img/industrie.jpg'); /* Remplace par ton image */
+  
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -364,7 +428,7 @@ h1 {
 
 .subtitle {
     font-size: 1.2em;
-    color: #f32121;
+    color: #8E24AA;
     margin-bottom: 0.3em;
 }
 
@@ -379,8 +443,6 @@ h2 {
     margin-bottom: 1em;
     color: #fff;
 }
-
-
 .features {
     display: flex;
     flex-direction: column;
@@ -399,7 +461,7 @@ h2 {
 
 /* Bouton */
 .btn {
-    background-color: #ff7b00;
+    background-color: #8E24AA;
     color: white;
     text-decoration: none;
     padding: 10px 20px;
@@ -408,7 +470,7 @@ h2 {
     transition: background-color 0.3s ease;
 }
 .btn:hover {
-    background-color: #ff9900;
+    background-color:#8E24AA;
 }
 
  /* .....................1 */
@@ -422,14 +484,14 @@ h2 {
 }
 
 .contact-intro h2 {
-  color: #f32121; /* ROUGE HOLISTIC VIEW */
+  color:#8E24AA; /* ROUGE HOLISTIC VIEW */
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 15px;
 }
 
 .contact-intro h3 {
-  color: #f32121; /* ROUGE HOLISTIC VIEW */
+  color: #8E24AA; /* ROUGE HOLISTIC VIEW */
   font-size:  30px;
   font-weight: 650;
   margin-bottom: 15px;
@@ -446,7 +508,7 @@ h2 {
 /* .....................2 */
 .contact-section {
   background-color: #f8f8f8;
-  border: 2px solid #f32121; /* bordure ROUGE */
+  border: 2px solid #8E24AA; /* bordure ROUGE */
   padding: 30px;
   width: 80%;
   max-width: 800px;
@@ -494,8 +556,7 @@ textarea {
 }
 
 .btn-orange {
-  background-color: #f32121;
-  color: #fff;
+  background-color:#8E24AA;
   border: none;
   padding: 10px 25px;
   border-radius: 3px;
@@ -505,7 +566,7 @@ textarea {
 }
 
 .btn-orange:hover {
-  background-color: #f32121;
+  background-color:#8E24AA;
 }
 
 
@@ -570,8 +631,8 @@ footer {
 }
 
 .footer-middle h3, .footer-right h3 {
-  color: #f36f21; /* Orange du site */
-  border-bottom: 2px solid #f36f21;
+  color:#8E24AA; /* violet du site */
+  border-bottom: 2px solid #8E24AA;
   display: inline-block;
   margin-bottom: 10px;
 }
@@ -594,8 +655,8 @@ footer {
   text-decoration: underline;
 }
 .icon {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   vertical-align: middle;
   margin-right: 8px;
 }
@@ -606,7 +667,7 @@ footer {
 .social-container {
       text-align: center;
       font-family: Arial, sans-serif;
-      color: #f54500; 
+      color:#000000; 
       margin-top: 20px;
     }
 
@@ -621,7 +682,7 @@ footer {
     }
 
     .linkedin-icon {
-      background-color: #3705ed;
+      background-color: #1f79e7;
       color: white;
       padding: 5px 8px;
       border-radius: 3px;
@@ -675,4 +736,20 @@ footer {
   position: relative;
   animation: slideZoom 0.45s ease;
   font-family: "Montserrat", sans-serif;
+}
+
+
+
+
+@media (max-width: 1600px) {
+  .header {
+    padding: 10px;
+  }
+  .nav-items, .header-actions {
+    gap: 10px;
+  }
+  .demo-btn {
+    max-width: 150px;
+    font-size: 16px;
+  }
 }

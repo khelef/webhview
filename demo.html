@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title data-i18n="title">Holistic View</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/glide.min.js"></script>
+    <link rel="stylesheet"href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"/>
+   
+    <title data-i18n="title">Holistic View</title>
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   
-</head>
-<body>
-
-  <!-- ===== HEADER ===== -->
+      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" as="style" onload="this.rel='stylesheet'">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+  </head>
+  <body>
  <header class="header">
   <div class="header-logo">
     <a href="index.html" data-i18n="header.logo">HolisticView</a>
@@ -18,7 +28,6 @@
   <nav class="nav">
     <ul class="nav-items"><li class="nav-item"><a href="index.html" data-i18n="nav.home">Accueil</a></li>
       <li class="nav-item"><a href="societe.html" data-i18n="nav.about">Société</a></li>
-   
       <li class="nav-item dropdown">
         <a href="javascript:void(0)" class="dropbtn" data-i18n="nav.solutions">Solutions ▾</a>
         <ul class="dropdown-content">
@@ -36,17 +45,18 @@
       <button class="lang-btn" onclick="setLanguage('fr')"><img src="img/fr.png" alt="Français"></button>
       <button class="lang-btn" onclick="setLanguage('en')"> <img src="img/en.png" alt="English"></button>
     </div>
-   <a href="#form-demo" class="demo-btn" data-i18n="btn.demo">Demander une démo</a>
+ <a href="#form-demo" class="demo-btn" data-i18n="btn.demo">Demander une démo</a>
+   
+</header>
+
 
 <!-- Fenêtre modale avec le formulaire -->
 <div id="form-demo" class="modal">
   <div class="modal-content">
     <div class="close"><a href="#">&times;</a></div>
-    
     <h2 data-i18n="form.title">Demande de démonstration</h2>
-    <h3 class="titre-formulaire" data-i18n="form.subtitle">Demande de démonstration</h3>
 
-    <form id="demoForm">
+    <form action="https://formspree.io/f/mkgaordo" method="POST">
       <table>
         <tr>
           <td><label for="nom" data-i18n="form.name">Nom complet :</label></td>
@@ -86,7 +96,7 @@
             <select id="secteur" name="secteur" required>
               <option value="" data-i18n="form.selectSector">-- Sélectionnez votre secteur --</option>
               <option value="industrie" data-i18n="form.sector.industrie">Industrie</option>
-              <option value="banque" data-i18n="form.sector.banque">Banque / Assurance</option>
+              <option value="banque" data-i18n="form.sector.banque">Automobile</option>
               <option value="technologie" data-i18n="form.sector.tech">Technologie / Informatique</option>
               <option value="sante" data-i18n="form.sector.sante">Santé / Pharmaceutique</option>
               <option value="education" data-i18n="form.sector.agro">Agroalimentaire</option>
@@ -113,71 +123,23 @@
   </div>
 </div>
 
-</header>
+<script>
+  const openBtn = document.getElementById('openDemo');
+  const modal = document.getElementById('form-demo');
+  const closeBtn = document.getElementById('closeDemo');
 
+  openBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    modal.style.display = 'block';
+  });
 
-  <!-- ===== CONTENU PRINCIPAL ===== -->
-  <main>
-    <section class="societe-intro">
-      <h2 data-i18n="societe.title">Notre société</h2>
-      <p data-i18n="societe.text1">
-        Holistic View est un acteur majeur de la digitalisation industrielle. 
-        Nous aidons nos clients à améliorer leur production, leur TRS et leur suivi qualité grâce à nos solutions MES.
-      </p>
-  
-    </section>
-    
-    <section class="societe-mission">
-      <h3 data-i18n="societe.missionTitle">Notre mission</h3>
-      <p data-i18n="societe.missionText">
-        Accompagner les entreprises dans leur transformation digitale et optimiser leur performance industrielle.
-      </p>
-    </section>
-  </main>
+  closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+  });
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-left">
-        <p><strong data-i18n="footer.company">HOLISTIC VIEW</strong></p>
-
-    <p><img src="img/addr.png" alt="adresse" class="icon"> 1, rue Henri Spriet, 14120 Mondeville</p>
-    <p><img src="img/tel.png" alt="Téléphone" class="icon">09 71 12 01 73</p>
-    <p> <img src="img/email.png" alt="Email" class="icon">contact[@]holisticview.com</p>
-    
-      </div>
-
-      <div class="footer-middle">
-        <h3 data-i18n="footer.newsTitle">Dernières actus</h3>
-        <ul>
-          <li data-i18n="footer.news1">Salon SEPEM Angers 2025</li>
-          <li data-i18n="footer.news2">Salon Prod&Pack Lyon 2025</li>
-          <li data-i18n="footer.news3">Article thématique : Le Management visuel</li>
-          <li data-i18n="footer.news4">Partenariat Sofrastock</li>
-        </ul>
-      </div>
-
-      <div class="footer-right">
-        <h3 data-i18n="footer.info">Informations utiles</h3>
-        <ul>
-          <li><a href="societe.html" data-i18n="footer.about">Société Holistic View</a></li>
-          <li><a href="contact.html" data-i18n="footer.contact">Contactez-nous</a></li>
-          <li><a href="#" data-i18n="footer.demo">Demander une démonstration</a></li>
-          <li><a href="#" data-i18n="footer.legal">Mentions légales</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-
-  <div class="social-container">
-    <p data-i18n="social.text">Retrouvez-nous sur <strong>LinkedIn</strong></p>
-    <div class="social-icons">
-      <a href="https://www.linkedin.com" class="linkedin-icon">in</a>
-    </div>
-  </div>
-
-  <!-- ===== SCRIPTS ===== -->
-  <script src="js/lang.js"></script>
-  <script src="js/main.js"></script>
+  window.addEventListener('click', function(e){
+    if(e.target === modal) modal.style.display = 'none';
+  });
+</script>
 </body>
 </html>
