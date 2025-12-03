@@ -74,6 +74,13 @@ html, body {
   color: #8E24AA;
   font-weight: 600;
 }
+
+ul, ol {
+  list-style: none; /* supprime puces et numéros */
+  padding: 0;        /* supprime indentation */
+  margin: 0;
+}
+
 /* Empêche le gras persistant */
 .nav-item a:focus,.nav-item a:active,.dropbtn:focus,.dropbtn:active {
   font-weight: inherit !important;
@@ -101,14 +108,13 @@ html, body {
   position: absolute;
   top: 100%;
   left: 0;
-  background: white;
-  border-radius: 8px;
+  background: rgb(219, 215, 215); /* LA COULEUR DE FOND DE SOUS TITTRE   */
+  border-radius: 5px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  min-width: 220px;
+  min-width: 250px; /* LA TAILLE DE SLIDER DE SOUS TITRE SOLUTIONS  */
   z-index: 1001;
   padding: 10px 0;
 }
-
 .dropdown-content a {
   display: block;
   padding: 12px 20px;
@@ -117,6 +123,7 @@ html, body {
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 15px;
+  
 }
 .dropdown-content a:hover {
   background: #8E24AA;
@@ -199,164 +206,138 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.6);
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
   padding: 20px;
+}
+/* Afficher la modale quand on clique sur le lien */
+.modal:target {
+  display: flex;
 }
 
-.modal:target {
-  display: flex; /* Afficher la modale quand on clique sur le lien */
-}
+/*     CONTENU DE LA MODALE      */
 .modal-content {
   background: #fff;
-  padding: 20px;
-  max-width: 700px;
-  width: 100%;
-  border-radius: 10px;
+  padding: 10px;
+  max-width: 650px;
+  width: 90%;
+  border-radius: 8px;
   position: relative;
-  animation: modalFadeIn 0.4s ease;
-  max-height: 90vh;
-  overflow-y: auto;
+  animation: fadeIn 0.4s ease;
   font-family:"Roboto", sans-serif;
 }
 
-@keyframes modalFadeIn {
-  from { opacity: 0; transform: translateY(-20px) scale(0.95); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
-.close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  z-index: 1000;
-}
-
+/* Bouton de fermeture */
 .close a {
-  font-size: 20px;
-  color: #333;
-  text-decoration: none;
-  display: block;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  line-height: 40px;
-  border-radius: 50%;
-  transition: all 0.3s ease;
   position: absolute;
   top: 12px;
-  right: 15px;
+  right: 12px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #333;
 }
 
 .close a:hover {
-  color: #8E24AA;
-  background: #f5f5f5;
+  color: rgb(0, 0, 0);
 }
-/* Formulaire modal */
-.modal-content form table {
+
+/*      TABLEAU DU FORMULAIRE    */
+table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.modal-content form td {
-  padding: 12px 8px;
+table td {
+  padding: 10px 8px;
   vertical-align: middle;
   font-size: 16px;
-  color: #333;
+  color: #020202;
    font-family:"Roboto", sans-serif;
+
 }
 
-.modal-content form label {
+label {
   font-weight: 600;
-  color: #333;
-  font-size: 15px;
-  display: block;
-  margin-bottom: 5px;
-}
-/* Champs du formulaire */
-.modal-content form input,
-.modal-content form select,
-.modal-content form textarea {
-  width: 90%;
-  height: 50%;
-  padding: 10px;
-  border: 2px solid #ddd;
-  border-radius: 3px;
-  font-size: 16px;
-  font-family: 'Roboto', sans-serif;
-  transition: border-color 0.3s ease;
 }
 
-.modal-content form input:focus,
-.modal-content form select:focus,
-.modal-content form textarea:focus {
+/* Champs du formulaire */
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #000000;/* LA COULEUR DES BORDEUR DES CHAMPS */
+  border-radius: 5px;
+  font-size: 15px;
+  font-family:"Roboto", sans-serif;
+  transition: 0.2s;
+}
+input:focus, select:focus, textarea:focus {
   border-color: #8E24AA;
   outline: none;
-  box-shadow: 0 0 0 1px rgba(142, 36, 170, 0.1);
 }
-
 /*      BOUTON ENVOYER           */
-.modal-content form button[type="submit"] {
+button[type="submit"] {
   padding: 10px 20px;
-  background: #8E24AA;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
   margin-top: 15px;
-  width: 50%;
-  background: linear-gradient(135deg, #8E24AA, #9C27B0);
-  margin: 25px auto 0 auto;
-  display: block;
-  position: relative;
+  background: #8E24AA;
+  color: #ffffff;
+  border: none;
+  font-size: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+  
 }
 
-.modal-content form button[type="submit"]:hover {
-  background: #7a1f95;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(142, 36, 170, 0.3);
+button[type="submit"]:hover {
+  background: #fcfffd;
+  color:#8E24AA;
 }
+
 /*   MESSAGE DE CONFIRMATION     */
 .success-message {
   display: none;
-  margin-top: 25px;
-  padding: 20px;
+  margin-top: 20px;
+  padding: 15px;
   background: #ffffff;
-  color: #000;
+  color: #000000;
   border-left: 4px solid #000000;
   border-radius: 6px;
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 15px;
 }
+
 .titre-formulaire {
-  font-family: 'Roboto', sans-serif;
-  font-size: 30px;
-  font-weight: 700;
+  font-family:"Roboto", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
   text-align: center;
+  margin: 10px 0 50px 0;
   color: #8E24AA;
-  margin: 0 0 30px 0;
 }
   
 /* GRANDE PHOTO */
 .slider-container {
-  height: 1100px;
+  height: 130vh; /* S’adapte à la hauteur de l’écran */
+  max-height: 1100px; /* Optionnel : limite sur grand écran */
   display: flex;
   align-items: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
+  justify-content: center;
   background: url('img/Image.png') center/cover no-repeat;
   filter: brightness(1.2);
-  width: 100%; 
+  width: 100%;
+   z-index: 1 !important;
 }
-.glide { width: 100%; }
 
+.glide {
+  width: 100%;
+}
 .glide__slides {
   margin: 0;
   padding: 0;
@@ -364,8 +345,22 @@ html, body {
   overflow: hidden;
 }
 .slider-container,.glide,.glide__track {
-    position: relative;
+  position: relative;
 }
+/* 📱 Responsive pour mobile */
+@media (max-width: 768px) {
+  .slider-container {
+    height: 70vh; /* réduit sur petit écran */
+    background-position: center;
+  }
+}
+/* 📱 Très petits écrans */
+@media (max-width: 480px) {
+  .slider-container {
+    height: 60vh;
+  }
+}
+
 /* FIN GRANDE PHOTO */
 
 /* SECTION CONTACT */
@@ -893,7 +888,6 @@ footer {
   }
 }
 
-
 /* UTILITAIRES */
 .container {
   width: 100%;
@@ -966,3 +960,180 @@ a {
     display: block !important;
   }
 }
+.dropdown-content li a .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* AJOUTER CES RÈGLES POUR CORRIGER L'OVERFLOW */
+
+/* S'assurer que rien ne cache le dropdown */
+.header,
+.nav,
+.nav-items,
+.nav-item,
+.dropdown {
+  overflow: visible !important;
+}
+
+/* Désactiver tout overflow caché */
+* {
+  overflow: visible !important;
+}
+
+.dropdown {
+  overflow: visible !important;
+}
+
+/* Spécifiquement pour le dropdown */
+.dropdown-content {
+  overflow: visible !important;
+  max-height: none !important; /* Supprimer les limites de hauteur */
+}
+
+
+.data-connexion-simple {
+    padding: 60px 20px;
+}
+
+.split-section {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.split-image {
+    flex: 1;
+}
+
+.split-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.split-text {
+    flex: 1;
+}
+
+.split-text h2 {
+    color: #8E24AA;
+    margin-bottom: 20px;
+}
+
+.split-text p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.split-text ul {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.split-text li {
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: inline-block;
+    background: #8E24AA;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .split-section {
+        flex-direction: column;
+    }
+}
+
+/* Section principale */
+.dc-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 10%;
+    gap: 60px;
+    background: linear-gradient(135deg, #f8f8ff, #ffffff);
+}
+
+/* Colonne texte */
+.dc-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.dc-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Points clés */
+.dc-highlights {
+    margin-bottom: 30px;
+}
+
+.highlight {
+    font-size: 18px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    color: #444;
+}
+
+.highlight .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #8E24AA;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+/* Image */
+.dc-image img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .dc-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .dc-content {
+        max-width: 100%;
+    }
+
+    .dc-image img {
+        max-width: 100%;
+    }
+}
+
+
+
+
+
+
