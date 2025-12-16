@@ -93,8 +93,18 @@ const translations = {
     "social.text": "Retrouvez-nous sur <strong>LinkedIn</strong>",
     
 
+   "dc_image": "maintenance",
+  
+    
+
+
+
   },
   en: {
+
+
+
+    "dc_image": "maintenanc",
     "title": "HolisticView",
     "header.logo": "HolisticView",
     "nav.home": "Home",

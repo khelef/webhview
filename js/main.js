@@ -278,3 +278,4 @@ function closeModal() {
 window.addEventListener('load', function() {
   console.log('Page complètement chargée');
 });
+

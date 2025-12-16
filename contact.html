@@ -12,9 +12,15 @@
 <body>
 
   <!-- ===== HEADER ===== -->
-  <header class="header">
+ <header class="header">
+  <div class="container">
+  <!-- Logo cliquable (retour à l'accueil) -->
+  <a href="index.html" class="logo-link">
+  <img src="img/LOGO.png" alt="Nom entreprise - Description"  class="logo-img"> </a>
+                    
   <div class="header-logo">
     <a href="index.html" data-i18n="header.logo">HolisticView</a>
+
   </div>
   <nav class="nav">
     <ul class="nav-items"><li class="nav-item"><a href="index.html" data-i18n="nav.home">Accueil</a></li>
@@ -167,7 +173,7 @@
    </div> 
    <div class="form-group captcha"> <div class="captcha-box"> 
     <span id="captcha-text">HkBs</span> <button type="button" id="refresh-captcha"> 
-    <img src="img/refraicher.png" alt="Rafraîchir le captcha" data-i18n="[alt]contact.captcha.refresh"> 
+    <img src="img/refraicher1.png" alt="Rafraîchir le captcha" data-i18n="[alt]contact.captcha.refresh"> 
   </button> </div> <input type="text" data-i18n="[placeholder]contact.placeholder.captcha"> 
   </div>
    <button type="submit" class="btn-orange" data-i18n="contact.btn.envoyer">Envoyer</button>
@@ -178,7 +184,7 @@
     <footer>
       <div class="footer-container">
         <div class="footer-left">
-          <p><strong data-i18n="footer.company">HOLISTIC VIEW</strong></p>
+              <h4><img src="img/LOGO.png" alt="adresse" class="icon">  HolisticView</h4>  
           
            <p><img src="img/addr.png" alt="adresse" class="icon"> 1, rue Henri Spriet, 14120 Mondeville</p>
           

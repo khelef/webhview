@@ -10,9 +10,17 @@
 <body>
 
   <!-- ===== HEADER ===== -->
-  <header class="header">
+ <header class="header">
+  <div class="container">
+            <!-- Logo cliquable (retour à l'accueil) -->
+            <a href="index.html" class="logo-link">
+                <img src="img/LOGO.png" 
+                     alt="Nom entreprise - Description" 
+                     class="logo-img">
+            </a>
   <div class="header-logo">
     <a href="index.html" data-i18n="header.logo">HolisticView</a>
+
   </div>
   <nav class="nav">
     <ul class="nav-items"><li class="nav-item"><a href="index.html" data-i18n="nav.home">Accueil</a></li>
@@ -20,18 +28,11 @@
 
       <li class="nav-item dropdown">
         <a href="javascript:void(0)" class="dropbtn" data-i18n="nav.solutions">Solutions ▾</a>
-             <ul class="dropdown-content">
-  <li><a href="data_connexion.html">
-      <img src="img/DC.png" class="icon" alt=""> Data connexion </a>
-  </li>
-   <li><a href="data_contextualisation.html">
-      <img src="img/DCT.jpg" class="icon" alt=""> Data contextualisation </a>
-  </li>
-
-  <li> <a href="analyse_des_causes_racine.html">
-      <img src="img/RC.jpg" class="icon" alt=""> Analyse des causes racine </a>
-  </li>
-</ul>
+     <ul class="dropdown-content">
+          <li><a href="data_connexion.html" data-i18n="solutions.dataConnexion">Data connexion</a></li>
+          <li><a href="data_contextualisation.html" data-i18n="solutions.dataContext">Data contextualisation</a></li>
+          <li><a href="analyse_des_causes_racine.html" data-i18n="solutions.rootCause">Analyse des causes racine</a></li>
+        </ul>
       </li>
       <li class="nav-item"><a href="actualites.html" data-i18n="nav.news">Actualités</a></li> 
       <li class="nav-item"><a href="contact.html" data-i18n="nav.contact">Contact</a></li>

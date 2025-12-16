@@ -31,14 +31,47 @@ html, body {
 }
 .header-logo a {
   font-family: 'Poppins', sans-serif;
-  font-size: 35px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 800;
   color: #8E24AA;
   letter-spacing: 1px;
   text-shadow: 0px 2px 4px rgba(0,0,0,0.15);
   text-decoration: none;
   white-space: nowrap;
 }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+}
+
+/* LOGO */
+.logo-link {
+    position: absolute;
+    left: 40px; /* Distance depuis la droite */
+    top: 50%;
+    transform: translateY(-50%); /* Centrage vertical */
+}
+.logo-img {
+    height: 50px; /* Hauteur fixe */
+    width: auto; /* Largeur proportionnelle */
+    transition: all 0.3s ease;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .logo-img {
+        height: 40px; /* Plus petit sur mobile */
+    } }
+
 /* Navigation principale */
 .nav {
   flex: 1;
@@ -48,7 +81,7 @@ html, body {
 .nav-items {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -57,7 +90,7 @@ html, body {
   position: relative;
 }
 .nav-item a,.dropbtn {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px; /* regler la taille de la police  */
   font-weight: 600;
   color: #000;
@@ -74,13 +107,11 @@ html, body {
   color: #8E24AA;
   font-weight: 600;
 }
-
 ul, ol {
   list-style: none; /* supprime puces et numéros */
   padding: 0;        /* supprime indentation */
   margin: 0;
 }
-
 /* Empêche le gras persistant */
 .nav-item a:focus,.nav-item a:active,.dropbtn:focus,.dropbtn:active {
   font-weight: inherit !important;
@@ -108,7 +139,7 @@ ul, ol {
   position: absolute;
   top: 100%;
   left: 0;
-  background: rgb(219, 215, 215); /* LA COULEUR DE FOND DE SOUS TITTRE   */
+  background: rgb(255, 255, 255); /* LA COULEUR DE FOND DE SOUS TITTRE   */
   border-radius: 5px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   min-width: 250px; /* LA TAILLE DE SLIDER DE SOUS TITRE SOLUTIONS  */
@@ -123,7 +154,6 @@ ul, ol {
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 15px;
-  
 }
 .dropdown-content a:hover {
   background: #8E24AA;
@@ -132,6 +162,86 @@ ul, ol {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+ /* DIMENSIONS DATA CONNEXION IMAGE *µ/
+.dc-image {
+    width: 450px;
+    aspect-ratio: 20/9;
+    overflow: hidden; /* Empêche l'image de sortir du cadre *µ/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dc-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    transform-origin: center left; /* Le zoom part du centre *µ/
+     transform: translate(-30, -30%); /* Centre parfaitement *µ/}
+
+     /* Exemple de zoom au survol *µ/
+.dc-image:hover img {
+    transform: scale(1.2); /* Zoom de 20% *}
+   /* DIMENSIONS DATA CONNEXION IMAGE *µ*/
+
+ 
+
+
+
+
+
+
+
+
+
+   
+/* Conteneur principal */
+.image-with-next {
+  text-align: center;
+  max-width: 550px;
+  margin: -60px -100px;
+  padding: 20px;
+}
+
+/* Image principale */
+.main-picture {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  display: block;
+  margin: 0 auto 20px;
+}
+
+/* Flèche */
+.arrow-down {
+  font-size: 100px;
+  color: #8E24AA; /* Violet Holistic View */
+  margin: 10px 0;
+  font-weight: 300;
+  animation: bounce 2s infinite;
+}
+
+/* Image suivante (plus petite) */
+.next-picture {
+  width: 100%;
+  max-width: 200px;
+  height: 130px;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+/* Animation de la flèche */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 /* Actions header */
 .header-actions {
   display: flex;
@@ -164,7 +274,6 @@ ul, ol {
   object-fit: cover;
   border: 1px solid #ddd;
 }
-
 .lang-btn:hover {
   transform: scale(1.1);
 }
@@ -243,24 +352,20 @@ ul, ol {
   font-size: 20px;
   color: #333;
 }
-
 .close a:hover {
   color: rgb(0, 0, 0);
 }
-
 /*      TABLEAU DU FORMULAIRE    */
 table {
   width: 100%;
   border-collapse: collapse;
 }
-
 table td {
   padding: 10px 8px;
   vertical-align: middle;
   font-size: 16px;
   color: #020202;
    font-family:"Roboto", sans-serif;
-
 }
 
 label {
@@ -293,7 +398,6 @@ button[type="submit"] {
   cursor: pointer;
   transition: 0.3s;
   font-weight: 600;
-  
 }
 
 button[type="submit"]:hover {
@@ -312,7 +416,6 @@ button[type="submit"]:hover {
   border-radius: 6px;
   font-size: 15px;
 }
-
 .titre-formulaire {
   font-family:"Roboto", sans-serif;
   font-size: 25px;
@@ -323,44 +426,19 @@ button[type="submit"]:hover {
 }
   
 /* GRANDE PHOTO */
-.slider-container {
-  height: 130vh; /* S’adapte à la hauteur de l’écran */
-  max-height: 1100px; /* Optionnel : limite sur grand écran */
+.hero-image {
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: url('img/Image.png') center/cover no-repeat;
-  filter: brightness(1.2);
-  width: 100%;
-   z-index: 1 !important;
+  align-items: center;
+  overflow: hidden; /* évite les débordements */
 }
-
-.glide {
-  width: 100%;
+.hero-image img {
+  width: 100%;      /* 🔥 s'adapte au zoom */
+  height: auto;     /* garde les proportions */
+  object-fit: cover;
+  display: block;   /* supprime l'espace blanc en bas */
 }
-.glide__slides {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  overflow: hidden;
-}
-.slider-container,.glide,.glide__track {
-  position: relative;
-}
-/* 📱 Responsive pour mobile */
-@media (max-width: 768px) {
-  .slider-container {
-    height: 70vh; /* réduit sur petit écran */
-    background-position: center;
-  }
-}
-/* 📱 Très petits écrans */
-@media (max-width: 480px) {
-  .slider-container {
-    height: 60vh;
-  }
-}
-
 /* FIN GRANDE PHOTO */
 
 /* SECTION CONTACT */
@@ -371,28 +449,26 @@ button[type="submit"]:hover {
   font-family: 'Roboto', sans-serif;
   color: #000000;
 }
-
-.contact-intro h2 {
+.contact-intro h2 , .contact-intro h3 {
   color: #8E24AA;
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 20px;
   font-family: 'Roboto', sans-serif;
 }
-
 .contact-intro p {
-  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
   color: #000000;
   max-width: 800px;
   margin: 0 auto 15px;
-  line-height: 1.7;
+  line-height: 1.5;
 }
-
 .contact-intro strong {
   color: #8E24AA;
   font-weight: 700;
 }
-
 .contact-section {
   background-color: #f9f9f9;
   border: 2px solid #8E24AA;
@@ -477,7 +553,6 @@ button[type="submit"]:hover {
   gap: 10px;
   margin-bottom: 8px;
 }
-
 /* Bouton de rafraîchissement */
 #refresh-captcha {
   background: none;
@@ -485,32 +560,29 @@ button[type="submit"]:hover {
   cursor: pointer;
   padding: 0;
   transition: transform 0.3s ease;
-  
 }
-
 #refresh-captcha img {
   width: 24px;   /* taille de l’image */
   height: 24px;
   transition: transform 0.3s ease;
 }
-
 #refresh-captcha:hover img {
-  transform: rotate(180deg);
+  transform: rotate(180deg); 
 }
 
 /* FOOTER */
 footer {
   background-color: #f1f1f1;
   padding: 60px 0 30px;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Robotto', sans-serif;
   color: #333;
 }
 
 .footer-container {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
+  gap: 90px;
+  height: 200px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -521,64 +593,68 @@ footer {
   min-width: 280px;
   margin-bottom: 20px;
 }
-
-.footer-logo {
-  width: 150px;
-  margin-bottom: 15px;
-}
-.footer-left p {
-  margin: 10px 0;
-  color: #555;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-}
-
-.footer-left strong {
+.footer-left h4{
   color: #8E24AA;
-  font-size: 20px;
+  font-size: 18px;
+   font-family: 'Robotto', sans-serif;
   margin-bottom: 20px;
   display: block;
+   border-bottom: 2px solid #8E24AA;
+  padding-bottom: 9px;
+   display: inline-block;
+  font-weight: 700;
 }
+.footer-left h4 .icon{
+ width: 25px;
+  height: 25px;
+  opacity: 1;}
 
+.footer-left p {
+  margin: 16px 0;
+  color: #000000;
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: 'Robotto', sans-serif;
+}
 .icon {
   width: 20px;
   height: 20px;
-  opacity: 0.7;
+  opacity: 1;
 }
-
 .footer-middle h3,.footer-right h3 {
   color: #8E24AA;
-  font-size: 20px;
+   font-family: 'Robotto', sans-serif;
+  font-size: 18px;
   font-weight: 700;
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 2px solid #8E24AA;
   display: inline-block;
 }
-
-
 .footer-middle ul,.footer-right ul {
   list-style: none;
   padding: 0;
 }
-
 .footer-middle li,.footer-right li {
   margin-bottom: 12px;
 }
 
 .footer-middle li {
-  color: #555;
-  font-size: 15px;
+  color: #000000;
+   font-family: 'Robotto', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
   padding: 5px 0;
 }
-
 .footer-right a {
-  color: #333;
+  color: #000000;
+   font-family: 'Robotto', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
   text-decoration: none;
-  font-size: 15px;
   transition: color 0.3s ease;
   display: block;
   padding: 5px 0;
@@ -597,17 +673,16 @@ footer {
   border-top: 1px solid #eee;
   margin-top: 40px;
 }
-
 .social-container p {
   font-size: 16px;
-  color: #555;
+  font-weight: 600;
+  color: #000000;
   margin-bottom: 20px;
+  font-family: 'Robotto', sans-serif;
 }
-
 .social-container strong {
   color: #8E24AA;
 }
-
 .social-icons {
   display: flex;
   justify-content: center;
@@ -636,26 +711,16 @@ footer {
 }
 
 /* RESPONSIVE DESIGN */
-
 /* Tablettes (768px - 1024px) */
 @media (max-width: 1024px) {
   .header {
     padding: 10px 20px;
     gap: 20px;}
   
-  .nav-items {gap: 20px; }
-  
+  .nav-items {gap: 20px; } 
   .slider-container {height: 600px;}
-
   .modal-content {padding: 30px;}
-
   .footer-container { gap: 30px; }}
-
-
-
-
-
-  
 /* Mobiles (≤ 768px) */
 @media (max-width: 768px) {
   /* Header mobile */
@@ -665,7 +730,7 @@ footer {
     gap: 15px;
     min-height: auto;
   }
-  
+
   .header-logo {
     width: 100%;
     text-align: center;
