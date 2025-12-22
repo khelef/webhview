@@ -10,7 +10,7 @@
 html, body {
   width: 100%;
   overflow-x: hidden;
-  font-family: 'Roboto', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 /* HEADER & NAVIGATION */
 .header {
@@ -30,7 +30,7 @@ html, body {
   transition: all 0.3s ease;
 }
 .header-logo a {
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
   font-weight: 800;
   color: #8E24AA;
@@ -38,6 +38,7 @@ html, body {
   text-shadow: 0px 2px 4px rgba(0,0,0,0.15);
   text-decoration: none;
   white-space: nowrap;
+  filter: brightness(1.1) contrast(1.0) saturate(1.0);
 }
 
 .container {
@@ -57,6 +58,7 @@ html, body {
     transform: translateY(-50%); /* Centrage vertical */
 }
 .logo-img {
+  filter: brightness(1.1) contrast(1.1) saturate(1.1);
     height: 50px; /* Hauteur fixe */
     width: auto; /* Largeur proportionnelle */
     transition: all 0.3s ease;
@@ -90,9 +92,9 @@ html, body {
   position: relative;
 }
 .nav-item a,.dropbtn {
-  font-family: "Roboto", sans-serif;
-  font-size: 18px; /* regler la taille de la police  */
-  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px; /* regler la taille de la police  */
+  font-weight: 550;
   color: #000;
   text-decoration: none;
   white-space: nowrap;
@@ -142,15 +144,15 @@ ul, ol {
   background: rgb(255, 255, 255); /* LA COULEUR DE FOND DE SOUS TITTRE   */
   border-radius: 5px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  min-width: 250px; /* LA TAILLE DE SLIDER DE SOUS TITRE SOLUTIONS  */
+  min-width: 365px; /* LA TAILLE DE SLIDER DE SOUS TITRE SOLUTIONS  */
   z-index: 1001;
   padding: 10px 0;
 }
 .dropdown-content a {
   display: block;
   padding: 12px 20px;
-  color: #333;
-  font-weight: 500;
+  color: #000000;
+  font-weight: 550;
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 15px;
@@ -162,84 +164,54 @@ ul, ol {
 .dropdown:hover .dropdown-content {
   display: block;
 }
- /* DIMENSIONS DATA CONNEXION IMAGE *µ/
-.dc-image {
-    width: 450px;
-    aspect-ratio: 20/9;
-    overflow: hidden; /* Empêche l'image de sortir du cadre *µ/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.dc-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-    transform-origin: center left; /* Le zoom part du centre *µ/
-     transform: translate(-30, -30%); /* Centre parfaitement *µ/}
+ /* DIMENSIONS DATA CONNEXION IMAGE */
+.images-ligne {
+  display: flex;
+  align-items: center;     /* aligne verticalement */
+  gap: 20px;               /* espace entre éléments */}
 
-     /* Exemple de zoom au survol *µ/
-.dc-image:hover img {
-    transform: scale(1.2); /* Zoom de 20% *}
-   /* DIMENSIONS DATA CONNEXION IMAGE *µ*/
-
- 
-
-
-
-
-
-
-
-
-
-   
-/* Conteneur principal */
-.image-with-next {
-  text-align: center;
-  max-width: 550px;
-  margin: -60px -100px;
-  padding: 20px;
-}
-
-/* Image principale */
-.main-picture {
-  width: 100%;
-  max-width: 600px;
+.images-ligne img {
+  width: 480px;            /* ajustez la taille */
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  display: block;
-  margin: 0 auto 20px;
+  margin-top: 50px;
+  margin-left: 20px; }
+
+.images-ligne2 img {
+  width: 630px;            /* ajustez la taille */
+  max-width: 100%;
+  height: 200px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.fleche {
+  font-size: 50px;
+  font-size: 150px;
+  color: #8E24AA;
+  margin-left: 20px;
+}
+.image-bas {
+  display: flex;
+  justify-content: center;
+  width: 1200px;
+  height: 450px;
+  margin-left: 100px;
 }
 
-/* Flèche */
-.arrow-down {
-  font-size: 100px;
-  color: #8E24AA; /* Violet Holistic View */
-  margin: 10px 0;
-  font-weight: 300;
-  animation: bounce 2s infinite;
-}
-
-/* Image suivante (plus petite) */
-.next-picture {
-  width: 100%;
-  max-width: 200px;
-  height: 130px;
-  object-fit: cover;
-  opacity: 0.9;
-  transition: all 0.3s ease;
-}
-/* Animation de la flèche */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+  .images-ligne {
+    flex-direction: column;
   }
-  50% {
-    transform: translateY(-10px);
-  }
+ }
+.texte-intermediaire {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 100px;
+  margin-top: 100px;
 }
 
 /* Actions header */
@@ -273,6 +245,8 @@ ul, ol {
   border-radius: 3px;
   object-fit: cover;
   border: 1px solid #ddd;
+
+  
 }
 .lang-btn:hover {
   transform: scale(1.1);
@@ -287,7 +261,7 @@ ul, ol {
   height: 50px; /* augmenter la hauteur  */
   font-size: 16px;
   font-weight: 600;
-  font-family: 'Roboto', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: #fff;
   background-color: #8E24AA;
   border: none;
@@ -335,9 +309,8 @@ ul, ol {
   border-radius: 8px;
   position: relative;
   animation: fadeIn 0.4s ease;
-  font-family:"Roboto", sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to   { opacity: 1; transform: scale(1); }
@@ -365,7 +338,7 @@ table td {
   vertical-align: middle;
   font-size: 16px;
   color: #020202;
-   font-family:"Roboto", sans-serif;
+   font-family: Arial, Helvetica, sans-serif;
 }
 
 label {
@@ -379,7 +352,7 @@ input, select, textarea {
   border: 2px solid #000000;/* LA COULEUR DES BORDEUR DES CHAMPS */
   border-radius: 5px;
   font-size: 15px;
-  font-family:"Roboto", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   transition: 0.2s;
 }
 input:focus, select:focus, textarea:focus {
@@ -417,7 +390,7 @@ button[type="submit"]:hover {
   font-size: 15px;
 }
 .titre-formulaire {
-  font-family:"Roboto", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 25px;
   font-weight: 600;
   text-align: center;
@@ -446,7 +419,7 @@ button[type="submit"]:hover {
   text-align: center;
   padding: 60px 20px;
   background-color: #fff;
-  font-family: 'Roboto', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: #000000;
 }
 .contact-intro h2 , .contact-intro h3 {
@@ -454,10 +427,10 @@ button[type="submit"]:hover {
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 20px;
-  font-family: 'Roboto', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .contact-intro p {
-  font-family: 'Roboto', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
   font-weight: 400;
   color: #000000;
@@ -510,7 +483,7 @@ button[type="submit"]:hover {
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 16px;
-  font-family: 'Roboto', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   transition: all 0.3s ease;
 }
 
@@ -574,7 +547,7 @@ button[type="submit"]:hover {
 footer {
   background-color: #f1f1f1;
   padding: 60px 0 30px;
-  font-family: 'Robotto', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: #333;
 }
 
@@ -596,7 +569,7 @@ footer {
 .footer-left h4{
   color: #8E24AA;
   font-size: 18px;
-   font-family: 'Robotto', sans-serif;
+   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 20px;
   display: block;
    border-bottom: 2px solid #8E24AA;
@@ -605,9 +578,11 @@ footer {
   font-weight: 700;
 }
 .footer-left h4 .icon{
- width: 25px;
-  height: 25px;
-  opacity: 1;}
+ width: 27px;
+  height: 27px;
+  opacity: 2;
+   filter: brightness(1.1) contrast(1.1) saturate(1.1); 
+}
 
 .footer-left p {
   margin: 16px 0;
@@ -617,7 +592,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 15px;
-  font-family: 'Robotto', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .icon {
   width: 20px;
@@ -626,7 +601,7 @@ footer {
 }
 .footer-middle h3,.footer-right h3 {
   color: #8E24AA;
-   font-family: 'Robotto', sans-serif;
+   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 20px;
@@ -644,14 +619,14 @@ footer {
 
 .footer-middle li {
   color: #000000;
-   font-family: 'Robotto', sans-serif;
+   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 600;
   padding: 5px 0;
 }
 .footer-right a {
   color: #000000;
-   font-family: 'Robotto', sans-serif;
+   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
@@ -678,7 +653,7 @@ footer {
   font-weight: 600;
   color: #000000;
   margin-bottom: 20px;
-  font-family: 'Robotto', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .social-container strong {
   color: #8E24AA;
