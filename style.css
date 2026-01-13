@@ -58,7 +58,7 @@ html, body {
     transform: translateY(-50%); /* Centrage vertical */
 }
 .logo-img {
-  filter: brightness(1.1) contrast(1.1) saturate(1.1);
+  filter: brightness(1) contrast(1.1) saturate(1.1);
     height: 50px; /* Hauteur fixe */
     width: auto; /* Largeur proportionnelle */
     transition: all 0.3s ease;
@@ -171,23 +171,23 @@ ul, ol {
   gap: 20px;               /* espace entre éléments */}
 
 .images-ligne img {
-  width: 480px;            /* ajustez la taille */
+  width: 500px;            /* ajustez la taille */
   max-width: 100%;
   height: auto;
   margin-top: 50px;
   margin-left: 20px; }
 
 .images-ligne2 img {
-  width: 630px;            /* ajustez la taille */
+  width: 650px;            /* ajustez la taille */
   max-width: 100%;
-  height: 200px;
+  height: 150px;
   margin-left: 20px;
-  margin-top: 10px;
+  margin-top: -20px;
 }
 .fleche {
   font-size: 50px;
-  font-size: 150px;
-  color: #8E24AA;
+  font-size: 100px;
+  color: #000000;
   margin-left: 20px;
 }
 .image-bas {
@@ -210,10 +210,47 @@ ul, ol {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   color: #000000;
-  margin-bottom: 100px;
-  margin-top: 100px;
+  margin-bottom: 200px;
+  margin-top: 150px;
+ 
+}
+.section {
+  display: grid;
+  grid-template-columns: 1fr 280px; /* texte / image */
+  gap: 20px;
+  align-items: start;
+}
+/* TEXTE */
+.texte {
+ max-width: 700px;
+ white-space: normal;        /* retour à la ligne auto */
+ overflow-wrap: break-word; /* coupe les mots trop longs */
+ word-break: break-word;
+ line-height: 1.8;
+ font-size: 18px;
+ font-weight: 450px;
+ font-family: Arial, Helvetica, sans-serif;
+ margin-left: 50px;
+ margin-top: 290px;
+ color: #000000;
 }
 
+/* IMAGE */
+.image {
+ width: 680px;
+ max-width: 900px;
+ top: 50%;
+ margin-top: 200px;
+ margin-left: -430px;
+ filter: brightness(1) contrast(1.1);
+}
+@media (max-width: 768px) {
+  .image-fixe {
+    position: static;
+    margin: 20px auto;
+    display: block;
+  }
+}
 /* Actions header */
 .header-actions {
   display: flex;
@@ -238,15 +275,12 @@ ul, ol {
   justify-content: center;
   transition: transform 0.2s ease;
 }
-
 .lang-btn img {
   width: 24px;
   height: 18px;
   border-radius: 3px;
   object-fit: cover;
   border: 1px solid #ddd;
-
-  
 }
 .lang-btn:hover {
   transform: scale(1.1);
@@ -405,13 +439,59 @@ button[type="submit"]:hover {
   justify-content: center;
   align-items: center;
   overflow: hidden; /* évite les débordements */
+  filter: brightness(1.1) contrast(1) saturate(1.1);
 }
+
 .hero-image img {
   width: 100%;      /* 🔥 s'adapte au zoom */
   height: auto;     /* garde les proportions */
   object-fit: cover;
-  display: block;   /* supprime l'espace blanc en bas */
+  display: block;   /* supprime l'espace blanc en bas */}
+
+.texte-sur-image {
+  position: absolute;
+  bottom: 80px;     /* position verticale */
+  margin-right: 10px;       /* position horizontale */
+  margin-top: -150px; /* position en haut */
+  color: black;
+  top: 60%;
+  transform: translate(-20%, -50%);}
+
+.texte-contour {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 55px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  /* Lisibilité sur image */
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.6);
+  -webkit-text-stroke: 1.2px rgba(0, 0, 0, 0.8);
+
+  /* Style premium */
+  padding: 12px 20px;
+  border-left: 4px solid #387ee8;
+  background: linear-gradient(
+    90deg,
+    rgba(20, 20, 20, 0.45),
+    rgba(20, 20, 20, 0)
+  );
+
+  /* Animation douce */
+  animation: fadeInUp 1.2s ease-out forwards;
 }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* FIN GRANDE PHOTO */
 
 /* SECTION CONTACT */
@@ -422,42 +502,37 @@ button[type="submit"]:hover {
   font-family: Arial, Helvetica, sans-serif;
   color: #000000;
 }
-.contact-intro h2 , .contact-intro h3 {
+.contact-intro h2,.contact-intro h3 {
   color: #8E24AA;
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 800;
   margin-bottom: 20px;
   font-family: Arial, Helvetica, sans-serif;
 }
 .contact-intro p {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 17px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 500;
   color: #000000;
   max-width: 800px;
   margin: 0 auto 15px;
-  line-height: 1.5;
+  line-height: 1.2;
 }
-.contact-intro strong {
-  color: #8E24AA;
-  font-weight: 700;
-}
+
 .contact-section {
   background-color: #f9f9f9;
-  border: 2px solid #8E24AA;
+  border: 1px solid #8E24AA;
   padding: 40px;
   width: 90%;
   max-width: 800px;
   margin: 0 auto 80px;
   border-radius: 5px;
 }
-
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
-
 .form-row {
   display: flex;
   gap: 25px;
@@ -470,10 +545,10 @@ button[type="submit"]:hover {
 }
 
 .contact-form label {
-  font-weight: 600;
-  color: #333;
+  font-weight: 550;
+  color: #000000;
   margin-bottom: 8px;
-  font-size: 15px;
+  font-size: 16px;
 }
 .contact-form input[type="text"],
 .contact-form input[type="email"],
@@ -569,21 +644,21 @@ footer {
 .footer-left h4{
   color: #8E24AA;
   font-size: 18px;
-   font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 20px;
   display: block;
-   border-bottom: 2px solid #8E24AA;
+  border-bottom: 2px solid #000000;
   padding-bottom: 9px;
-   display: inline-block;
+  display: inline-block;
   font-weight: 700;
 }
 .footer-left h4 .icon{
- width: 27px;
+  width: 27px;
   height: 27px;
   opacity: 2;
-   filter: brightness(1.1) contrast(1.1) saturate(1.1); 
+  margin: -5px;
+  filter: brightness(1) contrast(1) saturate(1.1); 
 }
-
 .footer-left p {
   margin: 16px 0;
   color: #000000;
@@ -606,7 +681,7 @@ footer {
   font-weight: 700;
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 2px solid #8E24AA;
+  border-bottom: 2px solid #000000;
   display: inline-block;
 }
 .footer-middle ul,.footer-right ul {
@@ -1171,9 +1246,6 @@ a {
         max-width: 100%;
     }
 }
-
-
-
 
 
 
