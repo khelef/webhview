@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+<head>
+  
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/glide.min.js"></script>
-    <link rel="stylesheet"href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"/>
-   
-    <title data-i18n="title">Holistic View</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/glide.min.js"></script>
+<link rel="stylesheet"href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"/>
+<title data-i18n="title">Holistic View</title>
+     
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" as="style" onload="this.rel='stylesheet'">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="images/favicon.png">
 
   </head>
   <body>
@@ -22,16 +25,17 @@
   <div class="container">
         <!-- Logo cliquable (retour à l'accueil) -->
             <a href="index.html" class="logo-link">
-           <img src="img/LOGO.png" alt="Nom entreprise - Description" class="logo-img"> </a>
-          
+           <img src="img/LOGO 1.png" alt="Nom entreprise - Description" class="logo-img"> </a>
+         <!-- Logo cliquable (retour à l'accueil) --µµ>    
   <div class="header-logo">
     <a href="index.html" data-i18n="header.logo">HolisticView</a>
+       <!-- Logo cliquable (retour à l'accueil) -->
 
   </div>
   <nav class="nav">
+    
     <ul class="nav-items"><li class="nav-item"><a href="index.html" data-i18n="nav.home">Accueil</a></li>
-      <li class="nav-item"><a href="societe.html" data-i18n="nav.about">Société</a></li>
-     
+      <li class="nav-item"><a href="societe.html" data-i18n="nav.about">Société</a></li> 
       <li class="nav-item dropdown">
         <a href="javascript:void(0)" class="dropbtn" data-i18n="nav.solutions">Solutions ▾</a>
        <ul class="dropdown-content">
@@ -39,7 +43,6 @@
           <li><a href="data_contextualisation.html" data-i18n="solutions.dataContext">Surveillance de processus de bout en bout</a></li>
           <li><a href="analyse_des_causes_racine.html" data-i18n="solutions.rootCause">Analyse automatisée des causes racines</a></li>
         </ul>
-
       <li class="nav-item"><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
     </ul>
   </nav>
@@ -52,74 +55,71 @@
 
     <a href="#form-demo" class="demo-btn" data-i18n="btn.demo">Demander une démo</a>
    
-
 <!-- Fenêtre modale avec le formulaire -->
 <div id="form-demo" class="modal">
-  <div class="modal-content">
-    <div class="close"><a href="#">&times;</a></div>
-  
+ <div class="modal-content">
+  <div class="close">
+    <a href="#">&times;</a></div>
     <h3 class="titre-formulaire" data-i18n="form.subtitle">Demande de démonstration</h3>
-
-    <form action="https://formspree.io/f/mkgaordo" method="POST">
-      <table>
-        <tr>
-          <td><label for="nom" data-i18n="form.name">Nom complet :</label></td>
-          <td><input type="text" id="nom" name="nom" required></td>
-        </tr>
-        <tr>
-          <td><label for="email" data-i18n="form.email">Email :</label></td>
-          <td><input type="email" id="email" name="email" required></td>
-        </tr>
-        <tr>
-          <td><label for="entreprise" data-i18n="form.company">Entreprise :</label></td>
-          <td><input type="text" id="entreprise" name="entreprise" required></td>
-        </tr>
-        <tr>
-          <td><label for="fonction" data-i18n="form.function">Fonction :</label></td>
-          <td>
-            <select id="fonction" name="fonction" required>
-              <option value="" data-i18n="form.selectFunction">-- Sélectionnez votre fonction --</option>
-              <option value="direction" data-i18n="form.func.direction">Direction générale</option>
-              <option value="marketing" data-i18n="form.func.marketing">Marketing / Communication</option>
-              <option value="commercial" data-i18n="form.func.commercial">Commercial / Vente</option>
-              <option value="informatique" data-i18n="form.func.it">Informatique / IT</option>
-              <option value="production" data-i18n="form.func.production">Production / Exploitation</option>
-              <option value="qualite" data-i18n="form.func.qse">Qualité / Sécurité / Environnement (QSE)</option>
-              <option value="logistique" data-i18n="form.func.logistique">Logistique / Supply Chain</option>
-              <option value="achats" data-i18n="form.func.achats">Achats / Approvisionnement</option>
-              <option value="rh" data-i18n="form.func.rh">Ressources humaines</option>
-              <option value="finance" data-i18n="form.func.finance">Finance / Comptabilité</option>
-              <option value="support" data-i18n="form.func.support">Support / Service client</option>
-              <option value="autre" data-i18n="form.func.autre">Autre</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><label for="secteur" data-i18n="form.sector">Secteur :</label></td>
-          <td>
-            <select id="secteur" name="secteur" required>
-              <option value="" data-i18n="form.selectSector">-- Sélectionnez votre secteur --</option>
-              <option value="industrie" data-i18n="form.sector.industrie">Industrie</option>
-              <option value="banque" data-i18n="form.sector.banque">Automobile</option>
-              <option value="technologie" data-i18n="form.sector.tech">Technologie / Informatique</option>
-              <option value="sante" data-i18n="form.sector.sante">Santé / Pharmaceutique</option>
-              <option value="education" data-i18n="form.sector.agro">Agroalimentaire</option>
-              <option value="commerce" data-i18n="form.sector.commerce">Commerce / Distribution</option>
-              <option value="services" data-i18n="form.sector.services">Services</option>
-              <option value="public" data-i18n="form.sector.public">Secteur public</option>
-              <option value="transport" data-i18n="form.sector.transport">Transport / Logistique</option>
-              <option value="energie" data-i18n="form.sector.energie">Énergie / Environnement</option>
-              <option value="autre" data-i18n="form.sector.autre">Autre</option>
-            </select>
-          </td>
-        </tr>
+ <form action="https://formspree.io/f/mkgaordo" method="POST">
+  <table>
+  <tr>
+    <td><label for="nom" data-i18n="form.name">Nom complet :</label></td>
+    <td><input type="text" id="nom" name="nom" required></td>
+  </tr>
+  <tr>
+     <td><label for="email" data-i18n="form.email">Email :</label></td>
+     <td><input type="email" id="email" name="email" required></td>
+  </tr>
+  <tr>
+     <td><label for="entreprise" data-i18n="form.company">Entreprise :</label></td>
+     <td><input type="text" id="entreprise" name="entreprise" required></td>
+  </tr>
+  <tr>
+     <td><label for="fonction" data-i18n="form.function">Fonction :</label></td>
+     <td>
+<select id="fonction" name="fonction" required>
+      <option value="" data-i18n="form.selectFunction">-- Sélectionnez votre fonction --</option>
+      <option value="direction" data-i18n="form.func.direction">Direction générale</option>
+      <option value="marketing" data-i18n="form.func.marketing">Marketing / Communication</option>
+      <option value="commercial" data-i18n="form.func.commercial">Commercial / Vente</option>
+      <option value="informatique" data-i18n="form.func.it">Informatique / IT</option>
+      <option value="production" data-i18n="form.func.production">Production / Exploitation</option>
+      <option value="qualite" data-i18n="form.func.qse">Qualité / Sécurité / Environnement (QSE)</option>
+      <option value="logistique" data-i18n="form.func.logistique">Logistique / Supply Chain</option>
+      <option value="achats" data-i18n="form.func.achats">Achats / Approvisionnement</option>        <option value="rh" data-i18n="form.func.rh">Ressources humaines</option>
+      <option value="finance" data-i18n="form.func.finance">Finance / Comptabilité</option>
+      <option value="support" data-i18n="form.func.support">Support / Service client</option>
+      <option value="autre" data-i18n="form.func.autre">Autre</option> 
+</select>
+    </td>
+    </tr>
+    <tr>
+      <td><label for="secteur" data-i18n="form.sector">Secteur :</label></td>
+      <td>
+    <select id="secteur" name="secteur" required>
+       <option value="" data-i18n="form.selectSector">-- Sélectionnez votre secteur --</option>
+       <option value="industrie" data-i18n="form.sector.industrie">Industrie</option>
+       <option value="banque" data-i18n="form.sector.banque">Automobile</option>
+       <option value="technologie" data-i18n="form.sector.tech">Technologie / Informatique</option>
+       <option value="sante" data-i18n="form.sector.sante">Santé / Pharmaceutique</option>
+       <option value="education" data-i18n="form.sector.agro">Agroalimentaire</option>
+       <option value="commerce" data-i18n="form.sector.commerce">Commerce / Distribution</option>
+       <option value="services" data-i18n="form.sector.services">Services</option>
+       <option value="public" data-i18n="form.sector.public">Secteur public</option>
+       <option value="transport" data-i18n="form.sector.transport">Transport / Logistique</option>
+       <option value="energie" data-i18n="form.sector.energie">Énergie / Environnement</option>
+       <option value="autre" data-i18n="form.sector.autre">Autre</option>
+    </select>
+       </td>
+      </tr>
         <tr>
           <td><label for="message" data-i18n="form.message">Message :</label></td>
           <td><textarea id="message" name="message" rows="3"></textarea></td>
         </tr>
       </table>
       <button type="submit" data-i18n="form.submit">Envoyer</button>
-    </form>
+  </form>
 
     <div id="successMessage" class="success-message" data-i18n="form.success">
        Merci pour votre contact !<br>Nous vous répondrons dans les plus brefs délais.
@@ -127,227 +127,128 @@
   </div>
 </div>
 </header>
-
+<div class="separator"></div>
 <div class="hero-image">
-  <div class="image-texte"></div>
+ <div class="image-texte"></div>
   <img src="img/Image.png" alt="Image principale">
-    <div class="texte-sur-image">
-      <h1 class="texte-contour">THERE IS NO AI 
-        WITHOUT PI</h1>
-   </div>
+
+  <div class="texte-sur-image">
+      <h1 class="texte-contour">THERE IS NO AI WITHOUT</h1>
+        <h2 class="texte-contour"> PI (Process Intelligence)</h2>
   </div>
 </div>
+
 <!--comment-->
-    <section class="contact-intro">
-      <h2 data-i18n="contact.title">
-        Contactez-nous et boostez votre productivité&nbsp;!
-      </h2>
-      <p data-i18n="contact.text1">
-        Prêt à franchir le cap de la digitalisation industrielle ? 
-        <strong>Contactez notre équipe</strong> et découvrez comment 
-        <strong>Holistic View MES</strong> peut améliorer votre 
-        <strong>TRS</strong>, votre consommation énergétique et votre suivi qualité.
-      </p>
-      <p data-i18n="contact.text2">
-        Parlez-nous de votre projet et obtenez une démonstration personnalisée&nbsp;!
-      </p>
-    </section>
-    <section class="contact-section">
-      <form class="contact-form">
-        <div class="form-row">
-     <div class="form-group"> 
-      <label data-i18n="contact.label.nom">Nom :</label>
-     <input type="text" data-i18n="[placeholder]contact.placeholder.nom">
-     </div>
-     <div class="form-group"><label data-i18n="contact.label.prenom">Prénom :</label> 
-      <input type="text"  data-i18n="[placeholder]contact.placeholder.prenom">
-    </div>
-    </div>
-
-      <div class="form-group">
-    <label data-i18n="contact.label.societe">Société :</label> 
-   <input type="text" data-i18n="[placeholder]contact.placeholder.societe">
-   </div> 
-   <div class="form-group"> <label data-i18n="contact.label.email">Email :</label> 
-    <input type="email" data-i18n="[placeholder]contact.placeholder.email" >
-   </div>
-   </div> 
-<div class="form-group"> 
-  <label data-i18n="contact.label.source">Comment avez-vous entendu parler de nous ?</label> 
-  <select>
-    <option value="reseaux" data-i18n="form.source1">Réseaux sociaux</option>
-    <option value="recommandation" data-i18n="form.source2">Recommandation</option>
-     <option value="reseaux" data-i18n="form.source3">Salon professionnel</option>
-         <option value="internet" data-i18n="form.source4">Moteur de recherche</option>
-    <option value="autre" data-i18n="form.source5">Autre</option>
-  </select> 
+ <div class="testimonial-box">
+  <div class="testimonial-title">
+ <h2 data-i18n="contact.title">
+    Première plateforme d’intelligence des processus dédiée à la production industrielle
+  </h2>
+  <h4 data-i18n="contact.subtitle">Systèmes séparés, départements isolés ?
+    nous unifions tout.Transformez vos silos  en un processus industriel intelligent
+  </h4>
+  </div>
+  <p class="testimonial-quote" data-i18n="contact.text1">
+   Aujourd’hui, les usines sont fragmentées : machines, capteurs, systèmes <strong>MES</strong> et <strong>ERP
+   </strong> parlent des langages différents,tandis que les départements — production, qualité et maintenance —
+   travaillent en silos. Nous comblons ces écarts en créant un langage unifié entre les systèmes et les départements, 
+   vous offrant une vue unique, cohérente et en temps réel de l’ensemble de vos opérations. Nous croyons qu’il n’y a pas d’<strong>IA </strong>sans<strong>PI</strong> (Process Intelligence). Avant que l’intelligence artificielle puisse 
+   réellement créer de la valeur, elle doit comprendre en profondeur vos processus de bout en bout. C’est pourquoi nous posons cette base essentielle en traduisant vos données 
+   en informations exploitables, compréhensibles et accessibles à tous.
+  </p>
+ </div> 
 </div>
 
-    <div class="form-group">
-     <label data-i18n="contact.label.objet">Objet :</label>
-    <input type="text" data-i18n="[placeholder]contact.placeholder.objet" >
-   </div> 
-   <div class="form-group">
-    <label data-i18n="contact.label.message">Votre message :</label>
-   <textarea rows="5" data-i18n="[placeholder]contact.placeholder.message"></textarea>
-   </div> 
-   <div class="form-group captcha"> <div class="captcha-box"> 
-    <span id="captcha-text">HkBs</span> <button type="button" id="refresh-captcha"> 
-    <img src="img/refraicher1.png" alt="Rafraîchir le captcha" data-i18n="[alt]contact.captcha.refresh"> 
-  </button>
-  </div> 
- <input type="text" data-i18n="[placeholder]contact.placeholder.captcha"> 
-  </div>
-   <button type="submit" class="btn-orange" data-i18n="contact.btn.envoyer">Envoyer</button>
-      </form>
-    </section>
 
-    <footer>
-      <div class="footer-container">
-        <div class="footer-left">
-         <h4><img src="img/LOGO.png" alt="adresse" class="icon">  HolisticView</h4>  
-
-        <p><img src="img/addr.png" alt="adresse" class="icon">1,rue Henri Spriet, Mondeville</p>
-          
-        <p><img src="img/tel.png" alt="Téléphone" class="icon">07 83 29 01 28</p>
-           
-        <p> <img src="img/email.png" alt="Email" class="icon">contact@holisticview.com</p>
-
-        </div>
-        <div class="footer-middle">
-          <h3 data-i18n="footer.newsTitle">Dernières actus</h3>
-          <ul>
-            <!---commnet --*>
-            <li data-i18n="footer.news1">Salon SEPEM Angers 2025</li>
-            <li data-i18n="footer.news2">Salon Prod&Pack Lyon 2025</li>
-            <li data-i18n="footer.news3">Article thématique : Le Management visuel</li>
-            <li data-i18n="footer.news4">Partenariat Sofrastock</li>
-                <!---commnet -->
-
-          </ul>
-        </div>
-
-        <div class="footer-right">
-          <h3 data-i18n="footer.info">Informations utiles</h3>
-          <ul>
-  <li><a href="societe.html" data-i18n="footer.societe">Société Holistic View</a></li>
-  <li><a href="contact.html" data-i18n="footer.contact">Contactez-nous</a></li>
-
-  <li><a href="legal.html" data-i18n="footer.legal">Mentions légales</a></li>
-</ul>
-        </div>
-      </div>
-    </footer>
-
-    <div class="social-container">
-      <p data-i18n="social.text">Retrouvez-nous sur <strong>LinkedIn</strong></p>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/company/h-view" class="linkedin-icon">in</a>
-      </div>
+<section class="stats-section">
+  <h2 class="stats-title"> Your Factory Brain — in Hours, Not Months </h2>
+  <div class="stats">
+    <div class="stat-card">
+      <span class="badge">90% Faster Access</span>
+      <p>80% faster access to critical knowledge, standards and best practices</p>
     </div>
-    </main>
+
+    <div class="stat-card">
+      <span class="badge">Hundreds of Hours Saved</span>
+      <p>Save employees hundreds of hours per year by eliminating non-value-added tasks</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="badge">Solve 40% Faster</span>
+      <p>Solve production problems 40–70% faster and scale that know-how</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="badge">Empower Workers</span>
+      <p>Empower every frontline worker — democratize innovation and productivity</p>
+    </div>
+  </div>
+</section>
 
 <script src="js/main.js"></script>
-    <script src="js/lang.js"></script>
+<script src="js/lang.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const dropdowns = document.querySelectorAll(".dropdown");
+document.addEventListener("DOMContentLoaded", () => { const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach(dropdown => {const button = dropdown.querySelector(".dropbtn");
+button.addEventListener("click", (e) => { e.preventDefault(); e.stopPropagation();
 
-  dropdowns.forEach(dropdown => {
-    const button = dropdown.querySelector(".dropbtn");
-
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      // Ferme les autres menus ouverts
-      document.querySelectorAll(".dropdown").forEach(d => {
-        if (d !== dropdown) d.classList.remove("show");
-      });
-
-      // Ouvre/ferme celui-ci
-      dropdown.classList.toggle("show");
-    });
-  });
-
-  // Ferme si on clique ailleurs
-  document.addEventListener("click", () => {
-    dropdowns.forEach(d => d.classList.remove("show"));
-  });
-});
+// Ferme les autres menus ouverts
+document.querySelectorAll(".dropdown").forEach(d => { if (d !== dropdown) d.classList.remove("show"); });
+// Ouvre/ferme celui-ci
+dropdown.classList.toggle("show"); }); });
+// Ferme si on clique ailleurs
+document.addEventListener("click", () => {
+dropdowns.forEach(d => d.classList.remove("show")); });});
 </script>
 
-    <script>
+<script>
   // Fonction pour générer un code aléatoire
-  function generateCaptcha() {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let captcha = "";
-    for (let i = 0; i < 4; i++) {
-      captcha += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return captcha;
-  }
+  function generateCaptcha() {  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";  let captcha = "";
+  for (let i = 0; i < 4; i++) { captcha += chars.charAt(Math.floor(Math.random() * chars.length)); }
+  return captcha; }
 
   document.addEventListener("DOMContentLoaded", () => {
-    const captchaText = document.getElementById("captcha-text");
-    const refreshBtn = document.getElementById("refresh-captcha");
-
-    // Génère le premier code
-    captchaText.textContent = generateCaptcha();
-
-    // Quand on clique sur 🔄, régénère le code
-    refreshBtn.addEventListener("click", () => {
-      captchaText.textContent = generateCaptcha();
-    });
-  });
+  const captchaText = document.getElementById("captcha-text");
+  const refreshBtn = document.getElementById("refresh-captcha");
+  // Génère le premier code
+  captchaText.textContent = generateCaptcha();
+  // Quand on clique sur 🔄, régénère le code
+  refreshBtn.addEventListener("click", () => {captchaText.textContent = generateCaptcha();  }); });
 </script>
 
- <script>
-  // Afficher la fenêtre modale
-  function openModal() {
-    document.getElementById("demoModal").classList.add("active");
-  }
-
-  // Fermer la fenêtre modale
-  function closeModal() {
-    document.getElementById("demoModal").classList.remove("active");
-  }
-
-  // Message de confirmation après soumission
-  document.getElementById("demoForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Empêche le rechargement
-    const successMsg = document.getElementById("successMessage");
-    successMsg.classList.add("active");
-    // Réinitialise le formulaire
-    this.reset();
-    // Cache le message après 4 secondes
-    setTimeout(() => successMsg.classList.remove("active"), 4000);
-  });
-</script>
 <script>
-function validerEmail() {
-  const email = document.getElementById("email").value.trim();
+ // Afficher la fenêtre modale
+ function openModal() { document.getElementById("demoModal").classList.add("active");}
+ // Fermer la fenêtre modale
+ function closeModal() {  document.getElementById("demoModal").classList.remove("active"); }
 
+ // Message de confirmation après soumission
+ document.getElementById("demoForm").addEventListener("submit", function(event) {
+ event.preventDefault(); // Empêche le rechargement
+ const successMsg = document.getElementById("successMessage");
+ successMsg.classList.add("active");
+ // Réinitialise le formulaire
+ this.reset();
+ // Cache le message après 4 secondes
+ setTimeout(() => successMsg.classList.remove("active"), 4000); });
+</script>
+
+<script>
+ function validerEmail() { const email = document.getElementById("email").value.trim();
   // Liste des domaines personnels interdits
   const domainesInterdits = [
     "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "live.com",
     "aol.com", "wanadoo.fr", "orange.fr", "free.fr", "icloud.com",
-    "protonmail.com", "laposte.net", "msn.com", "sfr.fr"
-  ];
-
+    "protonmail.com", "laposte.net", "msn.com", "sfr.fr"];
   // Récupère le domaine de l’adresse (ce qui est après le @)
   const domaine = email.split("@")[1];
-
   // Vérifie si l’adresse est interdite
   if (!domaine || domainesInterdits.includes(domaine.toLowerCase())) {
-    alert("❌ Veuillez utiliser une adresse e-mail professionnelle (ex : prenom.nom@votre-entreprise.com).");
-    return false; // Bloque l’envoi du formulaire
-  }
-
+  alert("❌ Veuillez utiliser une adresse e-mail professionnelle (ex : prenom.nom@votre-entreprise.com).");
+    return false; }// Bloque l’envoi du formulaire 
   // Si tout est bon
   alert("✅ Merci pour votre contact ! Nous vous répondrons rapidement.");
-  return false; // (retirer le false si tu veux que le formulaire soit envoyé)
-}
+  return false;  } // (retirer le false si tu veux que le formulaire soit envoyé) 
 </script>
 
 <script>
@@ -357,116 +258,77 @@ function validerEmail() {
   // lang.init('fr');
 </script>
 
-
 <script>
   const modalForm = document.querySelector('#form-demo form');
   const successMessage = document.getElementById('successMessage');
-
   modalForm.addEventListener('submit', async function(e) {
-    e.preventDefault(); // Empêche le rechargement de la page
-    const data = new FormData(modalForm);
-
-    const response = await fetch(modalForm.action, {
-      method: modalForm.method,
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      successMessage.style.display = 'block'; // Affiche le message
-      successMessage.style.opacity = 0;
-      // Animation fade-in
-      setTimeout(() => { successMessage.style.opacity = 1; }, 50);
-
-      modalForm.reset(); // Vide le formulaire
-
-      // Disparition automatique après 5 secondes
-      setTimeout(() => {
-        successMessage.style.opacity = 0;
-        setTimeout(() => { successMessage.style.display = 'none'; }, 500);
-      }, 5000);
-    } else {
-      alert('Une erreur est survenue, veuillez réessayer.');
-    }
-  });
+  e.preventDefault(); // Empêche le rechargement de la page
+  const data = new FormData(modalForm);
+  const response = await fetch(modalForm.action, {
+  method: modalForm.method, body: data,  headers: { 'Accept': 'application/json' }});
+  if (response.ok) {
+  successMessage.style.display = 'block'; // Affiche le message
+  successMessage.style.opacity = 0;
+  // Animation fade-in
+  setTimeout(() => { successMessage.style.opacity = 1; }, 50);
+  modalForm.reset(); // Vide le formulaire
+  // Disparition automatique après 5 secondes
+  setTimeout(() => {successMessage.style.opacity = 0; setTimeout(() => 
+  { successMessage.style.display = 'none'; }, 500);}, 5000); } 
+  else { alert('Une erreur est survenue, veuillez réessayer.'); } });
 </script>
 
-
 <script>
-// Menu hamburger pour mobile
-document.addEventListener('DOMContentLoaded', function() {
-  // Crée le bouton hamburger
+ // Menu hamburger pour mobile
+ document.addEventListener('DOMContentLoaded', function() {
+ // Crée le bouton hamburger
   const menuToggle = document.createElement('button');
-  menuToggle.className = 'menu-toggle';
-  menuToggle.innerHTML = '☰';
-  menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
-  
+  menuToggle.className = 'menu-toggle'; menuToggle.innerHTML = '☰'; menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
   // Insère le bouton dans le header
   const header = document.querySelector('.header');
-  if (header) {
-    header.style.position = 'relative';
-    header.appendChild(menuToggle);
+  if (header) { header.style.position = 'relative'; header.appendChild(menuToggle);
+  const navItems = document.querySelector('.nav-items');
     
-    const navItems = document.querySelector('.nav-items');
+  // Gère le clic sur le bouton hamburger
+  menuToggle.addEventListener('click', function() {
+  navItems.classList.toggle('active');
+  this.innerHTML = navItems.classList.contains('active') ? '✕' : '☰';
+  this.setAttribute('aria-label', 
+  navItems.classList.contains('active') ? 'Fermer le menu' : 'Ouvrir le menu');});
     
-    // Gère le clic sur le bouton hamburger
-    menuToggle.addEventListener('click', function() {
-      navItems.classList.toggle('active');
-      this.innerHTML = navItems.classList.contains('active') ? '✕' : '☰';
-      this.setAttribute('aria-label', 
-        navItems.classList.contains('active') ? 'Fermer le menu' : 'Ouvrir le menu'
-      );
-    });
+  // Ferme le menu en cliquant sur un lien
+  navItems.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', function() {navItems.classList.remove('active');
+  menuToggle.innerHTML = '☰'; menuToggle.setAttribute('aria-label', 'Ouvrir le menu');});});
     
-    // Ferme le menu en cliquant sur un lien
-    navItems.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', function() {
-        navItems.classList.remove('active');
-        menuToggle.innerHTML = '☰';
-        menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
-      });
-    });
-    
-    // Ferme le menu en cliquant à l'extérieur
-    document.addEventListener('click', function(e) {
-      if (!header.contains(e.target) && !menuToggle.contains(e.target)) {
-        navItems.classList.remove('active');
-        menuToggle.innerHTML = '☰';
-        menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
-      }
-    });
-  }
+  // Ferme le menu en cliquant à l'extérieur
+  document.addEventListener('click', function(e) {
+  if (!header.contains(e.target) && !menuToggle.contains(e.target)) {
+  navItems.classList.remove('active');
+  menuToggle.innerHTML = '☰';
+  menuToggle.setAttribute('aria-label', 'Ouvrir le menu'); }});}
   
   // Dropdown sur mobile
   const dropdowns = document.querySelectorAll('.dropdown');
-  dropdowns.forEach(dropdown => {
-    const dropbtn = dropdown.querySelector('.dropbtn');
-    
-    dropbtn.addEventListener('click', function(e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        // Ferme les autres dropdowns
-        dropdowns.forEach(d => {
-          if (d !== dropdown) d.classList.remove('active');
-        });
-        
-        // Ouvre/ferme celui-ci
-        dropdown.classList.toggle('active');
-      }
-    });
-  });
+  dropdowns.forEach(dropdown => { const dropbtn = dropdown.querySelector('.dropbtn');
+  dropbtn.addEventListener('click', function(e) { if (window.innerWidth <= 768) { e.preventDefault(); 
+  e.stopPropagation();
+  // Ferme les autres dropdowns
+  dropdowns.forEach(d => {if (d !== dropdown) d.classList.remove('active'); });
+  // Ouvre/ferme celui-ci
+     dropdown.classList.toggle('active');  } });});
   
   // Ferme les dropdowns en cliquant ailleurs
   document.addEventListener('click', function() {
-    if (window.innerWidth <= 768) {
-      dropdowns.forEach(d => d.classList.remove('active'));
-    }
-  });
-});
+  if (window.innerWidth <= 768) { dropdowns.forEach(d => d.classList.remove('active')); } }); });
 </script>
 
 
-  </body>
+
+
+
+
+
+
+</body>
 </html>

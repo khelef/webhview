@@ -52,14 +52,21 @@ const translations = {
     "solutions.dataContextText": "Notre solution permet de contextualiser vos données industrielles pour faciliter l’analyse et la prise de décision.",
     "solutions.rootCauseText": "Cette solution vous aide à identifier les causes principales des incidents pour améliorer vos processus et réduire les pertes.",
 
-
     "contact.titl": "Contactez-nous",
     "contact.text2": "Vous avez une question ou vous souhaitez nous faire part de votre projet de MES ? L’équipe vous répondra au plus vite",
 
+    "contact.title": "Première plateforme d’intelligence des processus dédiée à la production industrielle",
+    "contact.subtitle": "Systèmes séparés, départements isolés ? nous unifions tout.Transformez vos silos de données en un processus industriel intelligent.",
+    "contact.text1": "Aujourd’hui, les usines sont fragmentées : machines, capteurs, systèmes <strong>MES</strong> et <strong>ERP</strong> parlent des langages différents, tandis que les départements — production, qualité et maintenance — travaillent en silos. Nous comblons ces écarts en créant un langage unifié entre les systèmes et les départements, vous offrant une vue unique, cohérente et en temps réel de l’ensemble de vos opérations. Nous croyons qu’il n’y a pas d’<strong>IA</strong> sans <strong>PI</strong> (Process Intelligence). Avant que l’intelligence artificielle puisse réellement créer de la valeur, elle doit comprendre en profondeur vos processus de bout en bout. C’est pourquoi nous posons cette base essentielle en traduisant vos données en informations exploitables, compréhensibles et accessibles à tous.",
+   
+    "benefits.title": "Avantages clés",
+    "benefits.item1": "<strong>Un langage unifié:</strong> Connectez machines, systèmes et départements grâce à un cadre de données commun",
+    "benefits.item2": "<strong>Fin des silos:</strong> Centralisez les informations de la production, de la qualité, de la maintenance et du management",
+    "benefits.item3": "<strong>Visualisation des processus de bout en bout:</strong> Vue temps réel des interactions",
+    "benefits.item4": "<strong>Analyses prédictives et proactives:</strong> Alertes avant impact",
+    "benefits.item5": "<strong>Analyse des causes racines interfonctionnelle:</strong> Identification rapide des problèmes",
+    "benefits.item6": "<strong>Conçu pour la collaboration:</strong> Source unique de vérité",
 
-    "contact.title": "Contactez-nous et boostez votre productivité !",
-    "contact.text1": "Prêt à franchir le cap de la digitalisation industrielle ? <strong>Contactez notre équipe</strong> et découvrez comment <strong>Holistic View MES</strong> peut améliorer votre <strong>TRS</strong>, votre consommation énergétique et votre suivi qualité.",
-    "contact.text2": "Parlez-nous de votre projet et obtenez une démonstration personnalisée !",
     "contact.label.nom": "Nom :",
     "contact.label.prenom": "Prénom :",
     "contact.label.societe": "Société :",
@@ -91,11 +98,17 @@ const translations = {
     "footer.sitemap": "Plan du site",
     "social.text": "Retrouvez-nous sur <strong>LinkedIn</strong>",
 
-
-  },
+    "badge1": "Faible visibilité",
+    "text1": "Accès 80% plus rapide aux connaissances critiques, normes et meilleures pratiques",
+    "badge2": "Goulots d’étranglement inconnus",
+    "text2": "Économisez des centaines d'heures par an en éliminant les tâches sans valeur ajoutée",
+    "badge3": "Contrôle qualité difficile",
+    "text3": "Résolvez les problèmes de production 40–70% plus rapidement et capitalisez ce savoir-faire",
+  
+},
+ 
   en: {
 
-   
     "title": "HolisticView",
     "header.logo": "HolisticView",
     "nav.home": "Home",
@@ -149,13 +162,11 @@ const translations = {
     "solutions.rootCauseText": "This solution helps identify the root causes of incidents to improve processes and reduce losses.",
 
     "contact.titl": "Contact Us",
-    "contact.text2": "Do you have a question or would you like to tell us about your MES project? Our team will get back to you as soon as possible.",
+    "contact.text2": "Do you have a question or would you like to tell us about your MES project ? Our team will get back to you as soon as possible.",
 
-
-
-    "contact.title": "Contact us and boost your productivity!",
-    "contact.text1": "Ready to take the leap into industrial digitalization? <strong>Contact our team</strong> and discover how <strong>Holistic View MES</strong> can improve your <strong>OEE</strong>, energy consumption, and quality tracking.",
-    "contact.text2": "Tell us about your project and get a personalized demo!",
+    "contact.title": "First Process Intelligence Platform Built for Manufacturing",
+    "contact.subtitle": "Separated systems, isolated departments ? we unify everything.Turn your silos data into one intelligent manufacturing process.",
+    "contact.text1": "Today, factories are fragmented: machines, sensors, <strong>MES</strong> and <strong>ERP</strong> systems speak different languages, while departments such as production, quality, and maintenance operate in silos.We bridge these gaps by creating a unified language across systems and teams, providing a single, coherent, real-time view of your entire operations. We believe there is no <strong>AI</strong> without <strong>PI</strong> (Process Intelligence). Before artificial intelligence can truly deliver value, it must deeply understand your end-to-end processes. That is why we lay this essential foundation by transforming your data into actionable insights that are clear, meaningful, and accessible to everyone.",
     "contact.label.nom": "Last name:",
     "contact.label.prenom": "First name:",
     "contact.label.societe": "Company:",
@@ -185,17 +196,36 @@ const translations = {
     "footer.demo": "Request a demo",
     "footer.legal": "Legal notice",
     "footer.sitemap": "Site map",
-    "social.text": "Follow us on <strong>LinkedIn</strong>"
-  }
+    "social.text": "Follow us on <strong>LinkedIn</strong>",
+
+    "benefits.title": "Key Benefits",
+    "benefits.item1": "<strong>One unified language: </strong>Connect machines, systems, and departments with a common data framework",
+    "benefits.item2": "<strong>Break down silos:</strong> Centralize production, quality, maintenance, and management info",
+    "benefits.item3": "<strong>End-to-end process visualization:</strong> Real-time view of interactions",
+    "benefits.item4": "<strong>Predictive & proactive insights:</strong> Alerts before impact",
+    "benefits.item5": "<strong>Cross-functional root cause analysis:</strong> Quickly identify issues",
+    "benefits.item6": "<strong>Designed for collaboration:</strong> Single source of truth",
+    
+    "badge1": "<span>Low visibility</span>",
+    "text1": "80% faster access to critical knowledge, standards and best practices",
+    "badge2": "Unknown bottlenecks",
+    "text2": "Save employees hundreds of hours per year by eliminating non-value-added tasks",
+    "badge3": "Challenging quality control",
+    "text3": "Solve production problems 40–70% faster and scale that know-how"
+
+
+     }
 };
 
-function setLanguage(lang) {
-  localStorage.setItem("lang", lang);
+
+
+function changeLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
-    if (translations[lang][key]) el.innerHTML = translations[lang][key];
+    el.innerText = translations[lang][key];
   });
 }
+
 
 
 // =============================================
@@ -579,3 +609,5 @@ window.addEventListener('load', function() {
   const savedLang = localStorage.getItem('holistic_lang') || 'fr';
   applyTranslations(savedLang);
 });
+
+
