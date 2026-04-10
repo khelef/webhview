@@ -52,14 +52,13 @@
       <button class="lang-btn" onclick="setLanguage('fr')"><img src="img/fr.png" alt="Français"></button>
       <button class="lang-btn" onclick="setLanguage('en')"> <img src="img/en.png" alt="English"></button>
     </div>
- <a href="#form-demo" class="demo-btn" data-i18n="btn.demo">Demander une démo</a>
+ 
+<a href="#form-demo" class="demo-btn" data-i18n="btn.demo"> Demander une démo</a>
 
-<!-- Fenêtre modale avec le formulaire -->
 <div id="form-demo" class="modal">
   <div class="modal-content">
-    <div class="close"><a href="#">&times;</a></div>
-
-    <h3 class="titre-formulaire" data-i18n="form.subtitle">Demande de démonstration</h3>
+    <a href="#" class="close">&times;</a>
+    <h3 class="titre-formulaire" data-i18n="form.subtitle"> Titre du formulaire</h3>
 
     <form id="demoForm">
       <table>
@@ -130,61 +129,77 @@
 </header>
 
   <!-- ===== CONTENU ===== -->
-<div class="images-ligne">
-  <img src="img/diagrame 4.svg" alt="Image 1">
+<div class="conteneur-global">
   
-  <!-- FLÈCHE ENTRE LES IMAGES -->
-  <div class="fleche4">→</div>
+  <!-- Première image (si vous en avez une) -->
+  <div class="images-ligne">
+    <img src="img/diagrame 4.svg" alt="Image 1">
+    <div class="fleche4">→</div>
+  </div>
 
-<div class="images-ligne2">
-  <img src="img/diagramme 3.svg" alt="Image 2"></div>
-</div>
+  <!-- Deuxième image AVEC SES FLÈCHES À L'INTÉRIEUR -->
+  <div class="images-ligne2">
+    <img src="img/diagramme 3.svg" alt="Image 2">
+    
+    <!-- MAINTENANT LES FLÈCHES SONT DANS LE BON CONTENEUR -->
+    <div class="fleche fleche1"></div>
+    <div class="fleche fleche2"></div>
+    <div class="fleche fleche3"></div>
+  </div>
 
-
-  <div class="fleche fleche1"></div>
-   <div class="fleche fleche2"></div>
-  <div class="fleche fleche3"></div>
-
+  <!-- SECTION STATS -->
 <section class="stats-section1">
   <div class="stats1">
     <div class="stat-card1">
-      <span class="badge1" data-i18n="badge1">Faible visibilité</span>
-      <p data-i18n="text1">80% faster access to critical knowledge, standards and best practices</p>
+      <span class="badge1" data-i18n="stats.badge1">
+        Faible visibilité
+      </span>
+      <p data-i18n="stats.text1">
+        80% faster access to critical knowledge, standards and best practices
+      </p>
     </div>
 
     <div class="stat-card1">
-      <span class="badge2" data-i18n="badge2">Goulots d’étranglement inconnus</span>
-      <p data-i18n="text2">Save employees hundreds of hours per year by eliminating non-value-added tasks</p>
+      <span class="badge2" data-i18n="stats.badge2">
+        Goulots d'étranglement inconnus
+      </span>
+      <p data-i18n="stats.text2">
+        Save employees hundreds of hours per year by eliminating non-value-added tasks
+      </p>
     </div>
 
     <div class="stat-card1">
-      <span class="badge3" data-i18n="badge3">Contrôle qualité difficile</span>
-      <p data-i18n="text3">Solve production problems 40–70% faster and scale that know-how</p>
+      <span class="badge3" data-i18n="stats.badge3">
+        Contrôle qualité difficile
+      </span>
+      <p data-i18n="stats.text3">
+        Solve production problems 40–70% faster and scale that know-how
+      </p>
     </div>
   </div>
 </section>
 
 
-
-  <!-- TEXTE ENTRE HAUT ET BAS -->
 <div class="section">
   <div class="image-bas">
-   <img src="img/Diagrame 1.svg" alt="Image 3">
+    <img src="img/Diagrame 1.svg" alt="Image 3">
   </div>
-  <div class="bloc-texte">
+
+  <div class="bloc-texte" data-i18n="section.transformation">
     Transformation & amélioration continue Transformation continue
-    & amélioration, Transformation & amélioration continue,Transformation & amélioration continue,
+    & amélioration, Transformation & amélioration continue,
+    Transformation & amélioration continue,
   </div>
 </div>
 
 <div class="section">
-  <div class="texte">
+  <div class="texte" data-i18n="section.longtext">
     Saisis ici un texte très long sans problème, 
     même avec des mots très très très longsmotsansespace,
-    le texte reviendra automatiquement à la ligne. Saisis ici un texte très long sans problème, 
-    même avec des mots très très trèslongsmotsansespace,
     le texte reviendra automatiquement à la ligne.
   </div>
+</div>
+
 
  <img src="img/Diagrame 2.svg" class="image">
 </div>

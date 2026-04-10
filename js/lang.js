@@ -98,13 +98,18 @@ const translations = {
     "footer.sitemap": "Plan du site",
     "social.text": "Retrouvez-nous sur <strong>LinkedIn</strong>",
 
-    "badge1": "Faible visibilité",
-    "text1": "Accès 80% plus rapide aux connaissances critiques, normes et meilleures pratiques",
-    "badge2": "Goulots d’étranglement inconnus",
-    "text2": "Économisez des centaines d'heures par an en éliminant les tâches sans valeur ajoutée",
-    "badge3": "Contrôle qualité difficile",
-    "text3": "Résolvez les problèmes de production 40–70% plus rapidement et capitalisez ce savoir-faire",
-  
+    "stats.badge1": "Faible visibilité",
+    "stats.text1": "Accès 80% plus rapide aux connaissances critiques, normes et bonnes pratiques",
+
+    "stats.badge2": "Goulots d'étranglement inconnus",
+    "stats.text2": "Économisez des centaines d'heures par an en éliminant les tâches sans valeur ajoutée",
+
+    "stats.badge3": "Contrôle qualité difficile",
+    "stats.text3": "Résolvez les problèmes de production 40–70% plus rapidement et diffusez ce savoir-faire",
+
+    "section.transformation": "Transformation & amélioration continue",
+    "section.longtext": "Saisis ici un texte très long sans problème, même avec des mots trèslongsmotsansespace, le texte reviendra automatiquement à la ligne.",
+
 },
  
   en: {
@@ -206,12 +211,19 @@ const translations = {
     "benefits.item5": "<strong>Cross-functional root cause analysis:</strong> Quickly identify issues",
     "benefits.item6": "<strong>Designed for collaboration:</strong> Single source of truth",
     
-    "badge1": "<span>Low visibility</span>",
-    "text1": "80% faster access to critical knowledge, standards and best practices",
-    "badge2": "Unknown bottlenecks",
-    "text2": "Save employees hundreds of hours per year by eliminating non-value-added tasks",
-    "badge3": "Challenging quality control",
-    "text3": "Solve production problems 40–70% faster and scale that know-how"
+ 
+        "stats.badge1": "Low visibility",
+    "stats.text1": "80% faster access to critical knowledge, standards and best practices",
+
+    "stats.badge2": "Unknown bottlenecks",
+    "stats.text2": "Save employees hundreds of hours per year by eliminating non-value-added tasks",
+
+    "stats.badge3": "Challenging quality control",
+    "stats.text3": "Solve production problems 40–70% faster and scale that know-how",
+
+    "section.transformation": "Transformation & Continuous Improvement",
+    "section.longtext": "Enter a very long text here without any problem, even with veryveryverylongwordswithoutspaces, the text will automatically wrap to the next line."
+  
 
 
      }
