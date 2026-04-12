@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title">Contact — HolistView</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo-link">
+    <img src="img/LOGO 1.png" alt="HolistView" class="logo-img">
+  </a>
+  <nav class="nav">
+    <ul class="nav-items">
+      <li class="nav-item"><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li class="nav-item"><a href="societe.html" data-i18n="nav.about">Société</a></li>
+      <li class="nav-item dropdown">
+        <a href="javascript:void(0)" class="dropbtn" data-i18n="nav.solutions">Solutions ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="data_connexion.html">Connexion &amp; contextualisation des données</a></li>
+          <li><a href="data_contextualisation.html">Surveillance de processus de bout en bout</a></li>
+          <li><a href="analyse_des_causes_racine.html">Analyse automatisée des causes racines</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="contact.html" class="active" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="header-actions">
+    <div class="lang-switch">
+      <button class="lang-btn" onclick="setLanguage('fr')"><img src="img/fr.png" alt="Français"></button>
+      <button class="lang-btn" onclick="setLanguage('en')"><img src="img/en.png" alt="English"></button>
+    </div>
+    <a href="index.html#form-demo" class="demo-btn" data-i18n="btn.demo">Demander une démo</a>
+    <button class="menu-toggle">☰</button>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="eyebrow">Contact</div>
+  <h1 class="page-hero-title" data-i18n="contact.titl">Contactez-nous</h1>
+  <p class="page-hero-sub" data-i18n="contact.text2">Une question sur nos solutions ou un projet MES ? Notre équipe vous répondra rapidement.</p>
+</div>
+
+<div class="contact-layout">
+  <div class="contact-info">
+    <div class="contact-detail">
+      <div class="cd-icon">📍</div>
+      <div class="cd-text"><strong>Adresse</strong>12, Avenue Stalingrad, 95100 Argenteuil</div>
+    </div>
+    <div class="contact-detail">
+      <div class="cd-icon">📞</div>
+      <div class="cd-text"><strong>Téléphone</strong>07 83 29 01 28</div>
+    </div>
+    <div class="contact-detail">
+      <div class="cd-icon">✉</div>
+      <div class="cd-text"><strong>Email</strong>contact@holisticview.com</div>
+    </div>
+    <div class="contact-detail">
+      <div class="cd-icon">in</div>
+      <div class="cd-text"><strong>LinkedIn</strong>
+        <a href="https://www.linkedin.com/company/110467199/" style="color:var(--purple);text-decoration:none;" target="_blank">Suivez-nous sur LinkedIn →</a>
+      </div>
+    </div>
+
+    <div style="margin-top:32px;padding:20px;background:var(--purple-soft);border:1px solid var(--border-purple);border-radius:var(--radius-md);">
+      <div style="font-family:var(--font-head);font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Prêt pour une démo ?</div>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.65;margin-bottom:14px;">Découvrez HolistView en action sur vos propres données.</p>
+      <a href="index.html#form-demo" class="btn-primary" style="font-size:13px;padding:10px 18px;">Demander une démo →</a>
+    </div>
+  </div>
+
+  <div class="contact-form-card">
+    <form class="contact-form" id="contactForm" action="#" onsubmit="return false;">
+      <div class="form-row-2">
+        <div class="form-group">
+          <label data-i18n="contact.label.nom">Nom</label>
+          <input type="text" data-i18n="[placeholder]contact.placeholder.nom" placeholder="Dupont">
+        </div>
+        <div class="form-group">
+          <label data-i18n="contact.label.prenom">Prénom</label>
+          <input type="text" data-i18n="[placeholder]contact.placeholder.prenom" placeholder="Jean">
+        </div>
+      </div>
+      <div class="form-row-2">
+        <div class="form-group">
+          <label data-i18n="contact.label.societe">Société</label>
+          <input type="text" placeholder="Votre entreprise">
+        </div>
+        <div class="form-group">
+          <label data-i18n="contact.label.email">Email professionnel</label>
+          <input type="email" placeholder="jean.dupont@entreprise.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label data-i18n="contact.label.source">Comment avez-vous entendu parler de nous ?</label>
+        <select>
+          <option value="reseaux" data-i18n="form.source1">Réseaux sociaux</option>
+          <option value="recommandation" data-i18n="form.source2">Recommandation</option>
+          <option value="salon" data-i18n="form.source3">Salon professionnel</option>
+          <option value="internet" data-i18n="form.source4">Moteur de recherche</option>
+          <option value="autre" data-i18n="form.source5">Autre</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-i18n="contact.label.objet">Objet</label>
+        <input type="text" placeholder="Objet de votre message">
+      </div>
+      <div class="form-group">
+        <label data-i18n="contact.label.message">Votre message</label>
+        <textarea rows="5" placeholder="Décrivez votre projet ou votre question..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Vérification anti-robot</label>
+        <div class="captcha-row">
+          <span id="captcha-text">ABCD</span>
+          <button type="button" id="refresh-captcha" title="Rafraîchir">↺</button>
+          <input type="text" placeholder="Saisissez le code" style="max-width:160px;">
+        </div>
+      </div>
+      <button type="submit" class="btn-submit-contact" data-i18n="contact.btn.envoyer">Envoyer le message</button>
+    </form>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-main">
+    <div>
+      <img src="img/LOGO 1.png" alt="HolistView" class="footer-logo-img">
+      <p class="footer-tagline">Première plateforme d'intelligence des processus dédiée à la production industrielle.</p>
+      <div class="footer-contact-item"><span class="fi">📍</span> 12, Avenue Stalingrad, 95100 Argenteuil</div>
+      <div class="footer-contact-item"><span class="fi">📞</span> 07 83 29 01 28</div>
+      <div class="footer-contact-item"><span class="fi">✉</span> contact@holisticview.com</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Dernières actus</div>
+      <ul class="footer-news">
+        <li>Salon SEPEM Angers 2025</li>
+        <li>Salon Prod&Pack Lyon 2025</li>
+        <li>Article : Le Management visuel</li>
+        <li>Partenariat Sofrastock</li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Informations</div>
+      <nav class="footer-links">
+        <a href="societe.html">Notre société</a>
+        <a href="solutions.html">Nos solutions</a>
+        <a href="contact.html">Nous contacter</a>
+        <a href="#">Mentions légales</a>
+      </nav>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 HolistView — Tous droits réservés</span>
+    <div class="footer-social">
+      <span style="font-size:13px;color:var(--text-3)">Retrouvez-nous sur</span>
+      <a href="https://www.linkedin.com/company/110467199/" class="linkedin-icon" target="_blank">in</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/lang.js" defer></script>
+<script src="js/main.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function genCaptcha() {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    return Array.from({length:5}, () => chars[Math.floor(Math.random()*chars.length)]).join('');
+  }
+  const ct = document.getElementById('captcha-text');
+  const rb = document.getElementById('refresh-captcha');
+  if (ct) ct.textContent = genCaptcha();
+  if (rb) rb.addEventListener('click', () => { ct.textContent = genCaptcha(); });
+
+  const dropdowns = document.querySelectorAll('.dropdown');
+  dropdowns.forEach(dd => {
+    dd.querySelector('.dropbtn').addEventListener('click', e => {
+      e.preventDefault(); e.stopPropagation();
+      dropdowns.forEach(d => { if(d!==dd) d.classList.remove('show'); });
+      dd.classList.toggle('show');
+    });
+  });
+  document.addEventListener('click', () => dropdowns.forEach(d => d.classList.remove('show')));
+
+  const toggle = document.querySelector('.menu-toggle');
+  const navItems = document.querySelector('.nav-items');
+  const nav = document.querySelector('.nav');
+  if (toggle) {
+    toggle.addEventListener('click', e => {
+      e.stopPropagation();
+      navItems.classList.toggle('active');
+      nav.style.display = navItems.classList.contains('active') ? 'block' : '';
+      toggle.innerHTML = navItems.classList.contains('active') ? '✕' : '☰';
+    });
+  }
+});
+</script>
+</body>
+</html>
