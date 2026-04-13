@@ -1,48 +1,33 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title data-i18n="title">HolistView — Process Intelligence</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/glide.min.js"></script>
-<link rel="stylesheet"href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"/>
-<title data-i18n="title">Holistic View</title>
-     
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" as="style" onload="this.rel='stylesheet'">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="header">
+  <a href="index.html" class="logo-link">
+    <img src="img/LOGO 1.png" alt="HolistView" class="logo-img">
+  </a>
 
-<link rel="icon" href="favicon.ico">
-<link rel="icon" type="image/png" href="images/favicon.png">
-
-  </head>
-  <body>
- <header class="header">
-  <div class="container">
-        <!-- Logo cliquable (retour à l'accueil) -->
-            <a href="index.html" class="logo-link">
-           <img src="img/LOGO 1.jpg" alt="Nom entreprise - Description" class="logo-img"> </a>
-         <!-- Logo cliquable (retour à l'accueil) --µµ>    
-  <div class="header-logo">
-    <a href="index.html" data-i18n="header.logo">HolisticView</a>
-       <!-- Logo cliquable (retour à l'accueil) -->
-
-  </div>
   <nav class="nav">
-    
-    <ul class="nav-items"><li class="nav-item"><a href="index.html" data-i18n="nav.home">Accueil</a></li>
-      <li class="nav-item"><a href="societe.html" data-i18n="nav.about">Société</a></li> 
+    <ul class="nav-items">
+      <li class="nav-item"><a href="index.html" class="active" data-i18n="nav.home">Accueil</a></li>
+      <li class="nav-item"><a href="societe.html" data-i18n="nav.about">Société</a></li>
       <li class="nav-item dropdown">
         <a href="javascript:void(0)" class="dropbtn" data-i18n="nav.solutions">Solutions ▾</a>
-       <ul class="dropdown-content">
-          <li><a href="data_connexion.html" data-i18n="solutions.dataConnexion">Connexion et contextualisation des données</a></li>
+        <ul class="dropdown-content">
+          <li><a href="data_connexion.html" data-i18n="solutions.dataConnexion">Connexion &amp; contextualisation des données</a></li>
           <li><a href="data_contextualisation.html" data-i18n="solutions.dataContext">Surveillance de processus de bout en bout</a></li>
           <li><a href="analyse_des_causes_racine.html" data-i18n="solutions.rootCause">Analyse automatisée des causes racines</a></li>
         </ul>
+      </li>
       <li class="nav-item"><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
     </ul>
   </nav>
@@ -50,283 +35,431 @@
   <div class="header-actions">
     <div class="lang-switch">
       <button class="lang-btn" onclick="setLanguage('fr')"><img src="img/fr.png" alt="Français"></button>
-      <button class="lang-btn" onclick="setLanguage('en')"> <img src="img/en.png" alt="English"></button>
+      <button class="lang-btn" onclick="setLanguage('en')"><img src="img/en.png" alt="English"></button>
     </div>
+    <a href="#form-demo" class="demo-btn" data-i18n="btn.demo">Demander une démo</a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+  </div>
+</header>
 
-<a href="#form-demo" class="demo-btn" data-i18n="btn.demo"> Demander une démo</a>
-
+<!-- ═══════════ DEMO MODAL ═══════════ -->
 <div id="form-demo" class="modal">
   <div class="modal-content">
     <a href="#" class="close">&times;</a>
-    <h3 class="titre-formulaire" data-i18n="form.subtitle"> Titre du formulaire</h3>
- <form action="https://formspree.io/f/mkgaordo" method="POST">
-  <table>
-  <tr>
-    <td><label for="nom" data-i18n="form.name">Nom complet :</label></td>
-    <td><input type="text" id="nom" name="nom" required></td>
-  </tr>
-  <tr>
-     <td><label for="email" data-i18n="form.email">Email :</label></td>
-     <td><input type="email" id="email" name="email" required></td>
-  </tr>
-  <tr>
-     <td><label for="entreprise" data-i18n="form.company">Entreprise :</label></td>
-     <td><input type="text" id="entreprise" name="entreprise" required></td>
-  </tr>
-  <tr>
-     <td><label for="fonction" data-i18n="form.function">Fonction :</label></td>
-     <td>
-<select id="fonction" name="fonction" required>
-      <option value="" data-i18n="form.selectFunction">-- Sélectionnez votre fonction --</option>
-      <option value="direction" data-i18n="form.func.direction">Direction générale</option>
-      <option value="marketing" data-i18n="form.func.marketing">Marketing / Communication</option>
-      <option value="commercial" data-i18n="form.func.commercial">Commercial / Vente</option>
-      <option value="informatique" data-i18n="form.func.it">Informatique / IT</option>
-      <option value="production" data-i18n="form.func.production">Production / Exploitation</option>
-      <option value="qualite" data-i18n="form.func.qse">Qualité / Sécurité / Environnement (QSE)</option>
-      <option value="logistique" data-i18n="form.func.logistique">Logistique / Supply Chain</option>
-      <option value="achats" data-i18n="form.func.achats">Achats / Approvisionnement</option>        <option value="rh" data-i18n="form.func.rh">Ressources humaines</option>
-      <option value="finance" data-i18n="form.func.finance">Finance / Comptabilité</option>
-      <option value="support" data-i18n="form.func.support">Support / Service client</option>
-      <option value="autre" data-i18n="form.func.autre">Autre</option> 
-</select>
-    </td>
-    </tr>
-    <tr>
-      <td><label for="secteur" data-i18n="form.sector">Secteur :</label></td>
-      <td>
-    <select id="secteur" name="secteur" required>
-       <option value="" data-i18n="form.selectSector">-- Sélectionnez votre secteur --</option>
-       <option value="industrie" data-i18n="form.sector.industrie">Industrie</option>
-       <option value="banque" data-i18n="form.sector.banque">Automobile</option>
-       <option value="technologie" data-i18n="form.sector.tech">Technologie / Informatique</option>
-       <option value="sante" data-i18n="form.sector.sante">Santé / Pharmaceutique</option>
-       <option value="education" data-i18n="form.sector.agro">Agroalimentaire</option>
-       <option value="commerce" data-i18n="form.sector.commerce">Commerce / Distribution</option>
-       <option value="services" data-i18n="form.sector.services">Services</option>
-       <option value="public" data-i18n="form.sector.public">Secteur public</option>
-       <option value="transport" data-i18n="form.sector.transport">Transport / Logistique</option>
-       <option value="energie" data-i18n="form.sector.energie">Énergie / Environnement</option>
-       <option value="autre" data-i18n="form.sector.autre">Autre</option>
-    </select>
-       </td>
-      </tr>
+    <h3 class="titre-formulaire" data-i18n="form.subtitle">Demande de démo</h3>
+    <form action="https://formspree.io/f/mkgaordo" method="POST" id="demoForm">
+      <table>
         <tr>
-          <td><label for="message" data-i18n="form.message">Message :</label></td>
-          <td><textarea id="message" name="message" rows="3"></textarea></td>
+          <td><label for="nom" data-i18n="form.name">Nom complet</label></td>
+          <td><input type="text" id="nom" name="nom" required></td>
+        </tr>
+        <tr>
+          <td><label for="email" data-i18n="form.email">Email pro.</label></td>
+          <td><input type="email" id="email" name="email" required></td>
+        </tr>
+        <tr>
+          <td><label for="entreprise" data-i18n="form.company">Entreprise</label></td>
+          <td><input type="text" id="entreprise" name="entreprise" required></td>
+        </tr>
+        <tr>
+          <td><label for="fonction" data-i18n="form.function">Fonction</label></td>
+          <td>
+            <select id="fonction" name="fonction" required>
+              <option value="" data-i18n="form.selectFunction">-- Sélectionnez --</option>
+              <option value="direction" data-i18n="form.func.direction">Direction générale</option>
+              <option value="production" data-i18n="form.func.production">Production / Exploitation</option>
+              <option value="qualite" data-i18n="form.func.qse">Qualité / QSE</option>
+              <option value="informatique" data-i18n="form.func.it">Informatique / IT</option>
+              <option value="logistique" data-i18n="form.func.logistique">Logistique / Supply Chain</option>
+              <option value="commercial" data-i18n="form.func.commercial">Commercial / Vente</option>
+              <option value="autre" data-i18n="form.func.autre">Autre</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="secteur" data-i18n="form.sector">Secteur</label></td>
+          <td>
+            <select id="secteur" name="secteur" required>
+              <option value="" data-i18n="form.selectSector">-- Sélectionnez --</option>
+              <option value="industrie" data-i18n="form.sector.industrie">Industrie</option>
+              <option value="automobile">Automobile</option>
+              <option value="agroalimentaire" data-i18n="form.sector.agro">Agroalimentaire</option>
+              <option value="sante" data-i18n="form.sector.sante">Santé / Pharmaceutique</option>
+              <option value="energie" data-i18n="form.sector.energie">Énergie / Environnement</option>
+              <option value="transport" data-i18n="form.sector.transport">Transport / Logistique</option>
+              <option value="autre" data-i18n="form.sector.autre">Autre</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="message" data-i18n="form.message">Message</label></td>
+          <td><textarea id="message" name="message" rows="3" placeholder="Décrivez votre contexte..."></textarea></td>
         </tr>
       </table>
-      <button type="submit" data-i18n="form.submit">Envoyer</button>
-  </form>
-
+      <button type="submit" data-i18n="form.submit">Envoyer la demande</button>
+    </form>
     <div id="successMessage" class="success-message" data-i18n="form.success">
-       Merci pour votre contact !<br>Nous vous répondrons dans les plus brefs délais.
+      ✓ Merci ! Nous vous répondrons dans les plus brefs délais.
     </div>
   </div>
 </div>
-</header>
-<div class="separator"></div>
-<div class="hero-image">
- <div class="image-texte"></div>
-  <img src="img/Image.png" alt="Image principale">
 
-  <div class="texte-sur-image">
-      <h1 class="texte-contour">THERE IS NO AI WITHOUT</h1>
-        <h2 class="texte-contour"> PI (Process Intelligence)</h2>
-  </div>
-</div>
-
-<!--comment-->
- <div class="testimonial-box">
-  <div class="testimonial-title">
- <h2 data-i18n="contact.title">
-    Première plateforme d’intelligence des processus dédiée à la production industrielle
-  </h2>
-  <h4 data-i18n="contact.subtitle">Systèmes séparés, départements isolés ?
-    nous unifions tout.Transformez vos silos  en un processus industriel intelligent
-  </h4>
-  </div>
-  <p class="testimonial-quote" data-i18n="contact.text1">
-   Aujourd’hui, les usines sont fragmentées : machines, capteurs, systèmes <strong>MES</strong> et <strong>ERP
-   </strong> parlent des langages différents,tandis que les départements — production, qualité et maintenance —
-   travaillent en silos. Nous comblons ces écarts en créant un langage unifié entre les systèmes et les départements, 
-   vous offrant une vue unique, cohérente et en temps réel de l’ensemble de vos opérations. Nous croyons qu’il n’y a pas d’<strong>IA </strong>sans<strong>PI</strong> (Process Intelligence). Avant que l’intelligence artificielle puisse 
-   réellement créer de la valeur, elle doit comprendre en profondeur vos processus de bout en bout. C’est pourquoi nous posons cette base essentielle en traduisant vos données 
-   en informations exploitables, compréhensibles et accessibles à tous.
-  </p>
- </div> 
-</div>
-
-
-<section class="stats-section">
-  <h2 class="stats-title"> Your Factory Brain — in Hours, Not Months </h2>
-  <div class="stats">
-    <div class="stat-card">
-      <span class="badge">90% Faster Access</span>
-      <p>80% faster access to critical knowledge, standards and best practices</p>
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-label" data-i18n="hero.label">Plateforme Process Intelligence</div>
+      <h1 class="hero-title">
+        <span class="line-outline">There is no AI</span><br>
+        <span class="line-accent">without PI</span><br>
+        <span style="font-size:0.65em;color:var(--text-2);font-weight:400;letter-spacing:0.05em;">(Process Intelligence)</span>
+      </h1>
+      <p class="hero-desc" data-i18n="contact.text1">
+        Première plateforme d'intelligence des processus dédiée à la production industrielle. Nous transformons vos silos en un processus unifié, cohérent et temps réel.
+      </p>
+      <div class="hero-actions">
+        <a href="#form-demo" class="btn-primary" data-i18n="btn.demo">Demander une démo</a>
+        <a href="solutions.html" class="btn-outline" data-i18n="nav.solutions">Découvrir nos solutions →</a>
+      </div>
     </div>
 
-    <div class="stat-card">
-      <span class="badge">Hundreds of Hours Saved</span>
-      <p>Save employees hundreds of hours per year by eliminating non-value-added tasks</p>
-    </div>
+    <div class="hero-visual">
+      <div class="dashboard-mock">
+        <div class="dash-topbar">
+          <div class="dash-dots">
+            <div class="dash-dot dd-r"></div>
+            <div class="dash-dot dd-y"></div>
+            <div class="dash-dot dd-g"></div>
+          </div>
+          <span class="dash-label">HolistView — Live Dashboard</span>
+          <span class="dash-status">LIVE</span>
+        </div>
+        <div class="dash-body">
+          <div class="kpi-grid">
+            <div class="kpi-box">
+              <div class="kpi-lbl">OEE</div>
+              <div class="kpi-val kv-green">87%</div>
+              <div class="kpi-delta">▲ +4.2%</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-lbl">Cadence</div>
+              <div class="kpi-val kv-cyan">312</div>
+              <div class="kpi-delta">pcs/h</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-lbl">Alertes</div>
+              <div class="kpi-val kv-purple">2</div>
+              <div class="kpi-delta" style="color:var(--amber)">actives</div>
+            </div>
+          </div>
 
-    <div class="stat-card">
-      <span class="badge">Solve 40% Faster</span>
-      <p>Solve production problems 40–70% faster and scale that know-how</p>
-    </div>
+          <div class="process-strip">
+            <div class="ps-title">Flux de processus — Ligne A</div>
+            <div class="ps-nodes">
+              <div class="ps-node done">Matière</div>
+              <div class="ps-arrow">→</div>
+              <div class="ps-node done">Usinage</div>
+              <div class="ps-arrow">→</div>
+              <div class="ps-node active">Contrôle</div>
+              <div class="ps-arrow">→</div>
+              <div class="ps-node idle">Embal.</div>
+              <div class="ps-arrow">→</div>
+              <div class="ps-node idle">Stock</div>
+            </div>
+          </div>
 
-    <div class="stat-card">
-      <span class="badge">Empower Workers</span>
-      <p>Empower every frontline worker — democratize innovation and productivity</p>
+          <div class="progress-bars">
+            <div class="pb-row">
+              <span class="pb-name">Ligne A</span>
+              <div class="pb-track"><div class="pb-fill" style="width:87%;background:var(--green)"></div></div>
+              <span class="pb-pct">87%</span>
+            </div>
+            <div class="pb-row">
+              <span class="pb-name">Ligne B</span>
+              <div class="pb-track"><div class="pb-fill" style="width:62%;background:var(--amber)"></div></div>
+              <span class="pb-pct">62%</span>
+            </div>
+            <div class="pb-row">
+              <span class="pb-name">Maintenance</span>
+              <div class="pb-track"><div class="pb-fill" style="width:94%;background:var(--purple)"></div></div>
+              <span class="pb-pct">94%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-badge">⚡ Analyse en temps réel</div>
     </div>
   </div>
 </section>
 
-<script src="js/main.js"></script>
-<script src="js/lang.js"></script>
+<!-- ═══════════ STATS ═══════════ -->
+<div class="stats-band">
+  <div class="stats-band-inner">
+    <div class="stat-item">
+      <div class="stat-number">90<span class="stat-unit">%</span></div>
+      <div class="stat-label">Accès plus rapide aux connaissances critiques</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">70<span class="stat-unit">%</span></div>
+      <div class="stat-label">Résolution des problèmes de production plus rapide</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100s</div>
+      <div class="stat-label">D'heures économisées par employé chaque année</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">360°</div>
+      <div class="stat-label">Vue unifiée de vos opérations en temps réel</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<div class="about-block">
+  <div class="about-text-side">
+    <div class="about-eyebrow" data-i18n="about.eyebrow">Notre vision</div>
+    <h2 class="about-title" data-i18n="contact.title">
+      Première plateforme d'intelligence des processus pour l'industrie
+    </h2>
+    <p class="about-text" data-i18n="about.p1">
+      Aujourd'hui, les usines sont fragmentées : machines, capteurs, systèmes <strong>MES</strong> et <strong>ERP</strong> parlent des langages différents, tandis que les départements travaillent en silos.
+    </p>
+    <p class="about-text">
+      Nous comblons ces écarts en créant un <strong>langage unifié</strong> entre systèmes et départements, vous offrant une vue unique, cohérente et en temps réel de l'ensemble de vos opérations.
+    </p>
+    <p class="about-text">
+      Nous croyons qu'il n'y a pas d'<strong>IA</strong> sans <strong>PI</strong> (Process Intelligence). Avant que l'IA puisse réellement créer de la valeur, elle doit comprendre vos processus de bout en bout.
+    </p>
+  </div>
+
+  <div class="about-visual">
+    <div class="about-card">
+      <div class="about-card-icon">🏭</div>
+      <div class="about-card-title">Your Factory Brain</div>
+      <div class="about-card-text">
+        En quelques heures seulement, HolistView transforme vos données industrielles dispersées en une intelligence opérationnelle unifiée, accessible à tous vos collaborateurs.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ FEATURES ═══════════ -->
+<div class="section-full">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="eyebrow">Nos solutions</div>
+      <h2 class="section-title">Une plateforme,<br>trois piliers</h2>
+      <p class="section-sub">De la connexion des données à l'analyse des causes racines, HolistView couvre l'intégralité de votre intelligence de processus.</p>
+    </div>
+
+    <div class="features-grid">
+      <a href="data_connexion.html" class="feat-card" style="text-decoration:none">
+        <div class="feat-icon">🔌</div>
+        <div class="feat-name">Connexion des données</div>
+        <div class="feat-desc">Connectez toutes vos sources — machines, capteurs, MES, ERP — en un seul flux de données unifié et contextualisé.</div>
+        <div class="feat-tag">Pilier 01</div>
+      </a>
+      <a href="data_contextualisation.html" class="feat-card" style="text-decoration:none">
+        <div class="feat-icon">📡</div>
+        <div class="feat-name">Surveillance de processus</div>
+        <div class="feat-desc">Surveillez vos processus de bout en bout en temps réel. Détectez les anomalies avant qu'elles deviennent des problèmes.</div>
+        <div class="feat-tag">Pilier 02</div>
+      </a>
+      <a href="analyse_des_causes_racine.html" class="feat-card" style="text-decoration:none">
+        <div class="feat-icon">🧠</div>
+        <div class="feat-name">Analyse des causes racines</div>
+        <div class="feat-desc">Identifiez automatiquement les causes profondes des incidents. Éliminez les pertes et améliorez vos processus durablement.</div>
+        <div class="feat-tag">Pilier 03</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ HOW IT WORKS ═══════════ -->
+<div class="section">
+  <div class="section-head">
+    <div class="eyebrow">Méthodologie</div>
+    <h2 class="section-title">En heures, pas en mois</h2>
+    <p class="section-sub">Une mise en œuvre rapide et non-intrusive qui s'adapte à votre environnement existant.</p>
+  </div>
+
+  <div class="steps-grid">
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num">01</div>
+        <div>
+          <div class="step-name">Connexion &amp; intégration</div>
+          <div class="step-desc">Nous connectons vos systèmes existants (OPC-UA, MQTT, API, SQL) sans modifier votre infrastructure. Aucune interruption de production.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">02</div>
+        <div>
+          <div class="step-name">Contextualisation</div>
+          <div class="step-desc">Nous enrichissons vos données brutes avec le contexte métier : ordres de fabrication, nomenclatures, équipes, gammes opératoires.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">03</div>
+        <div>
+          <div class="step-name">Intelligence &amp; alertes</div>
+          <div class="step-desc">La plateforme détecte les dérives, calcule les KPI et lance les alertes en temps réel. Vos équipes agissent avant que les problèmes s'aggravent.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">04</div>
+        <div>
+          <div class="step-name">Amélioration continue</div>
+          <div class="step-desc">L'analyse automatisée des causes racines vous guide vers des actions correctives durables et capitalise le savoir-faire de vos experts.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-visual">
+      <div class="ps-title" style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:20px;">Déploiement type</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--purple-soft);border:1px solid var(--border-purple);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;color:var(--purple);flex-shrink:0;">J1</div>
+          <div style="flex:1;height:4px;background:var(--purple);border-radius:2px;"></div>
+          <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-2);">Connexion données</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--purple-soft);border:1px solid var(--border-purple);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;color:var(--purple);flex-shrink:0;">J3</div>
+          <div style="flex:1;height:4px;background:var(--cyan);border-radius:2px;"></div>
+          <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-2);">Contextualisation</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--cyan-soft);border:1px solid rgba(6,182,212,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;color:var(--cyan);flex-shrink:0;">J7</div>
+          <div style="flex:1;height:4px;background:var(--green);border-radius:2px;"></div>
+          <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-2);">Dashboard live</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;color:var(--green);flex-shrink:0;">J14</div>
+          <div style="flex:1;height:4px;background:var(--amber);border-radius:2px;"></div>
+          <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-2);">Analyse causale IA</div>
+        </div>
+      </div>
+      <div style="margin-top:24px;padding:14px;background:var(--purple-soft);border:1px solid var(--border-purple);border-radius:var(--radius-sm);font-family:var(--font-mono);font-size:10px;color:#A78BFA;text-align:center;letter-spacing:0.05em;">
+        ⚡ Opérationnel en 2 semaines
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ CTA ═══════════ -->
+<div style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div style="max-width:900px;margin:0 auto;padding:80px 40px;text-align:center;">
+    <div class="eyebrow" style="justify-content:center;margin-bottom:20px;">Passez à l'action</div>
+    <h2 style="font-family:var(--font-head);font-size:clamp(36px,4vw,58px);font-weight:900;text-transform:uppercase;letter-spacing:0.03em;line-height:1.05;margin-bottom:20px;">
+      Prêt à transformer votre<br><span style="color:var(--purple)">intelligence industrielle ?</span>
+    </h2>
+    <p style="font-size:16px;font-weight:300;color:var(--text-2);max-width:500px;margin:0 auto 36px;line-height:1.75;">
+      Rejoignez les industriels qui ont choisi HolistView pour piloter leur performance en temps réel.
+    </p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="#form-demo" class="btn-primary">Demander une démo gratuite</a>
+      <a href="contact.html" class="btn-outline">Nous contacter</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="footer-main">
+    <div>
+      <img src="img/LOGO 1.png" alt="HolistView" class="footer-logo-img">
+      <p class="footer-tagline">Première plateforme d'intelligence des processus dédiée à la production industrielle.</p>
+      <div class="footer-contact-item"><span class="fi">📍</span> 12, Avenue Stalingrad, 95100 Argenteuil</div>
+      <div class="footer-contact-item"><span class="fi">📞</span> 07 83 29 01 28</div>
+      <div class="footer-contact-item"><span class="fi">✉</span> contact@holisticview.com</div>
+    </div>
+
+    <div>
+      <div class="footer-col-title" data-i18n="footer.newsTitle">Dernières actus</div>
+      <ul class="footer-news">
+        <li data-i18n="footer.news1">Salon SEPEM Angers 2025</li>
+        <li data-i18n="footer.news2">Salon Prod&amp;Pack Lyon 2025</li>
+        <li data-i18n="footer.news3">Article : Le Management visuel</li>
+        <li data-i18n="footer.news4">Partenariat Sofrastock</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title" data-i18n="footer.info">Informations</div>
+      <nav class="footer-links">
+        <a href="societe.html" data-i18n="footer.about">Notre société</a>
+        <a href="solutions.html" data-i18n="nav.solutions">Nos solutions</a>
+        <a href="contact.html" data-i18n="footer.contact">Nous contacter</a>
+        <a href="#" data-i18n="footer.legal">Mentions légales</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2025 HolistView — Tous droits réservés</span>
+    <div class="footer-social">
+      <span style="font-size:13px;color:var(--text-3)">Retrouvez-nous sur</span>
+      <a href="https://www.linkedin.com/company/110467199/" class="linkedin-icon" target="_blank" rel="noopener">in</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/lang.js" defer></script>
+<script src="js/main.js" defer></script>
 <script>
-document.addEventListener("DOMContentLoaded", () => { const dropdowns = document.querySelectorAll(".dropdown");
-dropdowns.forEach(dropdown => {const button = dropdown.querySelector(".dropbtn");
-button.addEventListener("click", (e) => { e.preventDefault(); e.stopPropagation();
-
-// Ferme les autres menus ouverts
-document.querySelectorAll(".dropdown").forEach(d => { if (d !== dropdown) d.classList.remove("show"); });
-// Ouvre/ferme celui-ci
-dropdown.classList.toggle("show"); }); });
-// Ferme si on clique ailleurs
-document.addEventListener("click", () => {
-dropdowns.forEach(d => d.classList.remove("show")); });});
-</script>
-
-<script>
-  // Fonction pour générer un code aléatoire
-  function generateCaptcha() {  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";  let captcha = "";
-  for (let i = 0; i < 4; i++) { captcha += chars.charAt(Math.floor(Math.random() * chars.length)); }
-  return captcha; }
-
-  document.addEventListener("DOMContentLoaded", () => {
-  const captchaText = document.getElementById("captcha-text");
-  const refreshBtn = document.getElementById("refresh-captcha");
-  // Génère le premier code
-  captchaText.textContent = generateCaptcha();
-  // Quand on clique sur 🔄, régénère le code
-  refreshBtn.addEventListener("click", () => {captchaText.textContent = generateCaptcha();  }); });
-</script>
-
-<script>
- // Afficher la fenêtre modale
- function openModal() { document.getElementById("demoModal").classList.add("active");}
- // Fermer la fenêtre modale
- function closeModal() {  document.getElementById("demoModal").classList.remove("active"); }
-
- // Message de confirmation après soumission
- document.getElementById("demoForm").addEventListener("submit", function(event) {
- event.preventDefault(); // Empêche le rechargement
- const successMsg = document.getElementById("successMessage");
- successMsg.classList.add("active");
- // Réinitialise le formulaire
- this.reset();
- // Cache le message après 4 secondes
- setTimeout(() => successMsg.classList.remove("active"), 4000); });
-</script>
-
-<script>
- function validerEmail() { const email = document.getElementById("email").value.trim();
-  // Liste des domaines personnels interdits
-  const domainesInterdits = [
-    "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "live.com",
-    "aol.com", "wanadoo.fr", "orange.fr", "free.fr", "icloud.com",
-    "protonmail.com", "laposte.net", "msn.com", "sfr.fr"];
-  // Récupère le domaine de l’adresse (ce qui est après le @)
-  const domaine = email.split("@")[1];
-  // Vérifie si l’adresse est interdite
-  if (!domaine || domainesInterdits.includes(domaine.toLowerCase())) {
-  alert("❌ Veuillez utiliser une adresse e-mail professionnelle (ex : prenom.nom@votre-entreprise.com).");
-    return false; }// Bloque l’envoi du formulaire 
-  // Si tout est bon
-  alert("✅ Merci pour votre contact ! Nous vous répondrons rapidement.");
-  return false;  } // (retirer le false si tu veux que le formulaire soit envoyé) 
-</script>
-
-<script>
-  lang.set(translations); // tes traductions
-  lang.init('fr'); // langue par défaut
-  // pour changer dynamiquement :
-  // lang.init('fr');
-</script>
-
-<script>
-  const modalForm = document.querySelector('#form-demo form');
-  const successMessage = document.getElementById('successMessage');
-  modalForm.addEventListener('submit', async function(e) {
-  e.preventDefault(); // Empêche le rechargement de la page
-  const data = new FormData(modalForm);
-  const response = await fetch(modalForm.action, {
-  method: modalForm.method, body: data,  headers: { 'Accept': 'application/json' }});
-  if (response.ok) {
-  successMessage.style.display = 'block'; // Affiche le message
-  successMessage.style.opacity = 0;
-  // Animation fade-in
-  setTimeout(() => { successMessage.style.opacity = 1; }, 50);
-  modalForm.reset(); // Vide le formulaire
-  // Disparition automatique après 5 secondes
-  setTimeout(() => {successMessage.style.opacity = 0; setTimeout(() => 
-  { successMessage.style.display = 'none'; }, 500);}, 5000); } 
-  else { alert('Une erreur est survenue, veuillez réessayer.'); } });
-</script>
-
-<script>
- // Menu hamburger pour mobile
- document.addEventListener('DOMContentLoaded', function() {
- // Crée le bouton hamburger
-  const menuToggle = document.createElement('button');
-  menuToggle.className = 'menu-toggle'; menuToggle.innerHTML = '☰'; menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
-  // Insère le bouton dans le header
-  const header = document.querySelector('.header');
-  if (header) { header.style.position = 'relative'; header.appendChild(menuToggle);
+document.addEventListener('DOMContentLoaded', function() {
+  // Hamburger menu
+  const toggle = document.querySelector('.menu-toggle');
   const navItems = document.querySelector('.nav-items');
-    
-  // Gère le clic sur le bouton hamburger
-  menuToggle.addEventListener('click', function() {
-  navItems.classList.toggle('active');
-  this.innerHTML = navItems.classList.contains('active') ? '✕' : '☰';
-  this.setAttribute('aria-label', 
-  navItems.classList.contains('active') ? 'Fermer le menu' : 'Ouvrir le menu');});
-    
-  // Ferme le menu en cliquant sur un lien
-  navItems.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', function() {navItems.classList.remove('active');
-  menuToggle.innerHTML = '☰'; menuToggle.setAttribute('aria-label', 'Ouvrir le menu');});});
-    
-  // Ferme le menu en cliquant à l'extérieur
-  document.addEventListener('click', function(e) {
-  if (!header.contains(e.target) && !menuToggle.contains(e.target)) {
-  navItems.classList.remove('active');
-  menuToggle.innerHTML = '☰';
-  menuToggle.setAttribute('aria-label', 'Ouvrir le menu'); }});}
-  
-  // Dropdown sur mobile
+  const nav = document.querySelector('.nav');
+
+  if (toggle) {
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navItems.classList.toggle('active');
+      nav.style.display = navItems.classList.contains('active') ? 'block' : '';
+      this.innerHTML = navItems.classList.contains('active') ? '✕' : '☰';
+    });
+    document.addEventListener('click', function(e) {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        navItems.classList.remove('active');
+        nav.style.display = '';
+        toggle.innerHTML = '☰';
+      }
+    });
+  }
+
+  // Dropdowns
   const dropdowns = document.querySelectorAll('.dropdown');
-  dropdowns.forEach(dropdown => { const dropbtn = dropdown.querySelector('.dropbtn');
-  dropbtn.addEventListener('click', function(e) { if (window.innerWidth <= 768) { e.preventDefault(); 
-  e.stopPropagation();
-  // Ferme les autres dropdowns
-  dropdowns.forEach(d => {if (d !== dropdown) d.classList.remove('active'); });
-  // Ouvre/ferme celui-ci
-     dropdown.classList.toggle('active');  } });});
-  
-  // Ferme les dropdowns en cliquant ailleurs
-  document.addEventListener('click', function() {
-  if (window.innerWidth <= 768) { dropdowns.forEach(d => d.classList.remove('active')); } }); });
+  dropdowns.forEach(dd => {
+    const btn = dd.querySelector('.dropbtn');
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdowns.forEach(d => { if (d !== dd) d.classList.remove('show'); });
+      dd.classList.toggle('show');
+    });
+  });
+  document.addEventListener('click', () => dropdowns.forEach(d => d.classList.remove('show')));
+
+  // Demo form
+  const form = document.querySelector('#form-demo form');
+  const successMsg = document.getElementById('successMessage');
+  if (form && successMsg) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const resp = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+        if (resp.ok) {
+          successMsg.style.display = 'block';
+          form.reset();
+          setTimeout(() => { successMsg.style.display = 'none'; }, 6000);
+        } else { alert('Une erreur est survenue. Veuillez réessayer.'); }
+      } catch(err) { alert('Erreur réseau. Veuillez réessayer.'); }
+    });
+  }
+});
 </script>
-
-
-
-
-
-
-
-
 </body>
 </html>

@@ -2,184 +2,136 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title data-i18n="title">Holistic View</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title">Notre Société — HolistView</title>
+  <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
 <header class="header">
-  <div class="container">
-   <!-- Logo cliquable (retour à l'accueil) -->
-   <a href="index.html" class="logo-link">
-   <img src="img/LOGO 1.png" alt="Nom entreprise - Description" class="logo-img"> </a>
-
-       <!-- Logo cliquable (retour à l'accueil) --µ>
-  <div class="header-logo">
-    <a href="index.html" data-i18n="header.logo">HolisticView</a>
-  </div>
-      <!-- Logo cliquable (retour à l'accueil) -->
+  <a href="index.html" class="logo-link">
+    <img src="img/LOGO 1.png" alt="HolistView" class="logo-img">
+  </a>
   <nav class="nav">
-    <ul class="nav-items"><li class="nav-item"><a href="index.html" data-i18n="nav.home">Accueil</a></li>
-      <li class="nav-item"><a href="societe.html" data-i18n="nav.about">Société</a></li>
-   
+    <ul class="nav-items">
+      <li class="nav-item"><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li class="nav-item"><a href="societe.html" class="active" data-i18n="nav.about">Société</a></li>
       <li class="nav-item dropdown">
         <a href="javascript:void(0)" class="dropbtn" data-i18n="nav.solutions">Solutions ▾</a>
         <ul class="dropdown-content">
-          <li><a href="data_connexion.html" data-i18n="solutions.dataConnexion">Connexion et contextualisation des données</a></li>
-          <li><a href="data_contextualisation.html" data-i18n="solutions.dataContext">Surveillance de processus de bout en bout</a></li>
-          <li><a href="analyse_des_causes_racine.html" data-i18n="solutions.rootCause">Analyse automatisée des causes racines </a></li>
+          <li><a href="data_connexion.html">Connexion &amp; contextualisation des données</a></li>
+          <li><a href="data_contextualisation.html">Surveillance de processus de bout en bout</a></li>
+          <li><a href="analyse_des_causes_racine.html">Analyse automatisée des causes racines</a></li>
         </ul>
       </li>
- 
       <li class="nav-item"><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
     </ul>
   </nav>
   <div class="header-actions">
     <div class="lang-switch">
       <button class="lang-btn" onclick="setLanguage('fr')"><img src="img/fr.png" alt="Français"></button>
-      <button class="lang-btn" onclick="setLanguage('en')"> <img src="img/en.png" alt="English"></button>
+      <button class="lang-btn" onclick="setLanguage('en')"><img src="img/en.png" alt="English"></button>
     </div>
+    <a href="index.html#form-demo" class="demo-btn">Demander une démo</a>
+    <button class="menu-toggle">☰</button>
+  </div>
+</header>
 
-<a href="#form-demo" class="demo-btn" data-i18n="btn.demo"> Demander une démo</a>
+<div class="page-hero">
+  <div class="eyebrow">À propos</div>
+  <h1 class="page-hero-title" data-i18n="societe.title">Notre société</h1>
+  <p class="page-hero-sub">Un acteur engagé dans la transformation digitale de l'industrie manufacturière.</p>
+</div>
 
-<div id="form-demo" class="modal">
-  <div class="modal-content">
-    <a href="#" class="close">&times;</a>
-    <h3 class="titre-formulaire" data-i18n="form.subtitle"> Titre du formulaire</h3>
+<div class="societe-layout">
+  <div class="societe-intro-block">
+    <h2 data-i18n="societe.title">HolistView</h2>
+    <p data-i18n="societe.text1">HolistView est un acteur majeur de la digitalisation industrielle. Nous aidons nos clients à améliorer leur production, leur OEE et leur suivi qualité grâce à notre plateforme d'intelligence des processus — la première dédiée à la fabrication.</p>
+  </div>
 
-    <form id="demoForm">
-      <table>
-        <tr>
-          <td><label for="nom" data-i18n="form.name">Nom complet :</label></td>
-          <td><input type="text" id="nom" name="nom" required></td>
-        </tr>
-        <tr>
-          <td><label for="email" data-i18n="form.email">Email :</label></td>
-          <td><input type="email" id="email" name="email" required></td>
-        </tr>
-        <tr>
-          <td><label for="entreprise" data-i18n="form.company">Entreprise :</label></td>
-          <td><input type="text" id="entreprise" name="entreprise" required></td>
-        </tr>
-        <tr>
-          <td><label for="fonction" data-i18n="form.function">Fonction :</label></td>
-          <td>
-            <select id="fonction" name="fonction" required>
-              <option value="" data-i18n="form.selectFunction">-- Sélectionnez votre fonction --</option>
-              <option value="direction" data-i18n="form.func.direction">Direction générale</option>
-              <option value="marketing" data-i18n="form.func.marketing">Marketing / Communication</option>
-              <option value="commercial" data-i18n="form.func.commercial">Commercial / Vente</option>
-              <option value="informatique" data-i18n="form.func.it">Informatique / IT</option>
-              <option value="production" data-i18n="form.func.production">Production / Exploitation</option>
-              <option value="qualite" data-i18n="form.func.qse">Qualité / Sécurité / Environnement (QSE)</option>
-              <option value="logistique" data-i18n="form.func.logistique">Logistique / Supply Chain</option>
-              <option value="achats" data-i18n="form.func.achats">Achats / Approvisionnement</option>
-              <option value="rh" data-i18n="form.func.rh">Ressources humaines</option>
-              <option value="finance" data-i18n="form.func.finance">Finance / Comptabilité</option>
-              <option value="support" data-i18n="form.func.support">Support / Service client</option>
-              <option value="autre" data-i18n="form.func.autre">Autre</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><label for="secteur" data-i18n="form.sector">Secteur :</label></td>
-          <td>
-            <select id="secteur" name="secteur" required>
-              <option value="" data-i18n="form.selectSector">-- Sélectionnez votre secteur --</option>
-              <option value="industrie" data-i18n="form.sector.industrie">Industrie</option>
-              <option value="banque" data-i18n="form.sector.banque">Banque / Assurance</option>
-              <option value="technologie" data-i18n="form.sector.tech">Technologie / Informatique</option>
-              <option value="sante" data-i18n="form.sector.sante">Santé / Pharmaceutique</option>
-              <option value="education" data-i18n="form.sector.agro">Agroalimentaire</option>
-              <option value="commerce" data-i18n="form.sector.commerce">Commerce / Distribution</option>
-              <option value="services" data-i18n="form.sector.services">Services</option>
-              <option value="public" data-i18n="form.sector.public">Secteur public</option>
-              <option value="transport" data-i18n="form.sector.transport">Transport / Logistique</option>
-              <option value="energie" data-i18n="form.sector.energie">Énergie / Environnement</option>
-              <option value="autre" data-i18n="form.sector.autre">Autre</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><label for="message" data-i18n="form.message">Message :</label></td>
-          <td><textarea id="message" name="message" rows="3"></textarea></td>
-        </tr>
-      </table>
-      <button type="submit" data-i18n="form.submit">Envoyer</button>
-    </form>
-
-    <div id="successMessage" class="success-message" data-i18n="form.success">
-       Merci pour votre contact !<br>Nous vous répondrons dans les plus brefs délais.
+  <div class="societe-cards">
+    <div class="societe-card">
+      <h3 data-i18n="societe.missionTitle">Notre mission</h3>
+      <p data-i18n="societe.missionText">Accompagner les industriels dans leur transformation digitale en unifiant leurs données, leurs systèmes et leurs équipes autour d'une vision partagée et temps réel de leurs opérations.</p>
+    </div>
+    <div class="societe-card">
+      <h3>Notre vision</h3>
+      <p>Nous croyons qu'il n'y a pas d'IA sans PI (Process Intelligence). Avant que l'intelligence artificielle puisse créer de la valeur, elle doit comprendre vos processus de bout en bout. C'est la base que nous posons.</p>
+    </div>
+    <div class="societe-card">
+      <h3>Nos valeurs</h3>
+      <p>Agilité, transparence et proximité avec nos clients. Nous nous engageons sur des résultats mesurables, avec une mise en œuvre rapide et non-intrusive qui respecte vos équipes et votre infrastructure existante.</p>
+    </div>
+    <div class="societe-card">
+      <h3>Notre équipe</h3>
+      <p>Des experts industriels et data scientists passionnés par l'excellence opérationnelle, qui ont vécu les problématiques terrain et conçu une solution pragmatique, réellement adaptée aux réalités de l'atelier.</p>
     </div>
   </div>
 </div>
-</header>
 
-  <!-- ===== CONTENU PRINCIPAL ===== -->
-  <main>
-    <section class="societe-intro">
-      <h2 data-i18n="societe.title">Notre société</h2>
-      <p data-i18n="societe.text1">
-        Holistic View est un acteur majeur de la digitalisation industrielle. 
-        Nous aidons nos clients à améliorer leur production, leur TRS et leur suivi qualité grâce à nos solutions MES.
-      </p>
-    </section>
-    
-    <section class="societe-mission">
-      <h3 data-i18n="societe.missionTitle">Notre mission</h3>
-      <p data-i18n="societe.missionText">
-        Accompagner les entreprises dans leur transformation digitale et optimiser leur performance industrielle.
-      </p>
-    </section>
-  </main>
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="footer-container">
-       <div class="footer-left">
-       <h4><img src="img/LOGO 1.png" alt="adresse" class="icon"> </h4>  
-          
-       <p><img src="img/addr.png" alt="adresse" class="icon">12, Avenue Stalingrad,95100 Argenteuil</p>
-        <p><img src="img/tel.png" alt="Téléphone" class="icon">07 83 29 01 28</p>
-        <p> <img src="img/email.png" alt="Email" class="icon">contact@holisticview.com</p>
-        </div>
-
-      <div class="footer-middle">
-        <h3 data-i18n="footer.newsTitle">Dernières actus</h3>
-        <ul>
-            <!---commnet --*>
-            <li data-i18n="footer.news1">Salon SEPEM Angers 2025</li>
-            <li data-i18n="footer.news2">Salon Prod&Pack Lyon 2025</li>
-            <li data-i18n="footer.news3">Article thématique : Le Management visuel</li>
-            <li data-i18n="footer.news4">Partenariat Sofrastock</li>
-                <!---commnet -->
-        </ul>
-      </div>
-
-      <div class="footer-right">
-        <h3 data-i18n="footer.info">Informations utiles</h3>
-        <ul>
-          <li><a href="societe.html" data-i18n="footer.about">Société Holistic View</a></li>
-          <li><a href="contact.html" data-i18n="footer.contact">Contactez-nous</a></li>
-         
-          <li><a href="#" data-i18n="footer.legal">Mentions légales</a></li>
-        </ul>
-      </div>
+<footer class="footer">
+  <div class="footer-main">
+    <div>
+      <img src="img/LOGO 1.png" alt="HolistView" class="footer-logo-img">
+      <p class="footer-tagline">Première plateforme d'intelligence des processus dédiée à la production industrielle.</p>
+      <div class="footer-contact-item"><span class="fi">📍</span>12, Avenue Stalingrad, 95100 Argenteuil</div>
+      <div class="footer-contact-item"><span class="fi">📞</span>07 83 29 01 28</div>
+      <div class="footer-contact-item"><span class="fi">✉</span>contact@holisticview.com</div>
     </div>
-  </footer>
-
-  <div class="social-container">
-    <p data-i18n="social.text">Retrouvez-nous sur <strong>LinkedIn</strong></p>
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/company/110467199/admin/dashboard/" class="linkedin-icon">in</a>
+    <div>
+      <div class="footer-col-title">Dernières actus</div>
+      <ul class="footer-news">
+        <li>Salon SEPEM Angers 2025</li>
+        <li>Salon Prod&Pack Lyon 2025</li>
+        <li>Article : Le Management visuel</li>
+        <li>Partenariat Sofrastock</li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Informations</div>
+      <nav class="footer-links">
+        <a href="societe.html">Notre société</a>
+        <a href="solutions.html">Nos solutions</a>
+        <a href="contact.html">Nous contacter</a>
+        <a href="#">Mentions légales</a>
+      </nav>
     </div>
   </div>
+  <div class="footer-bottom">
+    <span>© 2025 HolistView — Tous droits réservés</span>
+    <div class="footer-social">
+      <span style="font-size:13px;color:var(--text-3)">Retrouvez-nous sur</span>
+      <a href="https://www.linkedin.com/company/110467199/" class="linkedin-icon" target="_blank">in</a>
+    </div>
+  </div>
+</footer>
 
-  <!-- ===== SCRIPTS ===== -->
-  <script src="js/lang.js"></script>
-  <script src="js/main.js"></script>
+<script src="js/lang.js" defer></script>
+<script src="js/main.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdowns = document.querySelectorAll('.dropdown');
+  dropdowns.forEach(dd => {
+    dd.querySelector('.dropbtn').addEventListener('click', e => {
+      e.preventDefault(); e.stopPropagation();
+      dropdowns.forEach(d => { if(d!==dd) d.classList.remove('show'); });
+      dd.classList.toggle('show');
+    });
+  });
+  document.addEventListener('click', () => dropdowns.forEach(d => d.classList.remove('show')));
+  const toggle = document.querySelector('.menu-toggle');
+  const navItems = document.querySelector('.nav-items');
+  const nav = document.querySelector('.nav');
+  if (toggle) {
+    toggle.addEventListener('click', e => {
+      e.stopPropagation();
+      navItems.classList.toggle('active');
+      nav.style.display = navItems.classList.contains('active') ? 'block' : '';
+      toggle.innerHTML = navItems.classList.contains('active') ? '✕' : '☰';
+    });
+  }
+});
+</script>
 </body>
 </html>
