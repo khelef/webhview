@@ -1,124 +1,556 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Analyse des causes racines — HolistView</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* ── Title / text — same style as data_connexion.html ── */
+    .dc-title {
+      font-family: var(--font-head);
+      font-size: 20px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .04em;
+      color: var(--purple); margin-bottom: 6px;
+    }
+    .dc-sub {
+      font-size: 14px; font-weight: 300;
+      color: var(--text-2); line-height: 1.7;
+    }
+
+    /* ── Shared card ── */
+    .rc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-lg);
+      padding: 40px; margin-bottom: 32px;
+      box-shadow: var(--shadow-card);
+    }
+
+    /* ── WHY / HOW / WHEN cards ── */
+    .whw-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .whw-card {
+      border-radius: var(--radius-md); padding:32px 24px;
+      position: relative; overflow: hidden;
+      opacity:0; transform:translateY(14px);
+      animation: cardIn .5s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    .whw-card:nth-child(1){animation-delay:.08s;background:rgba(109,40,217,.06);border:1px solid var(--border-purple);}
+    .whw-card:nth-child(2){animation-delay:.22s;background:rgba(8,145,178,.06);border:1px solid rgba(8,145,178,.25);}
+    .whw-card:nth-child(3){animation-delay:.36s;background:rgba(5,150,105,.06);border:1px solid rgba(5,150,105,.25);}
+    @keyframes cardIn { to{opacity:1;transform:translateY(0);} }
+    .whw-letter {
+      font-family: var(--font-head); font-size: 52px; font-weight: 900;
+      line-height: 1; margin-bottom: 16px; letter-spacing: -.02em;
+    }
+    .whw-card:nth-child(1) .whw-letter { color:var(--purple); }
+    .whw-card:nth-child(2) .whw-letter { color:var(--cyan); }
+    .whw-card:nth-child(3) .whw-letter { color:var(--green); }
+    .whw-card-title {
+      font-family: var(--font-head); font-size:16px; font-weight:800;
+      text-transform:uppercase; letter-spacing:.04em; margin-bottom:10px;
+    }
+    .whw-card:nth-child(1) .whw-card-title { color:var(--purple); }
+    .whw-card:nth-child(2) .whw-card-title { color:var(--cyan); }
+    .whw-card:nth-child(3) .whw-card-title { color:var(--green); }
+    .whw-card-text { font-size:13px; font-weight:300; color:var(--text-2); line-height:1.75; }
+
+    /* ── Root cause investigation animated viz ── */
+    .rca-viz { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+    .var-list { display:flex; flex-direction:column; gap:10px; }
+    .var-row {
+      display:flex; align-items:center; gap:12px;
+      padding:12px 14px;
+      border:1px solid var(--border); border-radius:var(--radius-sm);
+      background:var(--bg-subtle);
+      opacity:0; transform:translateX(-12px);
+      animation:varIn .4s ease forwards;
+    }
+    .var-row:nth-child(1){animation-delay:.1s;} .var-row:nth-child(2){animation-delay:.2s;}
+    .var-row:nth-child(3){animation-delay:.3s;} .var-row:nth-child(4){animation-delay:.4s;}
+    .var-row:nth-child(5){animation-delay:.5s;} .var-row:nth-child(6){animation-delay:.6s;}
+    @keyframes varIn { to{opacity:1;transform:translateX(0);} }
+    .var-row.suspect { border-color:var(--purple); background:var(--purple-soft); }
+    .var-name  { font-family:var(--font-mono); font-size:10px; letter-spacing:.08em; color:var(--text-2); flex:1; text-transform:uppercase; }
+    .var-bar-wrap { width:120px; height:6px; background:var(--border); border-radius:3px; overflow:hidden; }
+    .var-bar { height:100%; border-radius:3px; width:0%; transition:width 1.2s .6s cubic-bezier(.34,1.2,.64,1); }
+    .var-status {
+      font-family:var(--font-mono); font-size:9px; letter-spacing:.06em;
+      padding:3px 8px; border-radius:100px; white-space:nowrap;
+    }
+    .var-status.ok   { background:rgba(5,150,105,.1);  color:var(--green); }
+    .var-status.warn { background:rgba(217,119,6,.1);  color:var(--amber); }
+    .var-status.crit { background:rgba(109,40,217,.12); color:var(--purple); border:1px solid var(--border-purple); }
+
+    /* Insight callout box */
+    .insight-box {
+      background:var(--purple-soft); border:1px solid var(--border-purple);
+      border-radius:var(--radius-md); padding:22px 24px;
+      margin-top:20px; position:relative; overflow:hidden;
+    }
+    .insight-box::before {
+      content:'💡'; position:absolute; right:16px; top:14px; font-size:28px; opacity:.25;
+    }
+    .insight-label { font-family:var(--font-mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--purple); margin-bottom:8px; }
+    .insight-text  { font-size:13px; font-weight:400; color:var(--text-1); line-height:1.75; }
+    .insight-text strong { color:var(--purple); font-weight:700; }
+
+    /* ── Animated alert card ── */
+    .alert-demo {
+      background:var(--bg-card); border:1px solid var(--border-2);
+      border-radius:var(--radius-md); overflow:hidden;
+    }
+    .alert-demo-bar {
+      height:4px; background:linear-gradient(90deg, var(--purple), var(--cyan));
+    }
+    .alert-demo-head {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 18px; border-bottom:1px solid var(--border);
+    }
+    .alert-demo-title { font-family:var(--font-head); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--text-1); }
+    .alert-demo-badge {
+      font-family:var(--font-mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+      padding:4px 10px; border-radius:100px;
+      background:rgba(220,38,38,.1); border:1px solid rgba(220,38,38,.3); color:#DC2626;
+      animation:alertBlink 2s ease-in-out infinite;
+    }
+    @keyframes alertBlink { 0%,100%{opacity:1;} 50%{opacity:.6;} }
+    .alert-demo-body { padding:16px 18px; display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .alert-table { width:100%; border-collapse:collapse; font-family:var(--font-mono); font-size:10px; }
+    .alert-table th { color:var(--text-3); font-weight:500; letter-spacing:.08em; text-align:left; padding:4px 0; border-bottom:1px solid var(--border); }
+    .alert-table td { padding:6px 0; color:var(--text-2); border-bottom:1px solid var(--border); }
+    .alert-table td.val-crit { color:#DC2626; font-weight:700; }
+    .sop-list { display:flex; flex-direction:column; gap:8px; }
+    .sop-item { display:flex; align-items:flex-start; gap:8px; font-size:12px; color:var(--text-2); line-height:1.5; }
+    .sop-num  { font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--purple); min-width:18px; }
+
+    /* ── Before / After results ── */
+    .results-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .result-item { display:flex; flex-direction:column; gap:12px; }
+    .result-label { font-family:var(--font-mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-3); }
+    .ba-bars { display:flex; gap:6px; align-items:flex-end; height:100px; }
+    .ba-col  { flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; justify-content:flex-end; }
+    .ba-bar  { width:100%; border-radius:4px 4px 0 0; transform-origin:bottom; transform:scaleY(0); animation:barUp .7s cubic-bezier(.34,1.4,.64,1) forwards; }
+    .ba-bar.before { background:rgba(220,38,38,.55); animation-delay:.1s; }
+    .ba-bar.after  { background:var(--green); animation-delay:.3s; }
+    @keyframes barUp { to{transform:scaleY(1);} }
+    .ba-val  { font-family:var(--font-head); font-size:14px; font-weight:800; }
+    .ba-val.before { color:rgba(220,38,38,.7); }
+    .ba-val.after  { color:var(--green); }
+    .ba-leg  { font-family:var(--font-mono); font-size:9px; color:var(--text-3); }
+
+    /* ── KPI stats ── */
+    .stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:32px; }
+    .stat-box {
+      background:var(--bg-card); border:1px solid var(--border-2);
+      border-radius:var(--radius-md); padding:22px 18px;
+      position:relative; overflow:hidden; box-shadow:var(--shadow-card);
+    }
+    .stat-box::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; }
+    .stat-box.p::after{background:var(--purple);} .stat-box.c::after{background:var(--cyan);}
+    .stat-box.g::after{background:var(--green);}  .stat-box.a::after{background:var(--amber);}
+    .stat-lbl { font-family:var(--font-mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-3); margin-bottom:8px; }
+    .stat-val { font-family:var(--font-head); font-size:36px; font-weight:900; line-height:1; margin-bottom:4px; }
+    .stat-val.p{color:var(--purple);} .stat-val.c{color:var(--cyan);} .stat-val.g{color:var(--green);} .stat-val.a{color:var(--amber);}
+    .stat-desc { font-family:var(--font-mono); font-size:10px; color:var(--text-3); }
+
+    @media(max-width:960px){
+      .whw-grid{grid-template-columns:1fr;} .rca-viz{grid-template-columns:1fr;}
+      .results-grid{grid-template-columns:1fr 1fr;} .stats-row{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:560px){
+      .results-grid{grid-template-columns:1fr;} .alert-demo-body{grid-template-columns:1fr;}
+      .solution-page{padding:16px 16px 60px;}
+    }
+  </style>
 </head>
 <body>
+
+<!-- ═══ HEADER ═══ -->
 <header class="header">
   <a href="index.html" class="logo-link"><img src="img/LOGO 1.png" alt="HolistView" class="logo-img"></a>
-  <nav class="nav"><ul class="nav-items">
-    <li class="nav-item"><a href="index.html">Accueil</a></li>
-    <li class="nav-item"><a href="societe.html">Société</a></li>
-    <li class="nav-item dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Solutions ▾</a>
-      <ul class="dropdown-content">
-        <li><a href="data_connexion.html">Connexion &amp; contextualisation des données</a></li>
-        <li><a href="data_contextualisation.html">Surveillance de processus de bout en bout</a></li>
-<li><a href="mcp_server.html" data-i18n="solutions.mcp">Serveur MCP (Model Context Protocol)</a></li>
-<li><a href="analyse_des_causes_racine.html">Analyse automatisée des causes racines</a></li>
-      </ul>
-    </li>
-    <li class="nav-item"><a href="contact.html">Contact</a></li>
-  </ul></nav>
+  <nav class="nav">
+    <ul class="nav-items">
+      <li class="nav-item"><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li class="nav-item"><a href="societe.html" data-i18n="nav.about">Société</a></li>
+      <li class="nav-item dropdown">
+        <a href="javascript:void(0)" class="dropbtn" data-i18n="nav.solutions">Solutions ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="data_connexion.html"           data-i18n="solutions.dataConnexion">Connexion &amp; contextualisation des données</a></li>
+          <li><a href="data_contextualisation.html"   data-i18n="solutions.dataContext">Surveillance de processus de bout en bout</a></li>
+          <li><a href="mcp_server.html"               data-i18n="solutions.mcp">Serveur MCP (Model Context Protocol)</a></li>
+          <li><a href="analyse_des_causes_racine.html" data-i18n="solutions.rootCause">Analyse automatisée des causes racines</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+  </nav>
   <div class="header-actions">
     <div class="lang-switch">
       <button class="lang-btn" onclick="setLanguage('fr')"><img src="img/fr.png" alt="Français"></button>
       <button class="lang-btn" onclick="setLanguage('en')"><img src="img/en.png" alt="English"></button>
     </div>
-    <a href="index.html#form-demo" class="demo-btn">Demander une démo</a>
-    <button class="menu-toggle">☰</button>
+    <a href="index.html#form-demo" class="demo-btn" data-i18n="btn.demo">Demander une démo</a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
   </div>
 </header>
 
+<!-- ═══ PAGE HERO ═══ -->
+<div class="page-hero">
+  <div class="eyebrow">Pilier 03</div>
+  <h1 class="page-hero-title" style="font-family:var(--font-head);font-size:clamp(32px,4vw,50px);font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--purple);">
+    Analyse automatisée<br>des causes racines
+  </h1>
+  <p class="page-hero-sub" style="font-size:14px;font-weight:300;color:var(--text-2);line-height:1.7;max-width:560px;">
+    L'IA détecte automatiquement les causes profondes de vos incidents — même celles invisibles à l'œil humain. Guidez vos équipes vers des actions correctives durables, avant que les pertes ne s'accumulent.
+  </p>
+</div>
+
 <div class="solution-page">
-  <div class="solution-header">
-    <div class="eyebrow">Pilier 03</div>
-    <h1>Analyse automatisée des causes racines</h1>
-    <p class="sub">Identifiez automatiquement les causes profondes de vos incidents. Guidez vos équipes vers des actions correctives durables grâce à l&apos;IA.</p>
-  </div>
-  
+
+  <!-- ══════════════════════════════════
+       THE CHALLENGE — 3 problem boxes
+  ══════════════════════════════════ -->
   <div class="problems-grid">
     <div class="problem-card">
       <div class="problem-badge">Diagnostic lent</div>
-      <p>Chaque incident déclenche des réunions chronophages. Le diagnostic prend des jours quand chaque heure compte.</p>
+      <p class="dc-sub" style="margin-top:8px;">Chaque incident déclenche des réunions chronophages. Des heures de débat pour un problème dont la cause reste souvent inconnue.</p>
     </div>
     <div class="problem-card">
-      <div class="problem-badge">Savoir-faire non capitalisé</div>
-      <p>L&apos;expertise de vos meilleurs techniciens reste dans les têtes. Elle disparaît avec les départs et les retraites.</p>
+      <div class="problem-badge">Causes invisibles</div>
+      <p class="dc-sub" style="margin-top:8px;">Les pertes surviennent même quand tous les paramètres semblent dans les plages autorisées. Les combinaisons cachées échappent à l'analyse humaine.</p>
     </div>
     <div class="problem-card">
       <div class="problem-badge">Récidives coûteuses</div>
-      <p>Sans analyse causale systématique, les mêmes problèmes réapparaissent mois après mois, entraînant des pertes cumulées.</p>
+      <p class="dc-sub" style="margin-top:8px;">Sans capitalisation systématique, les mêmes incidents réapparaissent mois après mois. L'expertise reste dans les têtes — et part à la retraite.</p>
     </div>
   </div>
-  <div style="background:var(--bg-card);border:1px solid var(--border-2);border-radius:var(--radius-lg);padding:40px;margin-bottom:40px;">
-    <div class="eyebrow" style="margin-bottom:16px;">L&apos;IA au service de vos experts</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
-      <div style="padding:20px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-md);">
-        <div style="font-size:24px;margin-bottom:10px;">🤖</div>
-        <div style="font-family:var(--font-head);font-size:16px;font-weight:700;text-transform:uppercase;margin-bottom:8px;">Corrélation automatique</div>
-        <div style="font-size:13px;color:var(--text-2);line-height:1.65;">L&apos;IA analyse des milliers de variables simultanément et identifie les patterns causaux invisibles à l&apos;humain.</div>
-      </div>
-      <div style="padding:20px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-md);">
-        <div style="font-size:24px;margin-bottom:10px;">📋</div>
-        <div style="font-family:var(--font-head);font-size:16px;font-weight:700;text-transform:uppercase;margin-bottom:8px;">Arbre des causes</div>
-        <div style="font-size:13px;color:var(--text-2);line-height:1.65;">Génération automatique de l&apos;arbre des causes avec probabilité pondérée pour chaque hypothèse.</div>
-      </div>
-      <div style="padding:20px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-md);">
-        <div style="font-size:24px;margin-bottom:10px;">🧬</div>
-        <div style="font-family:var(--font-head);font-size:16px;font-weight:700;text-transform:uppercase;margin-bottom:8px;">Capitalisation du savoir</div>
-        <div style="font-size:13px;color:var(--text-2);line-height:1.65;">Chaque résolution enrichit la base de connaissances. L&apos;IA devient plus pertinente à chaque incident.</div>
-      </div>
-    </div>
-  </div>
-  <div style="text-align:center;margin-top:60px;">
-    <a href="index.html#form-demo" class="btn-primary">Demander une démonstration →</a>
-  </div>
-</div>
 
+  <!-- ══════════════════════════════════
+       WHY / HOW / WHEN
+  ══════════════════════════════════ -->
+  <div class="rc-card">
+    <div class="dc-title">La réponse HolistView — Analyse en 3 temps</div>
+    <div class="dc-sub" style="margin-bottom:28px;">Comprendre pourquoi les pertes arrivent, comment les prévenir, et quand agir</div>
+
+    <div class="whw-grid">
+      <div class="whw-card">
+        <div class="whw-letter">WHY</div>
+        <div class="whw-card-title">Analyse automatisée des causes racines</div>
+        <div class="whw-card-text">L'IA corrèle des milliers de variables simultanément et révèle les causes réelles de chaque perte de production — même quand tous les paramètres semblent dans les plages autorisées. Les combinaisons invisibles à l'humain deviennent lisibles en secondes.</div>
+      </div>
+      <div class="whw-card">
+        <div class="whw-letter">HOW</div>
+        <div class="whw-card-title">Recommandations prédictives</div>
+        <div class="whw-card-text">Une fois la cause identifiée, HolistView génère des recommandations précises sur les réglages process optimaux à appliquer — température, vitesse, paramètres clés — pour éliminer l'inefficacité sans impacter les autres variables.</div>
+      </div>
+      <div class="whw-card">
+        <div class="whw-letter">WHEN</div>
+        <div class="whw-card-title">Alertes proactives en temps réel</div>
+        <div class="whw-card-text">Les recommandations sont transformées en alertes proactives délivrées aux équipes dès que les conditions à risque sont détectées — avant que les pertes ne surviennent. Chaque alerte inclut la procédure opérationnelle à suivre.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       RCA IN ACTION — Live investigation
+  ══════════════════════════════════ -->
+  <div class="rc-card">
+    <div class="dc-title">L'analyse en action — Causes cachées révélées</div>
+    <div class="dc-sub" style="margin-bottom:28px;">Cas réel : pertes par poids insuffisant sur une ligne de panification industrielle. Tous les capteurs semblaient dans les plages normales — l'IA a trouvé la cause en quelques minutes.</div>
+
+    <div class="rca-viz">
+      <!-- Left: variable investigation -->
+      <div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px;">
+          ⬡ Variables analysées — Suspects identifiés
+        </div>
+        <div class="var-list">
+          <div class="var-row">
+            <div class="var-name">Cutting Knife Speed</div>
+            <div class="var-bar-wrap"><div class="var-bar" style="background:var(--text-3);" data-w="28"></div></div>
+            <div class="var-status ok">Normal</div>
+          </div>
+          <div class="var-row">
+            <div class="var-name">Mixing Temperature</div>
+            <div class="var-bar-wrap"><div class="var-bar" style="background:var(--text-3);" data-w="35"></div></div>
+            <div class="var-status ok">Normal</div>
+          </div>
+          <div class="var-row">
+            <div class="var-name">Baking Humidity</div>
+            <div class="var-bar-wrap"><div class="var-bar" style="background:var(--text-3);" data-w="22"></div></div>
+            <div class="var-status ok">Normal</div>
+          </div>
+          <div class="var-row suspect">
+            <div class="var-name" style="color:var(--purple);font-weight:600;">Baking Temperature</div>
+            <div class="var-bar-wrap"><div class="var-bar" style="background:var(--purple);" data-w="92"></div></div>
+            <div class="var-status crit">⚠ Suspect #1</div>
+          </div>
+          <div class="var-row suspect">
+            <div class="var-name" style="color:var(--purple);font-weight:600;">Baking Conveyor Speed</div>
+            <div class="var-bar-wrap"><div class="var-bar" style="background:var(--purple);" data-w="85"></div></div>
+            <div class="var-status crit">⚠ Suspect #2</div>
+          </div>
+          <div class="var-row">
+            <div class="var-name">Mixing Speed Motor</div>
+            <div class="var-bar-wrap"><div class="var-bar" style="background:var(--text-3);" data-w="18"></div></div>
+            <div class="var-status ok">Normal</div>
+          </div>
+        </div>
+
+        <div class="insight-box" style="margin-top:20px;">
+          <div class="insight-label">🔍 Insight HolistView — combinaison cachée détectée</div>
+          <div class="insight-text">
+            Quand la <strong>température de cuisson dépasse 204 °C</strong> ET que la <strong>vitesse du convoyeur est inférieure à 5 m/s</strong>, les rejets par poids insuffisant augmentent de plusieurs fois — même si chaque paramètre pris séparément reste dans sa plage autorisée. Cette combinaison était <strong>invisible à l'analyse manuelle</strong>.
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: proactive alert mockup -->
+      <div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px;">
+          🔔 Alerte proactive générée — équipe notifiée
+        </div>
+        <div class="alert-demo">
+          <div class="alert-demo-bar"></div>
+          <div class="alert-demo-head">
+            <div class="alert-demo-title">Bread is Underweight</div>
+            <div class="alert-demo-badge">⚡ Alerted — 2.48 min</div>
+          </div>
+          <div class="alert-demo-body">
+            <div>
+              <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;">Conditions détectées</div>
+              <table class="alert-table">
+                <tr><th>Paramètre</th><th>Seuil</th><th>Valeur</th></tr>
+                <tr><td>Baking Temperature</td><td>&gt; 204 °C</td><td class="val-crit">206 °C</td></tr>
+                <tr><td>Conveyor Speed</td><td>&lt; 5 m/s</td><td class="val-crit">4.3 m/s</td></tr>
+              </table>
+            </div>
+            <div>
+              <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;">Procédure opérationnelle</div>
+              <div class="sop-list">
+                <div class="sop-item"><div class="sop-num">1.</div><div>Régler T° cuisson entre 199 °C – 203 °C</div></div>
+                <div class="sop-item"><div class="sop-num">2.</div><div>Augmenter la vitesse convoyeur à &gt; 5 m/s</div></div>
+                <div class="sop-item"><div class="sop-num">3.</div><div>Contrôle visuel sur 5 pièces consécutives</div></div>
+                <div class="sop-item"><div class="sop-num">4.</div><div>Notifier le responsable de quart</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recommendations panel -->
+        <div style="margin-top:16px;padding:18px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-md);">
+          <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px;">Fréquence des problèmes — Avant vs Après réglage</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-2);min-width:140px;">Bread Underweight</div>
+              <div style="flex:1;height:8px;background:rgba(220,38,38,.15);border-radius:4px;overflow:hidden;position:relative;">
+                <div class="reco-bar" data-before="74" data-after="22" style="height:100%;border-radius:4px;background:var(--green);width:0%;transition:width 1.4s .4s cubic-bezier(.34,1.2,.64,1);"></div>
+              </div>
+              <div style="font-family:var(--font-mono);font-size:10px;color:var(--green);min-width:60px;text-align:right;">7.4% → 2.2%</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-2);min-width:140px;">Bread Too Short</div>
+              <div style="flex:1;height:8px;background:rgba(220,38,38,.15);border-radius:4px;overflow:hidden;">
+                <div class="reco-bar" data-before="65" data-after="14" style="height:100%;border-radius:4px;background:var(--green);width:0%;transition:width 1.4s .6s cubic-bezier(.34,1.2,.64,1);"></div>
+              </div>
+              <div style="font-family:var(--font-mono);font-size:10px;color:var(--green);min-width:60px;text-align:right;">6.5% → 1.4%</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-2);min-width:140px;">Bread Too Flat</div>
+              <div style="flex:1;height:8px;background:rgba(220,38,38,.15);border-radius:4px;overflow:hidden;">
+                <div class="reco-bar" data-before="42" data-after="13" style="height:100%;border-radius:4px;background:var(--green);width:0%;transition:width 1.4s .8s cubic-bezier(.34,1.2,.64,1);"></div>
+              </div>
+              <div style="font-family:var(--font-mono);font-size:10px;color:var(--green);min-width:60px;text-align:right;">4.2% → 1.3%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       RESULTS / IMPACT — KPI stats
+  ══════════════════════════════════ -->
+  <div>
+    <div class="dc-title" style="margin-bottom:6px;">Résultats mesurés</div>
+    <div class="dc-sub" style="margin-bottom:22px;">Exemple réel : fabricant international de produits de boulangerie — ligne de pain toasté, Europe occidentale</div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-box p">
+      <div class="stat-lbl">Réduction des pertes</div>
+      <div class="stat-val p">70<span style="font-size:.5em">%</span></div>
+      <div class="stat-desc">rebuts qualité &amp; déchets</div>
+    </div>
+    <div class="stat-box g">
+      <div class="stat-lbl">Économies annuelles</div>
+      <div class="stat-val g">~1M<span style="font-size:.5em">€</span></div>
+      <div class="stat-desc">sur une seule ligne de production</div>
+    </div>
+    <div class="stat-box c">
+      <div class="stat-lbl">Insights process</div>
+      <div class="stat-val c">138</div>
+      <div class="stat-desc">nouvelles connaissances découvertes</div>
+    </div>
+    <div class="stat-box a">
+      <div class="stat-lbl">Productivité équipe</div>
+      <div class="stat-val a">↑↑</div>
+      <div class="stat-desc">chaque perte tracée à sa cause exacte</div>
+    </div>
+  </div>
+
+  <!-- Before / After comparison -->
+  <div class="rc-card" style="padding-top:32px;">
+    <div class="dc-title" style="margin-bottom:6px;">Avant / Après — Fréquence des problèmes</div>
+    <div class="dc-sub" style="margin-bottom:28px;">Réduction drastique des incidents après identification et traitement des causes racines</div>
+
+    <div class="results-grid">
+      <div class="result-item">
+        <div class="result-label">Bread Is Underweight</div>
+        <div class="ba-bars">
+          <div class="ba-col">
+            <div class="ba-val before">7.4%</div>
+            <div class="ba-bar before" style="height:90px;"></div>
+            <div class="ba-leg">Avant</div>
+          </div>
+          <div class="ba-col">
+            <div class="ba-val after">2.2%</div>
+            <div class="ba-bar after" style="height:27px;"></div>
+            <div class="ba-leg">Après</div>
+          </div>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:10px;color:var(--green);">↓ −70% de rebuts</div>
+      </div>
+
+      <div class="result-item">
+        <div class="result-label">Bread Is Too Short</div>
+        <div class="ba-bars">
+          <div class="ba-col">
+            <div class="ba-val before">6.5%</div>
+            <div class="ba-bar before" style="height:79px;"></div>
+            <div class="ba-leg">Avant</div>
+          </div>
+          <div class="ba-col">
+            <div class="ba-val after">1.4%</div>
+            <div class="ba-bar after" style="height:17px;"></div>
+            <div class="ba-leg">Après</div>
+          </div>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:10px;color:var(--green);">↓ −78% de rebuts</div>
+      </div>
+
+      <div class="result-item">
+        <div class="result-label">Bread Is Too Flat</div>
+        <div class="ba-bars">
+          <div class="ba-col">
+            <div class="ba-val before">4.2%</div>
+            <div class="ba-bar before" style="height:51px;"></div>
+            <div class="ba-leg">Avant</div>
+          </div>
+          <div class="ba-col">
+            <div class="ba-val after">1.3%</div>
+            <div class="ba-bar after" style="height:16px;"></div>
+            <div class="ba-leg">Après</div>
+          </div>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:10px;color:var(--green);">↓ −69% de rebuts</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       3 FEATURE CARDS
+  ══════════════════════════════════ -->
+  <div class="rc-card">
+    <div class="dc-title" style="margin-bottom:6px;">Capacités clés</div>
+    <div class="dc-sub" style="margin-bottom:28px;">Ce que HolistView fait pour vous — automatiquement</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
+      <div style="padding:22px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-md);">
+        <div style="font-size:26px;margin-bottom:12px;">🤖</div>
+        <div class="dc-title" style="font-size:16px;margin-bottom:8px;">Corrélation automatique</div>
+        <div class="dc-sub">L'IA analyse des milliers de variables simultanément et identifie les patterns causaux invisibles à l'humain — combinaisons complexes entre capteurs, paramètres et matières.</div>
+      </div>
+      <div style="padding:22px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-md);">
+        <div style="font-size:26px;margin-bottom:12px;">📋</div>
+        <div class="dc-title" style="font-size:16px;margin-bottom:8px;">Arbre des causes</div>
+        <div class="dc-sub">Génération automatique de l'arbre des causes avec probabilité pondérée pour chaque hypothèse. Visualisez clairement la chaîne causale de chaque incident.</div>
+      </div>
+      <div style="padding:22px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-md);">
+        <div style="font-size:26px;margin-bottom:12px;">🧬</div>
+        <div class="dc-title" style="font-size:16px;margin-bottom:8px;">Capitalisation du savoir</div>
+        <div class="dc-sub">Chaque résolution enrichit la base de connaissances. L'IA devient plus pertinente à chaque incident résolu. L'expertise ne disparaît plus avec les départs.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="text-align:center;margin-top:8px;">
+    <a href="index.html#form-demo" class="btn-primary">Voir une démo de l'analyse causes racines →</a>
+  </div>
+
+</div><!-- .solution-page -->
+
+<!-- ═══ FOOTER ═══ -->
 <footer class="footer">
   <div class="footer-main">
     <div>
       <img src="img/LOGO 1.png" alt="HolistView" class="footer-logo-img">
       <p class="footer-tagline">Première plateforme d'intelligence des processus dédiée à la production industrielle.</p>
-      <div class="footer-contact-item"><span class="fi">📍</span>12, Avenue Stalingrad, 95100 Argenteuil</div>
-      <div class="footer-contact-item"><span class="fi">📞</span>07 83 29 01 28</div>
-      <div class="footer-contact-item"><span class="fi">✉</span>contact@holisticview.com</div>
+      <div class="footer-contact-item"><span class="fi">📍</span> 12, Avenue Stalingrad, 95100 Argenteuil</div>
+      <div class="footer-contact-item"><span class="fi">📞</span> 07 83 29 01 28</div>
+      <div class="footer-contact-item"><span class="fi">✉</span> contact@holisticview.com</div>
     </div>
     <div>
       <div class="footer-col-title">Autres solutions</div>
       <nav class="footer-links">
         <a href="data_connexion.html">Connexion des données</a>
         <a href="data_contextualisation.html">Surveillance de processus</a>
-        <a href="analyse_des_causes_racine.html">Analyse des causes racines</a>
+        <a href="mcp_server.html">Serveur MCP</a>
       </nav>
     </div>
     <div>
-      <div class="footer-col-title">Informations</div>
+      <div class="footer-col-title" data-i18n="footer.info">Informations</div>
       <nav class="footer-links">
-        <a href="societe.html">Notre société</a>
-        <a href="contact.html">Nous contacter</a>
-        <a href="#">Mentions légales</a>
+        <a href="societe.html"  data-i18n="footer.about">Notre société</a>
+        <a href="contact.html"  data-i18n="footer.contact">Nous contacter</a>
+        <a href="#"             data-i18n="footer.legal">Mentions légales</a>
       </nav>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2025 HolistView — Tous droits réservés</span>
-    <div class="footer-social"><span style="font-size:13px;color:var(--text-3)">Retrouvez-nous sur</span>
-      <a href="https://www.linkedin.com/company/110467199/" class="linkedin-icon" target="_blank">in</a></div>
+    <div class="footer-social">
+      <span style="font-size:13px;color:var(--text-3)">Retrouvez-nous sur</span>
+      <a href="https://www.linkedin.com/company/110467199/" class="linkedin-icon" target="_blank" rel="noopener">in</a>
+    </div>
   </div>
 </footer>
-<script src="js/lang.js" defer></script><script src="js/main.js" defer></script>
+
+<script src="js/lang.js"></script>
+<script src="js/main.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded',function(){
-  const dds=document.querySelectorAll('.dropdown');
-  dds.forEach(dd=>{dd.querySelector('.dropbtn').addEventListener('click',e=>{e.preventDefault();e.stopPropagation();dds.forEach(d=>{if(d!==dd)d.classList.remove('show');});dd.classList.toggle('show');});});
-  document.addEventListener('click',()=>dds.forEach(d=>d.classList.remove('show')));
-  const t=document.querySelector('.menu-toggle'),n=document.querySelector('.nav-items'),v=document.querySelector('.nav');
-  if(t){t.addEventListener('click',e=>{e.stopPropagation();n.classList.toggle('active');v.style.display=n.classList.contains('active')?'block':'';t.innerHTML=n.classList.contains('active')?'✕':'☰';});}
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ── Variable relevance bars ── */
+  setTimeout(function () {
+    document.querySelectorAll('.var-bar').forEach(function (el, i) {
+      setTimeout(function () { el.style.width = el.getAttribute('data-w') + '%'; }, i * 100);
+    });
+  }, 300);
+
+  /* ── Reduction bars (show as percentage of "after" improvement) ── */
+  setTimeout(function () {
+    document.querySelectorAll('.reco-bar').forEach(function (el) {
+      var after = parseInt(el.getAttribute('data-after'));
+      el.style.width = after + '%';
+    });
+  }, 500);
+
+  /* ── Before/After chart bars already driven by CSS animations ── */
 });
 </script>
-</body></html>
+</body>
+</html>
