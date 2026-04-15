@@ -6,9 +6,130 @@
   <title data-i18n="title">Notre Société — HolistView</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* ── Title / text — same as data_connexion ── */
+    .dc-title {
+      font-family: var(--font-head);
+      font-size: 20px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .04em;
+      color: var(--purple); margin-bottom: 6px;
+    }
+    .dc-sub {
+      font-size: 14px; font-weight: 300;
+      color: var(--text-2); line-height: 1.7;
+    }
+
+    /* ── Shared card ── */
+    .sc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-lg);
+      padding: 40px; margin-bottom: 28px;
+      box-shadow: var(--shadow-card);
+    }
+
+    /* ── Origin story ── */
+    .origin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .origin-quote {
+      background: var(--purple-soft);
+      border-left: 4px solid var(--purple);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 20px 24px;
+      margin: 20px 0;
+      font-size: 14px; font-style: italic;
+      color: var(--text-1); line-height: 1.8;
+    }
+    .origin-quote strong { color: var(--purple); font-weight: 700; font-style: normal; }
+
+    /* ── Problem list ── */
+    .problem-list { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+    .problem-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 16px;
+      background: var(--bg-subtle); border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+    .problem-item-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .problem-item-text { font-size: 13px; font-weight: 300; color: var(--text-2); line-height: 1.65; }
+    .problem-item-text strong { color: var(--text-1); font-weight: 600; }
+
+    /* ── Stat cards ── */
+    .stat-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .stat-c {
+      background: var(--bg-card); border: 1px solid var(--border-2);
+      border-radius: var(--radius-md); padding: 24px 20px;
+      text-align: center; box-shadow: var(--shadow-card);
+      position: relative; overflow: hidden;
+    }
+    .stat-c::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; }
+    .stat-c.p::after{background:var(--purple);} .stat-c.c::after{background:var(--cyan);} .stat-c.g::after{background:var(--green);}
+    .stat-c-num { font-family: var(--font-head); font-size: 40px; font-weight: 900; line-height: 1; margin-bottom: 6px; }
+    .stat-c.p .stat-c-num{color:var(--purple);} .stat-c.c .stat-c-num{color:var(--cyan);} .stat-c.g .stat-c-num{color:var(--green);}
+    .stat-c-lbl { font-size: 13px; font-weight: 300; color: var(--text-2); line-height: 1.5; }
+
+    /* ── Values grid ── */
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .value-card {
+      background: var(--bg-subtle); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: 24px 20px;
+      transition: border-color .2s, transform .2s;
+    }
+    .value-card:hover { border-color: var(--border-purple); transform: translateY(-2px); }
+    .value-icon  { font-size: 28px; margin-bottom: 12px; }
+    .value-title { font-family: var(--font-head); font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--purple); margin-bottom: 8px; }
+    .value-text  { font-size: 13px; font-weight: 300; color: var(--text-2); line-height: 1.7; }
+
+    /* ── Mission vision ── */
+    .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .mv-card {
+      border-radius: var(--radius-md); padding: 28px 24px;
+    }
+    .mv-card.mission { background: var(--purple-soft); border: 1px solid var(--border-purple); }
+    .mv-card.vision  { background: rgba(8,145,178,.06); border: 1px solid rgba(8,145,178,.2); }
+    .mv-card-eyebrow { font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px; }
+    .mv-card.mission .mv-card-eyebrow { color: var(--purple); }
+    .mv-card.vision  .mv-card-eyebrow { color: var(--cyan); }
+    .mv-card-title {
+      font-family: var(--font-head); font-size: 18px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .04em; margin-bottom: 12px;
+    }
+    .mv-card.mission .mv-card-title { color: var(--purple); }
+    .mv-card.vision  .mv-card-title { color: var(--cyan); }
+    .mv-card-text { font-size: 14px; font-weight: 300; color: var(--text-2); line-height: 1.75; }
+
+    /* ── Innovation block ── */
+    .inno-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .inno-tag {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em;
+      padding: 5px 12px; border-radius: 100px;
+      background: var(--purple-soft); border: 1px solid var(--border-purple);
+      color: var(--purple);
+    }
+    .inno-tag.green { background: rgba(5,150,105,.08); border-color: rgba(5,150,105,.25); color: var(--green); }
+    .inno-tag.cyan  { background: var(--cyan-soft); border-color: rgba(8,145,178,.25); color: var(--cyan); }
+
+    @media(max-width:900px){
+      .origin-grid{grid-template-columns:1fr;}
+      .stat-cards{grid-template-columns:1fr 1fr;}
+      .values-grid{grid-template-columns:1fr 1fr;}
+      .mv-grid{grid-template-columns:1fr;}
+    }
+    @media(max-width:560px){
+      .stat-cards{grid-template-columns:1fr;}
+      .values-grid{grid-template-columns:1fr;}
+      .solution-page{padding:16px 16px 60px;}
+    }
+  </style>
 </head>
 <body>
 
+<!-- ═══ HEADER ═══ -->
 <header class="header">
   <a href="index.html" class="logo-link">
     <img src="img/LOGO 1.png" alt="HolistView" class="logo-img">
@@ -20,10 +141,10 @@
       <li class="nav-item dropdown">
         <a href="javascript:void(0)" class="dropbtn" data-i18n="nav.solutions">Solutions ▾</a>
         <ul class="dropdown-content">
-          <li><a href="data_connexion.html">Connexion &amp; contextualisation des données</a></li>
-          <li><a href="data_contextualisation.html">Surveillance de processus de bout en bout</a></li>
-<li><a href="mcp_server.html" data-i18n="solutions.mcp">Serveur MCP (Model Context Protocol)</a></li>
-<li><a href="analyse_des_causes_racine.html">Analyse automatisée des causes racines</a></li>
+          <li><a href="data_connexion.html"           data-i18n="solutions.dataConnexion">Connexion &amp; contextualisation des données</a></li>
+          <li><a href="data_contextualisation.html"   data-i18n="solutions.dataContext">Surveillance de processus de bout en bout</a></li>
+          <li><a href="mcp_server.html"               data-i18n="solutions.mcp">Serveur MCP (Model Context Protocol)</a></li>
+          <li><a href="analyse_des_causes_racine.html" data-i18n="solutions.rootCause">Analyse automatisée des causes racines</a></li>
         </ul>
       </li>
       <li class="nav-item"><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
@@ -34,68 +155,273 @@
       <button class="lang-btn" onclick="setLanguage('fr')"><img src="img/fr.png" alt="Français"></button>
       <button class="lang-btn" onclick="setLanguage('en')"><img src="img/en.png" alt="English"></button>
     </div>
-    <a href="index.html#form-demo" class="demo-btn">Demander une démo</a>
-    <button class="menu-toggle">☰</button>
+    <a href="index.html#form-demo" class="demo-btn" data-i18n="btn.demo">Demander une démo</a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
   </div>
 </header>
 
+<!-- ═══ PAGE HERO ═══ -->
 <div class="page-hero">
   <div class="eyebrow">À propos</div>
-  <h1 class="page-hero-title" data-i18n="societe.title">Notre société</h1>
-  <p class="page-hero-sub">Un acteur engagé dans la transformation digitale de l'industrie manufacturière.</p>
+  <h1 class="page-hero-title" style="font-family:var(--font-head);font-size:clamp(32px,4vw,50px);font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--purple);" data-i18n="soc.hero.title">
+    Notre société
+  </h1>
+  <p class="page-hero-sub" style="font-size:14px;font-weight:300;color:var(--text-2);line-height:1.7;max-width:560px;" data-i18n="soc.hero.sub">
+    Née d'une expérience de terrain sur plus de 250 sites de production, HolistView apporte une réponse concrète au verrou structurel de l'industrie : la fragmentation des données et des processus.
+  </p>
 </div>
 
-<div class="societe-layout">
-  <div class="societe-intro-block">
-    <h2 data-i18n="societe.title">HolistView</h2>
-    <p data-i18n="societe.text1">HolistView est un acteur majeur de la digitalisation industrielle. Nous aidons nos clients à améliorer leur production, leur OEE et leur suivi qualité grâce à notre plateforme d'intelligence des processus — la première dédiée à la fabrication.</p>
+<div class="solution-page">
+
+  <!-- ══════════════════════════════
+       ORIGIN STORY
+  ══════════════════════════════ -->
+  <div class="sc-card" style="position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple),var(--cyan));"></div>
+    <div class="dc-title" data-i18n="soc.origin.title">L'origine du projet</div>
+    <div class="dc-sub" style="margin-bottom:28px;" data-i18n="soc.origin.sub">Un constat de terrain, 250+ sites, un verrou structurel</div>
+
+    <div class="origin-grid">
+      <div>
+        <p class="dc-sub" style="margin-bottom:16px;" data-i18n="soc.origin.p1">
+          HolistView trouve son origine dans une expérience de terrain acquise en tant que <strong style="color:var(--purple);font-weight:600;">Chief Data Scientist</strong> au sein d'une société internationale déployant des solutions IoT industrielles dans plus de <strong style="color:var(--purple);font-weight:600;">250 sites de production</strong> à travers le monde.
+        </p>
+        <p class="dc-sub" style="margin-bottom:16px;" data-i18n="soc.origin.p2">
+          Cette expérience a mis en évidence un verrou structurel majeur : malgré la digitalisation croissante des usines et l'abondance des données disponibles, les systèmes industriels restent fortement <strong style="color:var(--text-1);font-weight:600;">fragmentés, hétérogènes et cloisonnés</strong>.
+        </p>
+        <div class="origin-quote" data-i18n="soc.origin.quote">
+          « Aucune plateforme ne permettait d'identifier les processus les plus complexes de toute l'organisation — du design jusqu'à la livraison des produits finis — ni de relier ces processus aux données opérationnelles et environnementales pour une prise de décision efficace. »
+        </div>
+        <p class="dc-sub" data-i18n="soc.origin.p3">
+          Ce constat a motivé la création de HOLISTICVIEW — une plateforme unifiée capable de relier processus, objets industriels et données environnementales, tout en favorisant une meilleure collaboration interne et externe.
+        </p>
+      </div>
+
+      <div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px;" data-i18n="soc.problems.label">Problèmes identifiés sur le terrain</div>
+        <div class="problem-list">
+          <div class="problem-item">
+            <div class="problem-item-icon">🏭</div>
+            <div class="problem-item-text" data-i18n="soc.prob1">
+              <strong>Systèmes en silos.</strong> ERP, MES, SCADA, EMS, CRM ne communiquent pas entre eux. Les données sont nombreuses mais restent décontextualisées, réduisant fortement leur valeur opérationnelle.
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="problem-item-icon">🤖</div>
+            <div class="problem-item-text" data-i18n="soc.prob2">
+              <strong>IA sans contexte.</strong> Les algorithmes analysent des données partielles, sans lien explicite avec les processus métiers, ce qui conduit à des recommandations difficilement exploitables.
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="problem-item-icon">🌱</div>
+            <div class="problem-item-text" data-i18n="soc.prob3">
+              <strong>Empreinte carbone non traçable.</strong> La majorité des industriels ne peuvent pas relier leurs émissions GES aux processus réels, ni aux produits ou commandes clients. Les données environnementales restent agrégées et déconnectées.
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="problem-item-icon">🔗</div>
+            <div class="problem-item-text" data-i18n="soc.prob4">
+              <strong>Zéro traçabilité de bout en bout.</strong> L'organisation en silos empêche toute vision holistique des processus réels et limite la traçabilité des flux industriels du design à la livraison.
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-cards">
+          <div class="stat-c p">
+            <div class="stat-c-num">250<span style="font-size:.5em">+</span></div>
+            <div class="stat-c-lbl" data-i18n="soc.stat1">Sites de production analysés</div>
+          </div>
+          <div class="stat-c c">
+            <div class="stat-c-num">70<span style="font-size:.5em">%</span></div>
+            <div class="stat-c-lbl" data-i18n="soc.stat2">Réduction des pertes qualité</div>
+          </div>
+          <div class="stat-c g">
+            <div class="stat-c-num">J14</div>
+            <div class="stat-c-lbl" data-i18n="soc.stat3">Opérationnel en 2 semaines</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="societe-cards">
-    <div class="societe-card">
-      <h3 data-i18n="societe.missionTitle">Notre mission</h3>
-      <p data-i18n="societe.missionText">Accompagner les industriels dans leur transformation digitale en unifiant leurs données, leurs systèmes et leurs équipes autour d'une vision partagée et temps réel de leurs opérations.</p>
-    </div>
-    <div class="societe-card">
-      <h3>Notre vision</h3>
-      <p>Nous croyons qu'il n'y a pas d'IA sans PI (Process Intelligence). Avant que l'intelligence artificielle puisse créer de la valeur, elle doit comprendre vos processus de bout en bout. C'est la base que nous posons.</p>
-    </div>
-    <div class="societe-card">
-      <h3>Nos valeurs</h3>
-      <p>Agilité, transparence et proximité avec nos clients. Nous nous engageons sur des résultats mesurables, avec une mise en œuvre rapide et non-intrusive qui respecte vos équipes et votre infrastructure existante.</p>
-    </div>
-    <div class="societe-card">
-      <h3>Notre équipe</h3>
-      <p>Des experts industriels et data scientists passionnés par l'excellence opérationnelle, qui ont vécu les problématiques terrain et conçu une solution pragmatique, réellement adaptée aux réalités de l'atelier.</p>
+  <!-- ══════════════════════════════
+       MISSION & VISION
+  ══════════════════════════════ -->
+  <div class="sc-card">
+    <div class="dc-title" data-i18n="soc.mv.title">Mission & Vision</div>
+    <div class="dc-sub" style="margin-bottom:28px;" data-i18n="soc.mv.sub">Ce qui nous anime et ce vers quoi nous tendons</div>
+
+    <div class="mv-grid">
+      <div class="mv-card mission">
+        <div class="mv-card-eyebrow" data-i18n="soc.mission.eyebrow">Notre mission</div>
+        <div class="mv-card-title" data-i18n="soc.mission.title">Unifier pour décider</div>
+        <div class="mv-card-text" data-i18n="soc.mission.text">
+          Accompagner les industriels dans leur transformation digitale en unifiant leurs données, leurs systèmes et leurs équipes autour d'une vision partagée et temps réel de leurs opérations. La solution consolide, standardise, harmonise et intègre les données pour une prise de décision éclairée, mesurable et traçable — conciliant compétitivité industrielle et transition écologique.
+        </div>
+      </div>
+      <div class="mv-card vision">
+        <div class="mv-card-eyebrow" data-i18n="soc.vision.eyebrow">Notre vision</div>
+        <div class="mv-card-title" data-i18n="soc.vision.title">There is no AI without PI</div>
+        <div class="mv-card-text" data-i18n="soc.vision.text">
+          Nous croyons qu'il n'y a pas d'IA sans Process Intelligence. Avant que l'intelligence artificielle puisse créer de la valeur, elle doit comprendre vos processus de bout en bout. HolistView vise à devenir la première plateforme permettant de suivre, de manière unifiée, la performance industrielle et l'empreinte environnementale — par processus et par objet.
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
+  <!-- ══════════════════════════════
+       THE INNOVATION
+  ══════════════════════════════ -->
+  <div class="sc-card" style="background:var(--bg-subtle);">
+    <div class="dc-title" data-i18n="soc.inno.title">La rupture technologique</div>
+    <div class="dc-sub" style="margin-bottom:24px;" data-i18n="soc.inno.sub">Manufacturing Unified Namespace — un langage commun pour l'industrie</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
+      <div>
+        <p class="dc-sub" style="margin-bottom:14px;" data-i18n="soc.inno.p1">
+          L'innovation repose sur la conception d'une <strong style="color:var(--purple);font-weight:600;">plateforme de Process Intelligence Unifiée</strong>, fondée sur un langage commun des événements et des objets industriels — le Manufacturing Unified Namespace (MUN).
+        </p>
+        <p class="dc-sub" style="margin-bottom:14px;" data-i18n="soc.inno.p2">
+          Cette approche permet de <strong style="color:var(--text-1);font-weight:600;">reconstruire les processus de bout en bout</strong> tels qu'ils sont réellement exécutés, d'y associer les données énergétiques et environnementales, et de rendre enfin mesurable l'impact carbone à l'échelle opérationnelle.
+        </p>
+        <p class="dc-sub" data-i18n="soc.inno.p3">
+          Pour la première fois, une entreprise peut calculer l'empreinte carbone d'une commande client spécifique, identifier les étapes les plus énergivores et piloter simultanément performance industrielle et réduction des émissions.
+        </p>
+      </div>
+      <div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px;" data-i18n="soc.inno.what">Ce que HolistView permet enfin</div>
+        <div class="problem-list">
+          <div class="problem-item" style="background:var(--bg-card);">
+            <div class="problem-item-icon">📦</div>
+            <div class="problem-item-text" data-i18n="soc.cap1">Calculer l'empreinte carbone d'un objet spécifique : commande client, machine ou produit fini.</div>
+          </div>
+          <div class="problem-item" style="background:var(--bg-card);">
+            <div class="problem-item-icon">⚡</div>
+            <div class="problem-item-text" data-i18n="soc.cap2">Identifier les étapes les plus énergivores d'un processus et les optimiser en priorité.</div>
+          </div>
+          <div class="problem-item" style="background:var(--bg-card);">
+            <div class="problem-item-icon">🔄</div>
+            <div class="problem-item-text" data-i18n="soc.cap3">Évaluer l'impact environnemental de décisions opérationnelles : changement de fournisseur, modification des cadences, choix logistique.</div>
+          </div>
+          <div class="problem-item" style="background:var(--bg-card);">
+            <div class="problem-item-icon">🎯</div>
+            <div class="problem-item-text" data-i18n="soc.cap4">Piloter simultanément performance industrielle et réduction des émissions depuis un seul tableau de bord.</div>
+          </div>
+        </div>
+        <div class="inno-tags" style="margin-top:16px;">
+          <span class="inno-tag">Manufacturing Unified Namespace</span>
+          <span class="inno-tag cyan">Objects & Events</span>
+          <span class="inno-tag green">CO₂ par objet</span>
+          <span class="inno-tag">Process Intelligence</span>
+          <span class="inno-tag cyan">MCP Server</span>
+          <span class="inno-tag green">Traçabilité bout en bout</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       VALUES
+  ══════════════════════════════ -->
+  <div class="sc-card">
+    <div class="dc-title" data-i18n="soc.values.title">Nos valeurs</div>
+    <div class="dc-sub" style="margin-bottom:28px;" data-i18n="soc.values.sub">Les principes qui guident chaque décision, chaque déploiement</div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🎯</div>
+        <div class="value-title" data-i18n="soc.val1.title">Pragmatisme terrain</div>
+        <div class="value-text" data-i18n="soc.val1.text">Nous venons de l'atelier. Chaque fonctionnalité HolistView répond à un problème réel identifié sur le terrain, pas à une hypothèse de laboratoire.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⚡</div>
+        <div class="value-title" data-i18n="soc.val2.title">Rapidité & non-intrusivité</div>
+        <div class="value-text" data-i18n="soc.val2.text">Opérationnel en 2 semaines, sans modifier votre infrastructure. Nous nous adaptons à votre environnement, pas l'inverse.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">📊</div>
+        <div class="value-title" data-i18n="soc.val3.title">Résultats mesurables</div>
+        <div class="value-text" data-i18n="soc.val3.text">Nous nous engageons sur des métriques concrètes : réduction des pertes, gain de productivité, économies générées. Pas de promesses floues.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <div class="value-title" data-i18n="soc.val4.title">Collaboration & transparence</div>
+        <div class="value-text" data-i18n="soc.val4.text">Une approche collaborative améliore la performance globale et renforce la confiance. Nous travaillons avec vos équipes, pas pour elles.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌱</div>
+        <div class="value-title" data-i18n="soc.val5.title">Durabilité intégrée</div>
+        <div class="value-text" data-i18n="soc.val5.text">La performance industrielle et la transition écologique ne s'opposent pas. HolistView les pilote ensemble depuis une seule plateforme.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🧠</div>
+        <div class="value-title" data-i18n="soc.val6.title">IA fondée sur le processus</div>
+        <div class="value-text" data-i18n="soc.val6.text">Nous ne croyons pas à l'IA générique. L'IA doit être ancrée dans vos processus réels pour générer des insights actionnables. C'est notre conviction fondatrice.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       TEAM
+  ══════════════════════════════ -->
+  <div class="sc-card">
+    <div class="dc-title" data-i18n="soc.team.title">Notre équipe</div>
+    <div class="dc-sub" style="margin-bottom:28px;" data-i18n="soc.team.sub">Des experts industriels et data scientists passionnés par l'excellence opérationnelle</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
+      <div>
+        <p class="dc-sub" style="margin-bottom:14px;" data-i18n="soc.team.p1">Notre équipe réunit des profils rares à la croisée de l'ingénierie industrielle et de la data science. Nous avons vécu les problématiques terrain — pannes inexpliquées, silotage des systèmes, IA qui ne tient pas ses promesses — et conçu une solution pragmatique, réellement adaptée aux réalités de l'atelier.</p>
+        <p class="dc-sub" data-i18n="soc.team.p2">Notre culture est celle de l'amélioration continue : chaque déploiement nous apprend quelque chose de nouveau que nous réintégrons dans la plateforme. 138 insights découverts sur un seul site. Multipliez par 250+.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="padding:16px 18px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-sm);display:flex;align-items:center;gap:14px;">
+          <span style="font-size:22px;">🏭</span>
+          <div><div style="font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--purple);" data-i18n="soc.expertise1.title">Expertise industrielle</div><div class="dc-sub" style="font-size:12px;" data-i18n="soc.expertise1.text">IoT, MES, SCADA, ERP — nous connaissons vos systèmes de l'intérieur.</div></div>
+        </div>
+        <div style="padding:16px 18px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-sm);display:flex;align-items:center;gap:14px;">
+          <span style="font-size:22px;">🤖</span>
+          <div><div style="font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--purple);" data-i18n="soc.expertise2.title">Data Science appliquée</div><div class="dc-sub" style="font-size:12px;" data-i18n="soc.expertise2.text">IA, corrélation causale, analyse statistique au service du processus industriel réel.</div></div>
+        </div>
+        <div style="padding:16px 18px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-sm);display:flex;align-items:center;gap:14px;">
+          <span style="font-size:22px;">🌱</span>
+          <div><div style="font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--purple);" data-i18n="soc.expertise3.title">Sustainability engineering</div><div class="dc-sub" style="font-size:12px;" data-i18n="soc.expertise3.text">Traçabilité carbone, bilan GES par objet, pilotage de la transition écologique.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="text-align:center;margin-top:8px;">
+    <a href="index.html#form-demo" class="btn-primary" data-i18n="btn.demo">Demander une démo →</a>
+  </div>
+
+</div><!-- solution-page -->
+
+<!-- ═══ FOOTER ═══ -->
 <footer class="footer">
   <div class="footer-main">
     <div>
       <img src="img/LOGO 1.png" alt="HolistView" class="footer-logo-img">
       <p class="footer-tagline">Première plateforme d'intelligence des processus dédiée à la production industrielle.</p>
-      <div class="footer-contact-item"><span class="fi">📍</span>12, Avenue Stalingrad, 95100 Argenteuil</div>
-      <div class="footer-contact-item"><span class="fi">📞</span>07 83 29 01 28</div>
-      <div class="footer-contact-item"><span class="fi">✉</span>contact@holisticview.com</div>
+      <div class="footer-contact-item"><span class="fi">📍</span> 12, Avenue Stalingrad, 95100 Argenteuil</div>
+      <div class="footer-contact-item"><span class="fi">📞</span> 07 83 29 01 28</div>
+      <div class="footer-contact-item"><span class="fi">✉</span> contact@holisticview.com</div>
     </div>
     <div>
-      <div class="footer-col-title">Dernières actus</div>
+      <div class="footer-col-title" data-i18n="footer.newsTitle">Dernières actus</div>
       <ul class="footer-news">
-        <li>Salon SEPEM Angers 2025</li>
-        <li>Salon Prod&Pack Lyon 2025</li>
-        <li>Article : Le Management visuel</li>
-        <li>Partenariat Sofrastock</li>
+        <li data-i18n="footer.news1">Salon SEPEM Angers 2025</li>
+        <li data-i18n="footer.news2">Salon Prod&amp;Pack Lyon 2025</li>
+        <li data-i18n="footer.news3">Article : Le Management visuel</li>
+        <li data-i18n="footer.news4">Partenariat Sofrastock</li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Informations</div>
+      <div class="footer-col-title" data-i18n="footer.info">Informations</div>
       <nav class="footer-links">
-        <a href="societe.html">Notre société</a>
-        <a href="solutions.html">Nos solutions</a>
-        <a href="contact.html">Nous contacter</a>
-        <a href="#">Mentions légales</a>
+        <a href="societe.html"   data-i18n="footer.about">Notre société</a>
+        <a href="solutions.html" data-i18n="nav.solutions">Nos solutions</a>
+        <a href="contact.html"   data-i18n="footer.contact">Nous contacter</a>
+        <a href="#"              data-i18n="footer.legal">Mentions légales</a>
       </nav>
     </div>
   </div>
@@ -103,36 +429,12 @@
     <span>© 2025 HolistView — Tous droits réservés</span>
     <div class="footer-social">
       <span style="font-size:13px;color:var(--text-3)">Retrouvez-nous sur</span>
-      <a href="https://www.linkedin.com/company/110467199/" class="linkedin-icon" target="_blank">in</a>
+      <a href="https://www.linkedin.com/company/110467199/" class="linkedin-icon" target="_blank" rel="noopener">in</a>
     </div>
   </div>
 </footer>
 
-<script src="js/lang.js" defer></script>
-<script src="js/main.js" defer></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const dropdowns = document.querySelectorAll('.dropdown');
-  dropdowns.forEach(dd => {
-    dd.querySelector('.dropbtn').addEventListener('click', e => {
-      e.preventDefault(); e.stopPropagation();
-      dropdowns.forEach(d => { if(d!==dd) d.classList.remove('show'); });
-      dd.classList.toggle('show');
-    });
-  });
-  document.addEventListener('click', () => dropdowns.forEach(d => d.classList.remove('show')));
-  const toggle = document.querySelector('.menu-toggle');
-  const navItems = document.querySelector('.nav-items');
-  const nav = document.querySelector('.nav');
-  if (toggle) {
-    toggle.addEventListener('click', e => {
-      e.stopPropagation();
-      navItems.classList.toggle('active');
-      nav.style.display = navItems.classList.contains('active') ? 'block' : '';
-      toggle.innerHTML = navItems.classList.contains('active') ? '✕' : '☰';
-    });
-  }
-});
-</script>
+<script src="js/lang.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

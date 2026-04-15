@@ -1,625 +1,454 @@
+/* ═══════════════════════════════════════════════════════
+   HolistView — Translation Engine  v2.0
+   Supports: data-i18n="key"
+             data-i18n="[placeholder]key"
+             data-i18n="[alt]key"
+             data-i18n="[title]key"
+   Pages: index, contact, societe, solutions,
+     data_connexion, data_contextualisation,
+     analyse_des_causes_racine, mcp_server
+═══════════════════════════════════════════════════════ */
+
 const translations = {
+
   fr: {
-    "title": "HolisticView",
-    "header.logo": "HolisticView",
-    "nav.home": "Accueil",
-    "nav.about": "Société",
-    "nav.solutions": "Solutions ▾",
-    "nav.clients": "Clients",
-    "nav.news": "Actualités",
-    "nav.contact": "Contact",
+    title: "HolistView — Process Intelligence",
+    "nav.home":"Accueil","nav.about":"Société","nav.solutions":"Solutions ▾","nav.contact":"Contact","header.logo":"HolistView",
+    "btn.demo":"Demander une démo",
+    "hero.label":"Plateforme Process Intelligence",
+    "about.eyebrow":"Notre vision",
+    "about.p1":"Aujourd'hui, les usines sont fragmentées : machines, capteurs, systèmes MES et ERP parlent des langages différents, tandis que les départements travaillent en silos.",
+    "contact.title":"Première plateforme d'intelligence des processus dédiée à la production industrielle",
+    "contact.subtitle":"Systèmes séparés, départements isolés ? Nous unifions tout.",
+    "contact.text1":"Aujourd'hui, les usines sont fragmentées : machines, capteurs, systèmes MES et ERP parlent des langages différents, tandis que les départements — production, qualité et maintenance — travaillent en silos. Nous comblons ces écarts en créant un langage unifié entre les systèmes et les départements, vous offrant une vue unique, cohérente et en temps réel de l'ensemble de vos opérations.",
+    "stats.badge1":"Faible visibilité","stats.badge2":"Goulots d'étranglement inconnus","stats.badge3":"Contrôle qualité difficile",
+    "stats.text1":"80% d'accès plus rapide aux connaissances critiques","stats.text2":"Économisez des centaines d'heures par an","stats.text3":"Résolvez les problèmes 40 à 70% plus vite",
+    "solutions.dataConnexion":"Connexion & contextualisation des données",
+    "solutions.dataContext":"Surveillance de processus de bout en bout",
+    "solutions.rootCause":"Analyse automatisée des causes racines",
+    "solutions.mcp":"Serveur MCP (Model Context Protocol)",
+    "solutions.mcpText":"Exposez vos données industrielles aux agents IA via le protocole MCP d'Anthropic.",
+    "solutions.mcpShort":"Vos LLMs interrogent directement vos processus en temps réel.",
+    "section.transformation":"Transformation & amélioration continue",
+    "ctx.hero.title":"Surveillance de processus<br>de bout en bout",
+    "ctx.hero.sub":"Supervisez l'intégralité de vos lignes en temps réel. Détectez dérives, goulots et anomalies avant qu'ils n'impactent votre production.",
+    "ctx.trace.title":"Traçabilité des objets — Process Graph",
+    "ctx.trace.sub":"Sélectionnez un objet industriel et tracez ses relations en temps réel : activités, équipements, matières consommées.",
+    "ctx.pipeline.badge":"<span class=\"live-dot\"></span>Flux temps réel — Ligne A &nbsp;·&nbsp; OF-2024-1187",
+    "ctx.gauge.badge":"<span class=\"live-dot\"></span>OEE en direct — Toutes lignes",
+    "ctx.kpi.oee":"OEE Ligne A","ctx.kpi.cadence":"Cadence actuelle","ctx.kpi.quality":"Taux qualité","ctx.kpi.alerts":"Alertes actives",
+    "ctx.perf.title":"Performance par quart","ctx.alert.title":"Flux d'alertes","ctx.alert.live":"Temps réel",
+    "rca.hero.title":"Analyse automatisée<br>des causes racines",
+    "rca.hero.sub":"L'IA détecte automatiquement les causes profondes de vos incidents — même celles invisibles à l'œil humain. Guidez vos équipes vers des actions correctives durables, avant que les pertes ne s'accumulent.",
+    "rca.problem.slow":"Diagnostic lent","rca.problem.hidden":"Causes invisibles","rca.problem.repeat":"Récidives coûteuses",
+    "rca.section.whw.title":"La réponse HolistView — Analyse en 3 temps",
+    "rca.section.whw.sub":"Comprendre pourquoi les pertes arrivent, comment les prévenir, et quand agir",
+    "rca.why.title":"Analyse automatisée des causes racines",
+    "rca.why.text":"L'IA corrèle des milliers de variables et révèle les causes réelles de chaque perte — même quand tous les paramètres semblent dans les plages autorisées.",
+    "rca.how.title":"Recommandations prédictives",
+    "rca.how.text":"HolistView génère des recommandations précises sur les réglages process optimaux pour éliminer l'inefficacité sans impacter les autres variables.",
+    "rca.when.title":"Alertes proactives en temps réel",
+    "rca.when.text":"Les recommandations deviennent des alertes proactives délivrées aux équipes dès que les conditions à risque sont détectées — avant que les pertes ne surviennent.",
+    "rca.section.action.title":"L'analyse en action — Causes cachées révélées",
+    "rca.section.action.sub":"Cas réel : pertes par poids insuffisant sur une ligne de panification industrielle.",
+    "rca.section.results.title":"Résultats mesurés",
+    "rca.section.results.sub":"Exemple réel : fabricant international de produits de boulangerie — ligne de pain toasté, Europe occidentale",
+    "rca.stat.reduction":"Réduction des pertes","rca.stat.savings":"Économies annuelles","rca.stat.insights":"Insights process","rca.stat.productivity":"Productivité équipe",
+    "rca.section.features.title":"Capacités clés",
+    "rca.section.features.sub":"Ce que HolistView fait pour vous — automatiquement",
+    "rca.feat.corr.title":"Corrélation automatique","rca.feat.corr.text":"L'IA analyse des milliers de variables et identifie les patterns causaux invisibles à l'humain.",
+    "rca.feat.tree.title":"Arbre des causes","rca.feat.tree.text":"Génération automatique de l'arbre des causes avec probabilité pondérée pour chaque hypothèse.",
+    "rca.feat.knowledge.title":"Capitalisation du savoir","rca.feat.knowledge.text":"Chaque résolution enrichit la base de connaissances. L'IA devient plus pertinente à chaque incident résolu.",
+    "mcp.hero.title":"Serveur MCP<br>Model Context Protocol",
+    "mcp.hero.sub":"Exposez vos données industrielles aux agents IA via le protocole ouvert d'Anthropic. Permettez à vos LLMs d'interroger directement vos processus, KPI et historiques — en temps réel.",
+    "mcp.what.title":"Qu'est-ce que le MCP ?",
+    "mcp.what.sub":"Un standard ouvert pour connecter les agents IA à vos données industrielles en temps réel",
+    "mcp.arch.title":"Architecture MCP",
+    "mcp.arch.sub":"Les données fluent de chaque source industrielle → HolistView MCP Server → vers chaque agent IA",
+    "mcp.tools.title":"Outils MCP exposés",
+    "mcp.tools.sub":"Chaque outil est appelable par n'importe quel agent IA compatible MCP",
+    "mcp.cases.title":"Cas d'usage",
+    "mcp.cases.sub":"Ce que vos agents IA peuvent faire avec HolistView MCP",
+    "mcp.case.chat":"Chatbot opérationnel","mcp.case.diag":"Diagnostic autonome","mcp.case.report":"Reporting intelligent",
+    "mcp.case.predict":"Maintenance prédictive","mcp.case.optim":"Optimisation continue","mcp.case.know":"Base de connaissances vivante",
+    "societe.title":"Notre société",
+    "societe.text1":"HolistView est un acteur majeur de la digitalisation industrielle. Nous aidons nos clients à améliorer leur production, leur OEE et leur suivi qualité.",
+    "societe.missionTitle":"Notre mission","societe.missionText":"Accompagner les entreprises dans leur transformation digitale et optimiser leur performance industrielle.",
+    "societe.vision.title":"Notre vision","societe.values.title":"Nos valeurs","societe.team.title":"Notre équipe",
+    "contact.titl":"Contactez-nous",
+    "contact.text2":"Vous avez une question ou souhaitez nous présenter votre projet ? Notre équipe vous répondra dans les plus brefs délais.",
+    "contact.label.nom":"Nom","contact.label.prenom":"Prénom","contact.label.societe":"Société","contact.label.email":"Email",
+    "contact.label.source":"Comment avez-vous entendu parler de nous ?","contact.label.objet":"Objet","contact.label.message":"Votre message",
+    "contact.btn.envoyer":"Envoyer",
+    "contact.placeholder.nom":"Dupont","contact.placeholder.prenom":"Jean","contact.placeholder.societe":"Votre entreprise",
+    "contact.placeholder.email":"jean.dupont@entreprise.com","contact.placeholder.objet":"Objet de votre message",
+    "contact.placeholder.message":"Décrivez votre projet ou votre question...","contact.captcha.refresh":"Rafraîchir le captcha",
+    "form.subtitle":"Demande de démonstration","form.name":"Nom complet","form.email":"Email professionnel",
+    "form.company":"Entreprise","form.function":"Fonction","form.sector":"Secteur","form.message":"Message",
+    "form.submit":"Envoyer la demande","form.success":"✓ Merci ! Nous vous répondrons dans les plus brefs délais.",
+    "form.selectFunction":"-- Sélectionnez votre fonction --","form.selectSector":"-- Sélectionnez votre secteur --",
+    "form.func.direction":"Direction générale","form.func.marketing":"Marketing / Communication","form.func.commercial":"Commercial / Vente",
+    "form.func.it":"Informatique / IT","form.func.production":"Production / Exploitation","form.func.qse":"Qualité / Sécurité / Environnement",
+    "form.func.logistique":"Logistique / Supply Chain","form.func.achats":"Achats / Approvisionnement","form.func.rh":"Ressources humaines",
+    "form.func.finance":"Finance / Comptabilité","form.func.support":"Support / Service client","form.func.autre":"Autre",
+    "form.sector.industrie":"Industrie / Fabrication","form.sector.banque":"Banque / Assurance","form.sector.tech":"Technologie / Informatique",
+    "form.sector.sante":"Santé / Pharmaceutique","form.sector.agro":"Agroalimentaire","form.sector.commerce":"Commerce / Distribution",
+    "form.sector.services":"Services","form.sector.public":"Secteur public","form.sector.transport":"Transport / Logistique",
+    "form.sector.energie":"Énergie / Environnement","form.sector.autre":"Autre",
+    "form.source1":"Réseaux sociaux","form.source2":"Recommandation","form.source3":"Salon professionnel","form.source4":"Moteur de recherche","form.source5":"Autre",
 
-    "btn.demo": "Demander une démo",
-    "form.title": "Demande de démonstration",
-    "form.subtitle": "Demande de démonstration",
-    "form.name": "Nom complet :",
-    "form.email": "Email :",
-    "form.company": "Entreprise :",
-    "form.function": "Fonction :",
-    "form.selectFunction": "-- Sélectionnez votre fonction --",
-    "form.func.direction": "Direction générale",
-    "form.func.marketing": "Marketing / Communication",
-    "form.func.commercial": "Commercial / Vente",
-    "form.func.it": "Informatique / IT",
-    "form.func.production": "Production / Exploitation",
-    "form.func.qse": "Qualité / Sécurité / Environnement (QSE)",
-    "form.func.logistique": "Logistique / Supply Chain",
-    "form.func.achats": "Achats / Approvisionnement",
-    "form.func.rh": "Ressources humaines",
-    "form.func.finance": "Finance / Comptabilité",
-    "form.func.support": "Support / Service client",
-    "form.func.autre": "Autre",
-    "form.sector": "Secteur :",
-    "form.selectSector": "-- Sélectionnez votre secteur --",
-    "form.sector.industrie": "Industrie",
-    "form.sector.tech": "Technologie / Informatique",
-    "form.sector.sante": "Santé / Pharmaceutique",
-    "form.sector.agro": "Agroalimentaire",
-    "form.sector.commerce": "Commerce / Distribution",
-    "form.sector.services": "Services",
-    "form.sector.public": "Secteur public",
-    "form.sector.transport": "Transport / Logistique",
-    "form.sector.energie": "Énergie / Environnement",
-    "form.sector.autre": "Autre",
-    "form.message": "Message :",
-    "form.submit": "Envoyer",
-    "form.success": "✅ Merci pour votre contact !\nNous vous répondrons dans les plus brefs délais.",
+    /* ── Index / Home ── */
+    "home.hero.desc":"Première plateforme d'intelligence des processus dédiée à la production industrielle. Née d'une expérience sur plus de 250 sites de production, HolistView unifie vos processus, vos données et votre performance — en temps réel.",
+    "home.stat1":"Sites de production analysés à l'origine du projet",
+    "home.stat2":"Réduction des pertes qualité et déchets",
+    "home.stat3":"Vue unifiée processus + données + empreinte CO₂",
+    "home.stat4":"Opérationnel en 2 semaines, sans interruption de production",
+    "home.problem.eyebrow":"Le verrou structurel",
+    "home.problem.title":"Vos données existent.<br>Elles ne se parlent pas.",
+    "home.problem.sub":"Les systèmes industriels sont organisés par fonctions. ERP, MES, SCADA, EMS, CRM — chacun dans son silo. Aucune plateforme ne permettait de les relier et de reconstruire le processus réel de bout en bout. Jusqu'à maintenant.",
+    "home.silo1.title":"Fragmentation systémique",
+    "home.silo1.text":"ERP, MES, SCADA, EMS, CRM parlent des langages différents. Les données sont nombreuses mais décontextualisées, ce qui réduit fortement leur valeur opérationnelle.",
+    "home.silo2.title":"L'IA sans contexte ne fonctionne pas",
+    "home.silo2.text":"Les LLMs sont entraînés sur des données publiques. Ils ne connaissent pas vos processus, vos rôles, ni vos flux réels. Sans Process Intelligence, l'IA génère des réponses génériques — pas des insights actionnables.",
+    "home.silo3.title":"Impact environnemental non traçable",
+    "home.silo3.text":"La majorité des industriels ne peuvent pas relier leurs émissions CO₂ à leurs processus réels. L'empreinte carbone reste agrégée, déconnectée des commandes, produits et décisions opérationnelles.",
+    "home.aipi.eyebrow":"L'étape que toutes les stratégies IA ignorent",
+    "home.aipi.quote1":"L'IA est aussi intelligente",
+    "home.aipi.quote2":"que le contexte qu'on lui donne.",
+    "home.aipi.p1":"Pour libérer le potentiel réel de l'IA industrielle, vous avez besoin de quelque chose que la plupart des organisations n'ont pas : un modèle complet de la façon dont elles opèrent. Chaque processus. Chaque ressource. Chaque point de décision.",
+    "home.aipi.callout":"<strong>« Le principal frein à l'IA industrielle n'est pas technologique, mais structurel et informationnel : l'absence d'un cadre unifié permettant de relier événements, objets industriels et décisions métier. »</strong>",
+    "home.aipi.p2":"C'est exactement pour ça qu'HolistView a été conçu — construire le Digital Twin de vos Opérations, la fondation que l'IA nécessite pour générer de vrais insights, et non des réponses génériques.",
+    "home.founder.quote":"« Après avoir déployé des solutions IoT dans plus de <span class=\"hl\">250 sites de production</span> dans le monde, un constat s'est imposé : les usines croulent sous les données mais restent aveugles à leurs processus réels. <span class=\"hl\">HolistView est la réponse à ce verrou structurel.</span> »",
+    "home.founder.name":"Fondateur, HolistView",
+    "home.founder.role":"Ex-Chief Data Scientist · 250+ sites industriels · IoT & Process Intelligence",
+    "home.env.eyebrow":"Performance & durabilité",
+    "home.env.title":"Pilotez performance industrielle<br><span style=\"color:var(--green)\">et empreinte carbone</span> ensemble",
+    "home.env.sub":"Pour la première fois, reliez vos émissions CO₂ à vos processus réels, vos commandes clients et vos produits. Concilier compétitivité industrielle et transition écologique devient enfin possible.",
+    "home.env1.title":"CO₂ par commande",
+    "home.env1.text":"Calculez l'empreinte carbone d'un objet spécifique : commande client, machine ou produit fini.",
+    "home.env2.title":"Étapes énergivores",
+    "home.env2.text":"Identifiez les étapes les plus consommatrices d'énergie dans vos processus pour les optimiser en priorité.",
+    "home.env3.title":"Impact des décisions",
+    "home.env3.text":"Évaluez l'impact environnemental avant d'agir : changement de fournisseur, modification des cadences, choix logistique.",
+    "home.env4.title":"Double pilotage",
+    "home.env4.text":"Un seul tableau de bord pour piloter simultanément votre performance industrielle et la réduction de vos émissions.",
+    "home.pillars.eyebrow":"Nos solutions",
+    "home.pillars.title":"Une plateforme,<br>quatre piliers",
+    "home.pillars.sub":"De la connexion des données à l'intelligence des agents IA, HolistView couvre l'intégralité de votre Process Intelligence.",
+    "home.pillar1.name":"Connexion des données","home.pillar1.desc":"Connectez toutes vos sources — machines, capteurs, MES, ERP — en un seul flux unifié. 10+ connecteurs natifs : OPC-UA, MQTT, SAP, Odoo, PostgreSQL…",
+    "home.pillar2.name":"Surveillance de processus","home.pillar2.desc":"Tracez chaque objet industriel — ordre de fabrication, équipement, matière — et détectez les anomalies avant qu'elles impactent votre production.",
+    "home.pillar3.name":"Analyse des causes racines","home.pillar3.desc":"L'IA révèle les causes cachées de vos pertes — même celles que vos experts n'auraient jamais trouvées — et génère des recommandations actionnables.",
+    "home.pillar4.name":"Serveur MCP","home.pillar4.desc":"Exposez vos données industrielles aux agents IA via le Model Context Protocol. Claude, GPT et vos agents personnalisés interrogent vos processus en langage naturel.",
+    "home.how.eyebrow":"Méthodologie",
+    "home.how.title":"Opérationnel en 2 semaines,<br>pas en 6 mois",
+    "home.how.sub":"Une mise en œuvre rapide et non-intrusive qui s'adapte à votre environnement existant — sans modifier votre infrastructure.",
+    "home.step1.name":"Connexion & intégration","home.step1.desc":"Connexion à vos systèmes existants (OPC-UA, MQTT, API, SQL) sans modifier votre infrastructure. Aucune interruption de production.",
+    "home.step2.name":"Standardisation en objets & événements","home.step2.desc":"Toutes les données sont transformées en un langage commun — Manufacturing Unified Namespace — pour reconstruire les processus tels qu'ils sont réellement exécutés.",
+    "home.step3.name":"Intelligence & alertes","home.step3.desc":"Détection des dérives, calcul des KPI, alertes proactives et traçabilité CO₂ par processus et par objet — tout en temps réel.",
+    "home.step4.name":"IA & amélioration continue","home.step4.desc":"Les agents IA accèdent à vos processus via MCP, identifient les causes racines et capitalisent le savoir-faire de vos experts pour une amélioration durable.",
+    "home.deploy.label":"Déploiement type","home.deploy.j1":"Connexion données","home.deploy.j3":"Standardisation MUN","home.deploy.j7":"Dashboard live + CO₂","home.deploy.j14":"IA agents + Root Cause","home.deploy.badge":"⚡ Opérationnel en 2 semaines",
+    "home.cta.eyebrow":"Passez à l'action",
+    "home.cta.title1":"Prêt à donner à votre IA","home.cta.title2":"le contexte qu'elle mérite ?",
+    "home.cta.sub":"Rejoignez les industriels qui ont choisi HolistView pour unifier leurs processus, piloter leur performance et réduire leur empreinte carbone — en temps réel.",
+    "home.cta.btn1":"Demander une démo gratuite","home.cta.btn2":"Nous contacter",
+    "home.footer.tagline":"Première plateforme d'intelligence des processus dédiée à la production industrielle.",
 
-    "solutions.dataConnexion": "Connexion et Contextualisation des Données",
-    "solutions.dataContext": "Surveillance de Processus de bout en bout",
-    "solutions.rootCause": "Analyse automatisée des Causes Racines",
-    "solutions.dataConnexionText": "Découvrez notre solution de data connexion pour intégrer vos machines et vos systèmes MES afin de collecter et centraliser vos données en temps réel.",
-    "solutions.dataContextText": "Notre solution permet de contextualiser vos données industrielles pour faciliter l’analyse et la prise de décision.",
-    "solutions.rootCauseText": "Cette solution vous aide à identifier les causes principales des incidents pour améliorer vos processus et réduire les pertes.",
+    /* ── Société page ── */
+    "soc.hero.title":"Notre société",
+    "soc.hero.sub":"Née d'une expérience de terrain sur plus de 250 sites de production, HolistView apporte une réponse concrète au verrou structurel de l'industrie : la fragmentation des données et des processus.",
+    "soc.origin.title":"L'origine du projet",
+    "soc.origin.sub":"Un constat de terrain, 250+ sites, un verrou structurel",
+    "soc.origin.p1":"HolistView trouve son origine dans une expérience de terrain acquise en tant que <strong style=\"color:var(--purple);font-weight:600;\">Chief Data Scientist</strong> au sein d'une société internationale déployant des solutions IoT industrielles dans plus de <strong style=\"color:var(--purple);font-weight:600;\">250 sites de production</strong> à travers le monde.",
+    "soc.origin.p2":"Cette expérience a mis en évidence un verrou structurel majeur : malgré la digitalisation croissante des usines et l'abondance des données disponibles, les systèmes industriels restent fortement <strong style=\"color:var(--text-1);font-weight:600;\">fragmentés, hétérogènes et cloisonnés</strong>.",
+    "soc.origin.quote":"« Aucune plateforme ne permettait d'identifier les processus les plus complexes de toute l'organisation — du design jusqu'à la livraison des produits finis — ni de relier ces processus aux données opérationnelles et environnementales pour une prise de décision efficace. »",
+    "soc.origin.p3":"Ce constat a motivé la création de HOLISTICVIEW — une plateforme unifiée capable de relier processus, objets industriels et données environnementales, tout en favorisant une meilleure collaboration interne et externe.",
+    "soc.problems.label":"Problèmes identifiés sur le terrain",
+    "soc.prob1":"<strong>Systèmes en silos.</strong> ERP, MES, SCADA, EMS, CRM ne communiquent pas entre eux. Les données sont nombreuses mais restent décontextualisées, réduisant fortement leur valeur opérationnelle.",
+    "soc.prob2":"<strong>IA sans contexte.</strong> Les algorithmes analysent des données partielles, sans lien explicite avec les processus métiers, ce qui conduit à des recommandations difficilement exploitables.",
+    "soc.prob3":"<strong>Empreinte carbone non traçable.</strong> La majorité des industriels ne peuvent pas relier leurs émissions GES aux processus réels, ni aux produits ou commandes clients.",
+    "soc.prob4":"<strong>Zéro traçabilité de bout en bout.</strong> L'organisation en silos empêche toute vision holistique des processus réels et limite la traçabilité des flux industriels du design à la livraison.",
+    "soc.stat1":"Sites de production analysés","soc.stat2":"Réduction des pertes qualité","soc.stat3":"Opérationnel en 2 semaines",
+    "soc.mv.title":"Mission & Vision","soc.mv.sub":"Ce qui nous anime et ce vers quoi nous tendons",
+    "soc.mission.eyebrow":"Notre mission","soc.mission.title":"Unifier pour décider",
+    "soc.mission.text":"Accompagner les industriels dans leur transformation digitale en unifiant leurs données, leurs systèmes et leurs équipes autour d'une vision partagée et temps réel de leurs opérations. La solution consolide, standardise, harmonise et intègre les données pour une prise de décision éclairée, mesurable et traçable — conciliant compétitivité industrielle et transition écologique.",
+    "soc.vision.eyebrow":"Notre vision","soc.vision.title":"There is no AI without PI",
+    "soc.vision.text":"Nous croyons qu'il n'y a pas d'IA sans Process Intelligence. Avant que l'intelligence artificielle puisse créer de la valeur, elle doit comprendre vos processus de bout en bout. HolistView vise à devenir la première plateforme permettant de suivre, de manière unifiée, la performance industrielle et l'empreinte environnementale — par processus et par objet.",
+    "soc.inno.title":"La rupture technologique","soc.inno.sub":"Manufacturing Unified Namespace — un langage commun pour l'industrie",
+    "soc.inno.p1":"L'innovation repose sur la conception d'une <strong style=\"color:var(--purple);font-weight:600;\">plateforme de Process Intelligence Unifiée</strong>, fondée sur un langage commun des événements et des objets industriels — le Manufacturing Unified Namespace (MUN).",
+    "soc.inno.p2":"Cette approche permet de <strong style=\"color:var(--text-1);font-weight:600;\">reconstruire les processus de bout en bout</strong> tels qu'ils sont réellement exécutés, d'y associer les données énergétiques et environnementales, et de rendre enfin mesurable l'impact carbone à l'échelle opérationnelle.",
+    "soc.inno.p3":"Pour la première fois, une entreprise peut calculer l'empreinte carbone d'une commande client spécifique, identifier les étapes les plus énergivores et piloter simultanément performance industrielle et réduction des émissions.",
+    "soc.inno.what":"Ce que HolistView permet enfin",
+    "soc.cap1":"Calculer l'empreinte carbone d'un objet spécifique : commande client, machine ou produit fini.",
+    "soc.cap2":"Identifier les étapes les plus énergivores d'un processus et les optimiser en priorité.",
+    "soc.cap3":"Évaluer l'impact environnemental de décisions opérationnelles : changement de fournisseur, modification des cadences, choix logistique.",
+    "soc.cap4":"Piloter simultanément performance industrielle et réduction des émissions depuis un seul tableau de bord.",
+    "soc.values.title":"Nos valeurs","soc.values.sub":"Les principes qui guident chaque décision, chaque déploiement",
+    "soc.val1.title":"Pragmatisme terrain","soc.val1.text":"Nous venons de l'atelier. Chaque fonctionnalité HolistView répond à un problème réel identifié sur le terrain, pas à une hypothèse de laboratoire.",
+    "soc.val2.title":"Rapidité & non-intrusivité","soc.val2.text":"Opérationnel en 2 semaines, sans modifier votre infrastructure. Nous nous adaptons à votre environnement, pas l'inverse.",
+    "soc.val3.title":"Résultats mesurables","soc.val3.text":"Nous nous engageons sur des métriques concrètes : réduction des pertes, gain de productivité, économies générées. Pas de promesses floues.",
+    "soc.val4.title":"Collaboration & transparence","soc.val4.text":"Une approche collaborative améliore la performance globale et renforce la confiance. Nous travaillons avec vos équipes, pas pour elles.",
+    "soc.val5.title":"Durabilité intégrée","soc.val5.text":"La performance industrielle et la transition écologique ne s'opposent pas. HolistView les pilote ensemble depuis une seule plateforme.",
+    "soc.val6.title":"IA fondée sur le processus","soc.val6.text":"Nous ne croyons pas à l'IA générique. L'IA doit être ancrée dans vos processus réels pour générer des insights actionnables. C'est notre conviction fondatrice.",
+    "soc.team.title":"Notre équipe","soc.team.sub":"Des experts industriels et data scientists passionnés par l'excellence opérationnelle",
+    "soc.team.p1":"Notre équipe réunit des profils rares à la croisée de l'ingénierie industrielle et de la data science. Nous avons vécu les problématiques terrain — pannes inexpliquées, silotage des systèmes, IA qui ne tient pas ses promesses — et conçu une solution pragmatique, réellement adaptée aux réalités de l'atelier.",
+    "soc.team.p2":"Notre culture est celle de l'amélioration continue : chaque déploiement nous apprend quelque chose de nouveau que nous réintégrons dans la plateforme. 138 insights découverts sur un seul site. Multipliez par 250+.",
+    "soc.expertise1.title":"Expertise industrielle","soc.expertise1.text":"IoT, MES, SCADA, ERP — nous connaissons vos systèmes de l'intérieur.",
+    "soc.expertise2.title":"Data Science appliquée","soc.expertise2.text":"IA, corrélation causale, analyse statistique au service du processus industriel réel.",
+    "soc.expertise3.title":"Sustainability engineering","soc.expertise3.text":"Traçabilité carbone, bilan GES par objet, pilotage de la transition écologique.",
+    "footer.newsTitle":"Dernières actus","footer.news1":"Salon SEPEM Angers 2025","footer.news2":"Salon Prod&Pack Lyon 2025",
+    "footer.news3":"Article : Le Management visuel","footer.news4":"Partenariat Sofrastock",
+    "dc.hero.sub":"Connectez toutes vos sources de données industrielles et enrichissez-les avec le contexte métier pour une intelligence opérationnelle réelle.",
+    "dc.challenge.title":"Le défi industriel actuel",
+    "dc.challenge.sub":"Dans la plupart des usines, le processus de fabrication reste une boîte noire — données fragmentées, flux invisibles, décisions à l'aveugle.",
+    "dc.workflows.title":"Carte des workflows connectés",
+    "dc.workflows.sub":"5 workflows industriels unifiés en temps réel — de la commande client à l'expédition",
+    "dc.arch.title":"Architecture de connexion",
+    "dc.arch.sub":"Toutes vos sources de données convergent vers une plateforme unifiée — <strong style=\"color:var(--purple)\">10+ connecteurs natifs</strong>",
+    "dc.silos.title":"Fin des silos — Un langage unifié",
+    "dc.silos.sub":"HolistView remplace la fragmentation par une vision partagée pour tous",
+    "dc.transform.sub":"De la donnée brute à l'intelligence opérationnelle — jusqu'aux agents IA",
+    "dc.problem1.text":"80% des données industrielles restent inexploitées faute d'intégration. Vos décisions reposent sur des informations incomplètes.",
+    "dc.problem2.text":"Sans flux de données unifié, les goulots cachés coûtent des milliers d'heures de production chaque année.",
+    "dc.problem3.text":"Les données de qualité dispersées dans plusieurs systèmes rendent la traçabilité quasiment impossible en temps réel.",
+    "dc.transition.eyebrow":"La transformation HolistView",
+    "dc.transition.title":"Processus obscur → Workflows connectés",
+    "dc.transition.sub":"HolistView révèle et connecte tous vos processus industriels par domaine et département, en temps réel.",
+    "footer.info":"Informations utiles","footer.about":"Notre société","footer.contact":"Contactez-nous","footer.legal":"Mentions légales"
+  },
 
-    "contact.titl": "Contactez-nous",
-    "contact.text2": "Vous avez une question ou vous souhaitez nous faire part de votre projet de MES ? L’équipe vous répondra au plus vite",
-
-    "contact.title": "Première plateforme d’intelligence des processus dédiée à la production industrielle",
-    "contact.subtitle": "Systèmes séparés, départements isolés ? nous unifions tout.Transformez vos silos de données en un processus industriel intelligent.",
-    "contact.text1": "Aujourd’hui, les usines sont fragmentées : machines, capteurs, systèmes <strong>MES</strong> et <strong>ERP</strong> parlent des langages différents, tandis que les départements — production, qualité et maintenance — travaillent en silos. Nous comblons ces écarts en créant un langage unifié entre les systèmes et les départements, vous offrant une vue unique, cohérente et en temps réel de l’ensemble de vos opérations. Nous croyons qu’il n’y a pas d’<strong>IA</strong> sans <strong>PI</strong> (Process Intelligence). Avant que l’intelligence artificielle puisse réellement créer de la valeur, elle doit comprendre en profondeur vos processus de bout en bout. C’est pourquoi nous posons cette base essentielle en traduisant vos données en informations exploitables, compréhensibles et accessibles à tous.",
-   
-    "benefits.title": "Avantages clés",
-    "benefits.item1": "<strong>Un langage unifié:</strong> Connectez machines, systèmes et départements grâce à un cadre de données commun",
-    "benefits.item2": "<strong>Fin des silos:</strong> Centralisez les informations de la production, de la qualité, de la maintenance et du management",
-    "benefits.item3": "<strong>Visualisation des processus de bout en bout:</strong> Vue temps réel des interactions",
-    "benefits.item4": "<strong>Analyses prédictives et proactives:</strong> Alertes avant impact",
-    "benefits.item5": "<strong>Analyse des causes racines interfonctionnelle:</strong> Identification rapide des problèmes",
-    "benefits.item6": "<strong>Conçu pour la collaboration:</strong> Source unique de vérité",
-
-    "contact.label.nom": "Nom :",
-    "contact.label.prenom": "Prénom :",
-    "contact.label.societe": "Société :",
-    "contact.label.email": "E-mail :",
-    "contact.label.source": "Comment avez-vous entendu parler de nous ?",
-    "form.source1": "Réseaux sociaux",
-    "form.source2": "Recommandation",
-    "form.source3": "Salon professionnel",
-    "form.source4": "Moteur de recherche ",
-    "form.source5": "Autre",
-    "contact.label.objet": "Objet :",
-    "contact.label.message": "Votre message :",
-    "contact.btn.envoyer": "Envoyer",
-
-    "footer.company": "HOLISTIC VIEW",
-    "footer.address": "1, rue Henri Spriet, 14120 Mondeville",
-    "footer.phone": "09 71 12 01 73",
-    "footer.email": "contact[@]holisticview.com",
-    "footer.newsTitle": "Dernières actus",
-    "footer.news1": "Salon SEPEM Angers 2025",
-    "footer.news2": "Salon Prod&Pack Lyon 2025",
-    "footer.news3": "Article thématique : Le Management visuel",
-    "footer.news4": "Partenariat Sofrastock",
-    "footer.info": "Informations utiles",
-    "footer.about": "Société Holistic View",
-    "footer.contact": "Contactez-nous",
-    "footer.demo": "Demander une démonstration",
-    "footer.legal": "Mentions légales",
-    "footer.sitemap": "Plan du site",
-    "social.text": "Retrouvez-nous sur <strong>LinkedIn</strong>",
-
-    "stats.badge1": "Faible visibilité",
-    "stats.text1": "Accès 80% plus rapide aux connaissances critiques, normes et bonnes pratiques",
-
-    "stats.badge2": "Goulots d'étranglement inconnus",
-    "stats.text2": "Économisez des centaines d'heures par an en éliminant les tâches sans valeur ajoutée",
-
-    "stats.badge3": "Contrôle qualité difficile",
-    "stats.text3": "Résolvez les problèmes de production 40–70% plus rapidement et diffusez ce savoir-faire",
-
-    "section.transformation": "Transformation & amélioration continue",
-    "section.longtext": "Saisis ici un texte très long sans problème, même avec des mots trèslongsmotsansespace, le texte reviendra automatiquement à la ligne.",
-
-},
- 
   en: {
+    title: "HolistView — Process Intelligence",
+    "nav.home":"Home","nav.about":"Company","nav.solutions":"Solutions ▾","nav.contact":"Contact","header.logo":"HolistView",
+    "btn.demo":"Request a demo",
+    "hero.label":"Process Intelligence Platform",
+    "about.eyebrow":"Our vision",
+    "about.p1":"Today, factories are fragmented: machines, sensors, MES and ERP systems speak different languages, while departments work in silos.",
+    "contact.title":"First process intelligence platform dedicated to industrial production",
+    "contact.subtitle":"Separate systems, isolated departments? We unify everything.",
+    "contact.text1":"Today, factories are fragmented: machines, sensors, MES and ERP systems speak different languages, while departments — production, quality and maintenance — work in silos. We bridge these gaps by creating a unified language between systems and departments, giving you a single, coherent, real-time view of all your operations.",
+    "stats.badge1":"Low visibility","stats.badge2":"Unknown bottlenecks","stats.badge3":"Challenging quality control",
+    "stats.text1":"80% faster access to critical knowledge and best practices","stats.text2":"Save hundreds of hours per year eliminating non-value-added tasks","stats.text3":"Solve production problems 40–70% faster",
+    "solutions.dataConnexion":"Data connection & contextualisation",
+    "solutions.dataContext":"End-to-end process monitoring",
+    "solutions.rootCause":"Automated root cause analysis",
+    "solutions.mcp":"MCP Server (Model Context Protocol)",
+    "solutions.mcpText":"Expose your industrial data to AI agents via Anthropic's MCP protocol.",
+    "solutions.mcpShort":"Your LLMs query your processes directly in real time.",
+    "section.transformation":"Transformation & continuous improvement",
+    "ctx.hero.title":"End-to-end process<br>monitoring",
+    "ctx.hero.sub":"Monitor all your production lines in real time. Detect drifts, bottlenecks and anomalies before they impact your output.",
+    "ctx.trace.title":"Object traceability — Process Graph",
+    "ctx.trace.sub":"Select an industrial object and trace its relations in real time: activities, equipment, materials consumed.",
+    "ctx.pipeline.badge":"<span class=\"live-dot\"></span>Real-time feed — Line A &nbsp;·&nbsp; WO-2024-1187",
+    "ctx.gauge.badge":"<span class=\"live-dot\"></span>Live OEE — All lines",
+    "ctx.kpi.oee":"Line A OEE","ctx.kpi.cadence":"Current throughput","ctx.kpi.quality":"Quality rate","ctx.kpi.alerts":"Active alerts",
+    "ctx.perf.title":"Performance by shift","ctx.alert.title":"Alert feed","ctx.alert.live":"Real time",
+    "rca.hero.title":"Automated root cause<br>analysis",
+    "rca.hero.sub":"AI automatically detects the deep causes of your incidents — even those invisible to the human eye. Guide your teams toward lasting corrective actions before losses accumulate.",
+    "rca.problem.slow":"Slow diagnosis","rca.problem.hidden":"Hidden causes","rca.problem.repeat":"Costly recurrences",
+    "rca.section.whw.title":"The HolistView answer — Analysis in 3 stages",
+    "rca.section.whw.sub":"Understand why losses happen, how to prevent them, and when to act",
+    "rca.why.title":"Automated root cause analysis",
+    "rca.why.text":"AI correlates thousands of variables simultaneously and reveals the real causes of each loss — even when all parameters appear within permitted ranges.",
+    "rca.how.title":"Predictive recommendations",
+    "rca.how.text":"HolistView generates precise recommendations on optimal process settings to eliminate inefficiencies without impacting other variables.",
+    "rca.when.title":"Proactive real-time alerts",
+    "rca.when.text":"Recommendations become proactive alerts delivered to teams as soon as risk conditions are detected — before losses occur.",
+    "rca.section.action.title":"Analysis in action — Hidden causes revealed",
+    "rca.section.action.sub":"Real case: underweight losses on an industrial bread production line.",
+    "rca.section.results.title":"Measured results",
+    "rca.section.results.sub":"Real example: international bakery manufacturer — toasted bread line, Western Europe",
+    "rca.stat.reduction":"Loss reduction","rca.stat.savings":"Annual savings","rca.stat.insights":"Process insights","rca.stat.productivity":"Team productivity",
+    "rca.section.features.title":"Key capabilities",
+    "rca.section.features.sub":"What HolistView does for you — automatically",
+    "rca.feat.corr.title":"Automated correlation","rca.feat.corr.text":"AI analyses thousands of variables and identifies causal patterns invisible to humans.",
+    "rca.feat.tree.title":"Cause tree","rca.feat.tree.text":"Automatic generation of the cause tree with weighted probabilities for each hypothesis.",
+    "rca.feat.knowledge.title":"Knowledge capitalisation","rca.feat.knowledge.text":"Every resolution enriches the knowledge base. AI becomes more relevant with each incident resolved.",
+    "mcp.hero.title":"MCP Server<br>Model Context Protocol",
+    "mcp.hero.sub":"Expose your industrial data to AI agents via Anthropic's open protocol. Allow your LLMs to directly query your processes, KPIs and history — in real time.",
+    "mcp.what.title":"What is MCP?",
+    "mcp.what.sub":"An open standard for connecting AI agents to your industrial data in real time",
+    "mcp.arch.title":"MCP Architecture",
+    "mcp.arch.sub":"Data flows from each industrial source → HolistView MCP Server → to each AI agent",
+    "mcp.tools.title":"Exposed MCP tools",
+    "mcp.tools.sub":"Each tool can be called by any MCP-compatible AI agent",
+    "mcp.cases.title":"Use cases",
+    "mcp.cases.sub":"What your AI agents can do with HolistView MCP",
+    "mcp.case.chat":"Operational chatbot","mcp.case.diag":"Autonomous diagnosis","mcp.case.report":"Intelligent reporting",
+    "mcp.case.predict":"Predictive maintenance","mcp.case.optim":"Continuous optimisation","mcp.case.know":"Living knowledge base",
+    "societe.title":"Our company",
+    "societe.text1":"HolistView is a key player in industrial digitalisation. We help clients improve their production, OEE and quality monitoring.",
+    "societe.missionTitle":"Our mission","societe.missionText":"Supporting companies in digital transformation and optimising industrial performance.",
+    "societe.vision.title":"Our vision","societe.values.title":"Our values","societe.team.title":"Our team",
+    "contact.titl":"Contact us",
+    "contact.text2":"Have a question or want to share your project? Our team will get back to you as soon as possible.",
+    "contact.label.nom":"Last name","contact.label.prenom":"First name","contact.label.societe":"Company","contact.label.email":"Email",
+    "contact.label.source":"How did you hear about us?","contact.label.objet":"Subject","contact.label.message":"Your message",
+    "contact.btn.envoyer":"Send",
+    "contact.placeholder.nom":"Smith","contact.placeholder.prenom":"John","contact.placeholder.societe":"Your company",
+    "contact.placeholder.email":"john.smith@company.com","contact.placeholder.objet":"Subject of your message",
+    "contact.placeholder.message":"Describe your project or question...","contact.captcha.refresh":"Refresh captcha",
+    "form.subtitle":"Demo request","form.name":"Full name","form.email":"Professional email",
+    "form.company":"Company","form.function":"Role","form.sector":"Sector","form.message":"Message",
+    "form.submit":"Send request","form.success":"✓ Thank you! We will get back to you shortly.",
+    "form.selectFunction":"-- Select your role --","form.selectSector":"-- Select your sector --",
+    "form.func.direction":"General management","form.func.marketing":"Marketing / Communications","form.func.commercial":"Sales",
+    "form.func.it":"IT / Technology","form.func.production":"Production / Operations","form.func.qse":"Quality / Safety / Environment",
+    "form.func.logistique":"Logistics / Supply Chain","form.func.achats":"Purchasing / Procurement","form.func.rh":"Human Resources",
+    "form.func.finance":"Finance / Accounting","form.func.support":"Support / Customer Service","form.func.autre":"Other",
+    "form.sector.industrie":"Industry / Manufacturing","form.sector.banque":"Banking / Insurance","form.sector.tech":"Technology / IT",
+    "form.sector.sante":"Healthcare / Pharma","form.sector.agro":"Food & Beverage","form.sector.commerce":"Retail / Distribution",
+    "form.sector.services":"Services","form.sector.public":"Public sector","form.sector.transport":"Transport / Logistics",
+    "form.sector.energie":"Energy / Environment","form.sector.autre":"Other",
+    "form.source1":"Social media","form.source2":"Recommendation","form.source3":"Trade show","form.source4":"Search engine","form.source5":"Other",
 
-    "title": "HolisticView",
-    "header.logo": "HolisticView",
-    "nav.home": "Home",
-    "nav.about": "Company",
-    "nav.solutions": "Solutions ▾",
-    "nav.clients": "Clients",
-    "nav.news": "News",
-    "nav.contact": "Contact",
+    /* ── Index / Home ── */
+    "home.hero.desc":"First process intelligence platform dedicated to industrial production. Born from field experience across 250+ production sites, HolistView unifies your processes, data and performance — in real time.",
+    "home.stat1":"Production sites analysed at the project's origin",
+    "home.stat2":"Reduction in quality losses and waste",
+    "home.stat3":"Unified view: processes + data + CO₂ footprint",
+    "home.stat4":"Operational in 2 weeks, without production downtime",
+    "home.problem.eyebrow":"The structural lock",
+    "home.problem.title":"Your data exists.<br>But it doesn't talk.",
+    "home.problem.sub":"Industrial systems are organised by function. ERP, MES, SCADA, EMS, CRM — each in its own silo. No platform could connect them and reconstruct the real end-to-end process. Until now.",
+    "home.silo1.title":"Systemic fragmentation",
+    "home.silo1.text":"ERP, MES, SCADA, EMS and CRM speak different languages. Data is abundant but decontextualised, which drastically reduces its operational value.",
+    "home.silo2.title":"AI without context doesn't work",
+    "home.silo2.text":"LLMs are trained on public data. They don't know your processes, your roles, or your actual workflows. Without Process Intelligence, AI generates generic answers — not actionable insights.",
+    "home.silo3.title":"Environmental impact untraceable",
+    "home.silo3.text":"Most manufacturers cannot link their CO₂ emissions to their real processes. Carbon footprint data stays aggregated, disconnected from orders, products and operational decisions.",
+    "home.aipi.eyebrow":"The step every AI strategy skips",
+    "home.aipi.quote1":"AI is only as smart",
+    "home.aipi.quote2":"as the context you give it.",
+    "home.aipi.p1":"To unlock AI's full potential in industry, you need something most organisations don't have: a comprehensive model of how they operate. Every process. Every resource. Every decision point.",
+    "home.aipi.callout":"<strong>« The main barrier to industrial AI is not technological, but structural and informational: the absence of a unified framework linking events, industrial objects and business decisions. »</strong>",
+    "home.aipi.p2":"That's exactly what HolistView was built to do — create the Digital Twin of your Operations, the foundation AI needs to generate real insights, not generic answers.",
+    "home.founder.quote":"« After deploying IoT solutions across more than <span class=\"hl\">250 production sites</span> worldwide, one conclusion became clear: factories are drowning in data yet remain blind to their real processes. <span class=\"hl\">HolistView is the answer to this structural lock.</span> »",
+    "home.founder.name":"Founder, HolistView",
+    "home.founder.role":"Former Chief Data Scientist · 250+ industrial sites · IoT & Process Intelligence",
+    "home.env.eyebrow":"Performance & sustainability",
+    "home.env.title":"Drive industrial performance<br><span style=\"color:var(--green)\">and carbon footprint</span> together",
+    "home.env.sub":"For the first time, link your CO₂ emissions to your real processes, customer orders and products. Combining industrial competitiveness with ecological transition finally becomes possible.",
+    "home.env1.title":"CO₂ per order",
+    "home.env1.text":"Calculate the carbon footprint of a specific object: customer order, machine or finished product.",
+    "home.env2.title":"Energy-intensive steps",
+    "home.env2.text":"Identify the most energy-consuming steps in your processes to prioritise optimisation efforts.",
+    "home.env3.title":"Decision impact",
+    "home.env3.text":"Evaluate environmental impact before acting: supplier change, cycle rate modification, logistics choice.",
+    "home.env4.title":"Dual monitoring",
+    "home.env4.text":"A single dashboard to simultaneously manage your industrial performance and emissions reduction.",
+    "home.pillars.eyebrow":"Our solutions",
+    "home.pillars.title":"One platform,<br>four pillars",
+    "home.pillars.sub":"From data connection to AI agent intelligence, HolistView covers your entire Process Intelligence stack.",
+    "home.pillar1.name":"Data connection","home.pillar1.desc":"Connect all your sources — machines, sensors, MES, ERP — into a single unified flow. 10+ native connectors: OPC-UA, MQTT, SAP, Odoo, PostgreSQL…",
+    "home.pillar2.name":"Process monitoring","home.pillar2.desc":"Trace every industrial object — work order, equipment, material — and detect anomalies before they impact your production.",
+    "home.pillar3.name":"Root cause analysis","home.pillar3.desc":"AI reveals the hidden causes of your losses — even those your experts would never have found — and generates actionable recommendations.",
+    "home.pillar4.name":"MCP Server","home.pillar4.desc":"Expose your industrial data to AI agents via the Model Context Protocol. Claude, GPT and your custom agents query your processes in natural language.",
+    "home.how.eyebrow":"Methodology",
+    "home.how.title":"Operational in 2 weeks,<br>not 6 months",
+    "home.how.sub":"A fast, non-intrusive deployment that adapts to your existing environment — without modifying your infrastructure.",
+    "home.step1.name":"Connection & integration","home.step1.desc":"Connect to your existing systems (OPC-UA, MQTT, API, SQL) without modifying your infrastructure. No production downtime.",
+    "home.step2.name":"Standardisation into objects & events","home.step2.desc":"All data is transformed into a common language — Manufacturing Unified Namespace — to reconstruct processes as they are actually executed.",
+    "home.step3.name":"Intelligence & alerts","home.step3.desc":"Drift detection, KPI calculation, proactive alerts and CO₂ traceability by process and object — all in real time.",
+    "home.step4.name":"AI & continuous improvement","home.step4.desc":"AI agents access your processes via MCP, identify root causes and capitalise on your experts' know-how for lasting improvement.",
+    "home.deploy.label":"Typical deployment","home.deploy.j1":"Data connection","home.deploy.j3":"MUN standardisation","home.deploy.j7":"Live dashboard + CO₂","home.deploy.j14":"AI agents + Root Cause","home.deploy.badge":"⚡ Operational in 2 weeks",
+    "home.cta.eyebrow":"Take action",
+    "home.cta.title1":"Ready to give your AI","home.cta.title2":"the context it deserves?",
+    "home.cta.sub":"Join the manufacturers who chose HolistView to unify their processes, drive performance and reduce their carbon footprint — in real time.",
+    "home.cta.btn1":"Request a free demo","home.cta.btn2":"Contact us",
+    "home.footer.tagline":"First process intelligence platform dedicated to industrial production.",
 
-    "btn.demo": "Ask a Demo",
-    "form.title": "Ask for a demo",
-    "form.subtitle": "Ask for a demo",
-    "form.name": "Full Name:",
-    "form.email": "Email:",
-    "form.company": "Company:",
-    "form.function": "Function:",
-    "form.selectFunction": "-- Select your function --",
-    "form.func.direction": "General Management",
-    "form.func.marketing": "Marketing / Communication",
-    "form.func.commercial": "Sales",
-    "form.func.it": "IT",
-    "form.func.production": "Production / Operations",
-    "form.func.qse": "Quality / Safety / Environment (QSE)",
-    "form.func.logistique": "Logistics / Supply Chain",
-    "form.func.achats": "Purchasing",
-    "form.func.rh": "Human Resources",
-    "form.func.finance": "Finance / Accounting",
-    "form.func.support": "Support / Customer Service",
-    "form.func.autre": "Other",
-    "form.sector": "Sector:",
-    "form.selectSector": "-- Select your sector --",
-    "form.sector.industrie": "Industry",
-    "form.sector.tech": "Technology / IT",
-    "form.sector.sante": "Health / Pharmaceutical",
-    "form.sector.agro": "Agro-food",
-    "form.sector.commerce": "Commerce / Distribution",
-    "form.sector.services": "Services",
-    "form.sector.public": "Public Sector",
-    "form.sector.transport": "Transport / Logistics",
-    "form.sector.energie": "Energy / Environment",
-    "form.sector.autre": "Other",
-    "form.message": "Message:",
-    "form.submit": "Send",
-    "form.success": "✅ Thank you for contacting us!\nWe will reply as soon as possible.",
-
-    "solutions.dataConnexion": "Data Connection and Contextualization",
-    "solutions.dataContext": "End-to-end Process Monitoring",
-    "solutions.rootCause": " Automated Root Cause Analysis",
-    "solutions.dataConnexionText": "Discover our data connection solution to integrate your machines and MES systems, collecting and centralizing your data in real time.",
-    "solutions.dataContextText": "Our solution contextualizes your industrial data to facilitate analysis and decision-making.",
-    "solutions.rootCauseText": "This solution helps identify the root causes of incidents to improve processes and reduce losses.",
-
-    "contact.titl": "Contact Us",
-    "contact.text2": "Do you have a question or would you like to tell us about your MES project ? Our team will get back to you as soon as possible.",
-
-    "contact.title": "First Process Intelligence Platform Built for Manufacturing",
-    "contact.subtitle": "Separated systems, isolated departments ? we unify everything.Turn your silos data into one intelligent manufacturing process.",
-    "contact.text1": "Today, factories are fragmented: machines, sensors, <strong>MES</strong> and <strong>ERP</strong> systems speak different languages, while departments such as production, quality, and maintenance operate in silos.We bridge these gaps by creating a unified language across systems and teams, providing a single, coherent, real-time view of your entire operations. We believe there is no <strong>AI</strong> without <strong>PI</strong> (Process Intelligence). Before artificial intelligence can truly deliver value, it must deeply understand your end-to-end processes. That is why we lay this essential foundation by transforming your data into actionable insights that are clear, meaningful, and accessible to everyone.",
-    "contact.label.nom": "Last name:",
-    "contact.label.prenom": "First name:",
-    "contact.label.societe": "Company:",
-    "contact.label.email": "Email:",
-    "contact.label.source": "How did you hear about us?",
-    "form.source1": "Social media",
-    "form.source2": "Recommendation",
-    "form.source3": "Trade fair",
-    "form.source4": "search engine",
-    "form.source5": "Other",
-    "contact.label.objet": "Subject:",
-    "contact.label.message": "Your message:",
-    "contact.btn.envoyer": "Send",
-
-    "footer.company": "HOLISTIC VIEW",
-    "footer.address": "1, rue Henri Spriet, 14120 Mondeville, France",
-    "footer.phone": "+33 9 71 12 01 73",
-    "footer.email": "contact[@]holisticview.com",
-    "footer.newsTitle": "Latest news",
-    "footer.news1": "SEPEM Angers 2025",
-    "footer.news2": "Prod&Pack Lyon 2025",
-    "footer.news3": "Thematic article: Visual Management",
-    "footer.news4": "Sofrastock Partnership",
-    "footer.info": "Useful information",
-    "footer.about": "About Holistic View",
-    "footer.contact": "Contact us",
-    "footer.demo": "Request a demo",
-    "footer.legal": "Legal notice",
-    "footer.sitemap": "Site map",
-    "social.text": "Follow us on <strong>LinkedIn</strong>",
-
-    "benefits.title": "Key Benefits",
-    "benefits.item1": "<strong>One unified language: </strong>Connect machines, systems, and departments with a common data framework",
-    "benefits.item2": "<strong>Break down silos:</strong> Centralize production, quality, maintenance, and management info",
-    "benefits.item3": "<strong>End-to-end process visualization:</strong> Real-time view of interactions",
-    "benefits.item4": "<strong>Predictive & proactive insights:</strong> Alerts before impact",
-    "benefits.item5": "<strong>Cross-functional root cause analysis:</strong> Quickly identify issues",
-    "benefits.item6": "<strong>Designed for collaboration:</strong> Single source of truth",
-    
- 
-        "stats.badge1": "Low visibility",
-    "stats.text1": "80% faster access to critical knowledge, standards and best practices",
-
-    "stats.badge2": "Unknown bottlenecks",
-    "stats.text2": "Save employees hundreds of hours per year by eliminating non-value-added tasks",
-
-    "stats.badge3": "Challenging quality control",
-    "stats.text3": "Solve production problems 40–70% faster and scale that know-how",
-
-    "section.transformation": "Transformation & Continuous Improvement",
-    "section.longtext": "Enter a very long text here without any problem, even with veryveryverylongwordswithoutspaces, the text will automatically wrap to the next line."
-  
-
-
-     }
+    /* ── Société page ── */
+    "soc.hero.title":"Our company",
+    "soc.hero.sub":"Born from field experience across 250+ production sites, HolistView provides a concrete answer to industry's structural lock: data and process fragmentation.",
+    "soc.origin.title":"The project's origin",
+    "soc.origin.sub":"A field observation, 250+ sites, a structural lock",
+    "soc.origin.p1":"HolistView originated from field experience gained as <strong style=\"color:var(--purple);font-weight:600;\">Chief Data Scientist</strong> within an international company deploying industrial IoT solutions across more than <strong style=\"color:var(--purple);font-weight:600;\">250 production sites</strong> worldwide.",
+    "soc.origin.p2":"This experience revealed a major structural lock: despite the growing digitalisation of factories and the abundance of available data, industrial systems remain highly <strong style=\"color:var(--text-1);font-weight:600;\">fragmented, heterogeneous and siloed</strong>.",
+    "soc.origin.quote":"«&nbsp;No platform made it possible to identify the most complex processes across the entire organisation — from design to delivery of finished products — or to link these processes to operational and environmental data for effective decision-making.&nbsp;»",
+    "soc.origin.p3":"These findings motivated the creation of HOLISTICVIEW — a unified platform capable of linking processes, industrial objects and environmental data, while fostering better internal and external collaboration.",
+    "soc.problems.label":"Problems identified in the field",
+    "soc.prob1":"<strong>Siloed systems.</strong> ERP, MES, SCADA, EMS and CRM do not communicate with each other. Data is abundant but decontextualised, drastically reducing its operational value.",
+    "soc.prob2":"<strong>AI without context.</strong> Algorithms analyse partial data with no explicit link to business processes, leading to recommendations that are hard to act on.",
+    "soc.prob3":"<strong>Untraceable carbon footprint.</strong> Most manufacturers cannot link their GHG emissions to real processes, products or customer orders.",
+    "soc.prob4":"<strong>Zero end-to-end traceability.</strong> The silo organisation prevents any holistic view of real processes and limits traceability of industrial flows from design to delivery.",
+    "soc.stat1":"Production sites analysed","soc.stat2":"Reduction in quality losses","soc.stat3":"Operational in 2 weeks",
+    "soc.mv.title":"Mission & Vision","soc.mv.sub":"What drives us and what we strive for",
+    "soc.mission.eyebrow":"Our mission","soc.mission.title":"Unify to decide",
+    "soc.mission.text":"Supporting manufacturers in their digital transformation by unifying their data, systems and teams around a shared, real-time view of their operations. The solution consolidates, standardises, harmonises and integrates data for informed, measurable and traceable decision-making — reconciling industrial competitiveness with ecological transition.",
+    "soc.vision.eyebrow":"Our vision","soc.vision.title":"There is no AI without PI",
+    "soc.vision.text":"We believe there is no AI without Process Intelligence. Before artificial intelligence can create real value, it must understand your processes end to end. HolistView aims to become the first platform to track, in a unified way, industrial performance and environmental footprint — per process and per object.",
+    "soc.inno.title":"The technological breakthrough","soc.inno.sub":"Manufacturing Unified Namespace — a common language for industry",
+    "soc.inno.p1":"The innovation is based on a <strong style=\"color:var(--purple);font-weight:600;\">Unified Process Intelligence platform</strong>, built on a common language of industrial events and objects — the Manufacturing Unified Namespace (MUN).",
+    "soc.inno.p2":"This approach makes it possible to <strong style=\"color:var(--text-1);font-weight:600;\">reconstruct end-to-end processes</strong> as they are actually executed, associate energy and environmental data with them, and finally make carbon impact measurable at operational scale.",
+    "soc.inno.p3":"For the first time, a company can calculate the carbon footprint of a specific customer order, identify the most energy-intensive steps and simultaneously drive industrial performance and emissions reduction.",
+    "soc.inno.what":"What HolistView finally makes possible",
+    "soc.cap1":"Calculate the carbon footprint of a specific object: customer order, machine or finished product.",
+    "soc.cap2":"Identify the most energy-intensive steps in your processes and optimise them as a priority.",
+    "soc.cap3":"Evaluate the environmental impact of operational decisions: supplier change, cycle rate modification, logistics choice.",
+    "soc.cap4":"Drive industrial performance and emissions reduction simultaneously from a single dashboard.",
+    "soc.values.title":"Our values","soc.values.sub":"The principles guiding every decision, every deployment",
+    "soc.val1.title":"Field pragmatism","soc.val1.text":"We come from the shop floor. Every HolistView feature answers a real problem identified in the field, not a laboratory hypothesis.",
+    "soc.val2.title":"Speed & non-intrusiveness","soc.val2.text":"Operational in 2 weeks, without modifying your infrastructure. We adapt to your environment, not the other way around.",
+    "soc.val3.title":"Measurable results","soc.val3.text":"We commit to concrete metrics: loss reduction, productivity gains, savings generated. No vague promises.",
+    "soc.val4.title":"Collaboration & transparency","soc.val4.text":"A collaborative approach improves overall performance and builds trust. We work with your teams, not for them.",
+    "soc.val5.title":"Integrated sustainability","soc.val5.text":"Industrial performance and ecological transition are not opposites. HolistView drives them together from a single platform.",
+    "soc.val6.title":"Process-grounded AI","soc.val6.text":"We don't believe in generic AI. AI must be rooted in your real processes to generate actionable insights. That's our founding conviction.",
+    "soc.team.title":"Our team","soc.team.sub":"Industrial experts and data scientists passionate about operational excellence",
+    "soc.team.p1":"Our team brings together rare profiles at the intersection of industrial engineering and data science. We have lived the field challenges — unexplained breakdowns, siloed systems, AI that doesn't deliver — and built a pragmatic solution genuinely adapted to shop floor realities.",
+    "soc.team.p2":"Our culture is one of continuous improvement: every deployment teaches us something new that we feed back into the platform. 138 insights discovered on a single site. Multiply by 250+.",
+    "soc.expertise1.title":"Industrial expertise","soc.expertise1.text":"IoT, MES, SCADA, ERP — we know your systems from the inside.",
+    "soc.expertise2.title":"Applied data science","soc.expertise2.text":"AI, causal correlation, statistical analysis in service of the real industrial process.",
+    "soc.expertise3.title":"Sustainability engineering","soc.expertise3.text":"Carbon traceability, GHG balance per object, managing the ecological transition.",
+    "footer.newsTitle":"Latest news","footer.news1":"SEPEM Angers 2025 trade show","footer.news2":"Prod&Pack Lyon 2025 trade show",
+    "footer.news3":"Article: Visual Management","footer.news4":"Sofrastock partnership",
+    "dc.hero.sub":"Connect all your industrial data sources and enrich them with business context for real operational intelligence.",
+    "dc.challenge.title":"The current industrial challenge",
+    "dc.challenge.sub":"In most factories, the manufacturing process remains a black box — fragmented data, invisible flows, blind decisions.",
+    "dc.workflows.title":"Connected workflows map",
+    "dc.workflows.sub":"5 industrial workflows unified in real time — from customer order to shipment",
+    "dc.arch.title":"Connection architecture",
+    "dc.arch.sub":"All your data sources converge toward a unified platform — <strong style=\"color:var(--purple)\">10+ native connectors</strong>",
+    "dc.silos.title":"End of silos — A unified language",
+    "dc.silos.sub":"HolistView replaces fragmentation with a shared view for everyone",
+    "dc.transform.sub":"From raw data to operational intelligence — all the way to AI agents",
+    "dc.problem1.text":"80% of industrial data remains unexploited due to lack of integration. Your decisions rely on incomplete information.",
+    "dc.problem2.text":"Without a unified data flow, hidden bottlenecks cost thousands of production hours every year.",
+    "dc.problem3.text":"Quality data scattered across multiple systems makes real-time traceability virtually impossible.",
+    "dc.transition.eyebrow":"The HolistView transformation",
+    "dc.transition.title":"Obscure process → Connected workflows",
+    "dc.transition.sub":"HolistView reveals and connects all your industrial processes by domain and department, in real time.",
+    "footer.info":"Useful links","footer.about":"Our company","footer.contact":"Contact us","footer.legal":"Legal notice"
+  }
 };
 
-
-
-function changeLanguage(lang) {
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    el.innerText = translations[lang][key];
-  });
-}
-
-
-
-// =============================================
-// FONCTIONS DE TRADUCTION
-// =============================================
-
+/* ── Translation engine ── */
 function applyTranslations(lang) {
-  console.log('Applying translations for:', lang);
-  
+  const t = translations[lang];
+  if (!t) return;
+  document.documentElement.lang = lang;
+  if (t['title']) document.title = t['title'];
   document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    
-    if (translations[lang] && translations[lang][key]) {
-      // Pour les inputs avec placeholder
-      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-        el.placeholder = translations[lang][key];
-      } 
-      // Pour les images avec alt
-      else if (el.tagName === 'IMG') {
-        el.alt = translations[lang][key];
-      }
-      // Pour les autres éléments
-      else {
-        el.innerHTML = translations[lang][key];
-      }
+    const raw = el.getAttribute('data-i18n');
+    const attrMatch = raw.match(/^\[([^\]]+)\](.+)$/);
+    if (attrMatch) {
+      if (t[attrMatch[2]] !== undefined) el.setAttribute(attrMatch[1], t[attrMatch[2]]);
+      return;
     }
+    if (t[raw] !== undefined) el.innerHTML = t[raw];
   });
-}
-
-function setLanguage(lang) {
-  // Sauvegarder la langue
-  localStorage.setItem('holistic_lang', lang);
-  
-  // Appliquer les traductions
-  applyTranslations(lang);
-  
-  // Mettre à jour l'URL pour conserver la langue
-  if (window.location.search.indexOf('lang=') === -1) {
-    const newUrl = window.location.pathname + '?lang=' + lang + window.location.hash;
-    history.replaceState(null, '', newUrl);
-  }
-}
-
-// =============================================
-// GESTION DU MENU MOBILE (votre code existant)
-// =============================================
-
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('Site Holistic View chargé');
-  
-  // =============================================
-  // CHARGER LA LANGUE AU DÉMARRAGE
-  // =============================================
-  
-  // Vérifier l'URL d'abord
-  const urlParams = new URLSearchParams(window.location.search);
-  const urlLang = urlParams.get('lang');
-  
-  // Sinon vérifier localStorage
-  const savedLang = localStorage.getItem('holistic_lang');
-  
-  // Langue par défaut
-  const lang = urlLang || savedLang || 'fr';
-  
-  // Appliquer la langue
-  applyTranslations(lang);
-  
-  // Configurer les boutons de langue
+  try { localStorage.setItem('hv_lang', lang); } catch(e) {}
   document.querySelectorAll('.lang-btn').forEach(btn => {
-    // Remplacer onclick par addEventListener
-    const oldOnClick = btn.getAttribute('onclick');
-    if (oldOnClick) {
-      btn.removeAttribute('onclick');
-      
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Détecter la langue cible
-        let targetLang = 'fr';
-        if (oldOnClick.includes("'en'")) {
-          targetLang = 'en';
-        }
-        
-        // Changer de langue
-        setLanguage(targetLang);
-        
-        // Ajouter le paramètre lang à l'URL
-        const currentUrl = new URL(window.location);
-        currentUrl.searchParams.set('lang', targetLang);
-        window.history.replaceState({}, '', currentUrl);
-      });
-    }
+    const active = (btn.getAttribute('onclick') || '').includes(`'${lang}'`);
+    btn.style.opacity   = active ? '1' : '0.45';
+    btn.style.transform = active ? 'scale(1.1)' : 'scale(1)';
   });
-  
-  // =============================================
-  // MODIFIER LA NAVIGATION POUR CONSERVER LA LANGUE
-  // =============================================
-  
-  const sitePages = [
-    'index.html',
-    'societe.html', 
-    'data_connexion.html',
-    'data_contextualisation.html',
-    'analyse_des_causes_racine.html',
-    'actualites.html',
-    'contact.html',
-    'legal.html',
-    'demo.html'
-  ];
-  
-  document.querySelectorAll('a[href]').forEach(link => {
-    const href = link.getAttribute('href');
-    
-    // Vérifie si c'est un lien interne
-    const isInternalPage = sitePages.some(page => href && href.includes(page));
-    
-    if (isInternalPage && href !== '#form-demo') {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Récupérer la langue actuelle
-        const currentLang = localStorage.getItem('holistic_lang') || 'fr';
-        
-        // Ferme la modal si ouverte
-        const modal = document.getElementById('form-demo');
-        if (modal && modal.style.display === 'flex') {
-          modal.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }
-        
-        // Ferme le menu mobile si ouvert
-        if (window.innerWidth <= 768) {
-          const navItems = document.querySelector('.nav-items');
-          if (navItems && navItems.classList.contains('active')) {
-            navItems.classList.remove('active');
-            navItems.style.display = 'none';
-            const menuToggle = document.querySelector('.menu-toggle');
-            if (menuToggle) {
-              menuToggle.innerHTML = '☰';
-              menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
-            }
-          }
-        }
-        
-        // Construire l'URL avec le paramètre de langue
-        let newUrl = href;
-        const separator = newUrl.includes('?') ? '&' : '?';
-        newUrl += `${separator}lang=${currentLang}`;
-        
-        // Naviguer vers la page
-        setTimeout(() => {
-          window.location.href = newUrl;
-        }, 100);
-      });
-    }
-  });
-  
-  // =============================================
-  // VOTRE CODE EXISTANT POUR MENU MOBILE
-  // =============================================
-  
-  // Crée le bouton hamburger
-  const menuToggle = document.createElement('button');
-  menuToggle.className = 'menu-toggle';
-  menuToggle.innerHTML = '☰';
-  menuToggle.setAttribute('aria-label', 'Menu principal');
-  menuToggle.style.display = 'none';
-  
-  // Ajoute le bouton au header
-  const header = document.querySelector('.header');
-  if (header) {
-    header.appendChild(menuToggle);
-    
-    // Gère l'affichage du menu sur mobile
-    function updateMenuForMobile() {
-      const navItems = document.querySelector('.nav-items');
-      if (window.innerWidth <= 768) {
-        menuToggle.style.display = 'block';
-        if (!navItems.classList.contains('active')) {
-          navItems.style.display = 'none';
-        }
-      } else {
-        menuToggle.style.display = 'none';
-        navItems.style.display = 'flex';
-        navItems.classList.remove('active');
-      }
-    }
-    
-    // Initialise
-    updateMenuForMobile();
-    
-    // Met à jour au redimensionnement
-    window.addEventListener('resize', updateMenuForMobile);
-    
-    // Gère le clic sur le bouton hamburger
-    menuToggle.addEventListener('click', function() {
-      const navItems = document.querySelector('.nav-items');
-      navItems.classList.toggle('active');
-      if (navItems.classList.contains('active')) {
-        navItems.style.display = 'flex';
-        menuToggle.innerHTML = '✕';
-        menuToggle.setAttribute('aria-label', 'Fermer le menu');
-      } else {
-        navItems.style.display = 'none';
-        menuToggle.innerHTML = '☰';
-        menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
-      }
-    });
-    
-    // Ferme le menu en cliquant sur un lien (mobile)
-    document.querySelectorAll('.nav-items a').forEach(link => {
-      link.addEventListener('click', function() {
-        if (window.innerWidth <= 768) {
-          const navItems = document.querySelector('.nav-items');
-          navItems.classList.remove('active');
-          navItems.style.display = 'none';
-          menuToggle.innerHTML = '☰';
-          menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
-        }
-      });
-    });
-  }
-  
-  // =============================================
-  // CAPTCHA DYNAMIQUE (votre code existant)
-  // =============================================
-  
-  function generateCaptcha() {
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-    let captcha = '';
-    for (let i = 0; i < 5; i++) {
-      captcha += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return captcha;
-  }
-  
-  const captchaText = document.getElementById('captcha-text');
-  const refreshCaptcha = document.getElementById('refresh-captcha');
-  
-  if (captchaText && refreshCaptcha) {
-    captchaText.textContent = generateCaptcha();
-    
-    refreshCaptcha.addEventListener('click', function() {
-      captchaText.textContent = generateCaptcha();
-    });
-  }
-  
-  // =============================================
-  // GESTION DE LA MODAL (votre code existant)
-  // =============================================
-  
-  // Fermer la modal avec Échap
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      const modal = document.getElementById('form-demo');
-      if (modal && modal.style.display === 'flex') {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    }
-  });
-  
-  // Fermer en cliquant en dehors
-  const modal = document.getElementById('form-demo');
-  if (modal) {
-    modal.addEventListener('click', function(e) {
-      if (e.target === this) {
-        this.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    });
-  }
-  
-  // =============================================
-  // FORMULAIRE DE CONTACT (votre code existant)
-  // =============================================
-  
-  const contactForm = document.querySelector('.contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Validation simple du captcha
-      const captchaInput = this.querySelector('input[placeholder*="captcha"]');
-      const captchaDisplay = document.getElementById('captcha-text');
-      
-      if (captchaInput && captchaDisplay) {
-        if (captchaInput.value.toUpperCase() !== captchaDisplay.textContent) {
-          alert('Code captcha incorrect. Veuillez réessayer.');
-          captchaInput.value = '';
-          captchaInput.focus();
-          return false;
-        }
-      }
-      
-      // Simulation d'envoi (remplacer par votre code réel)
-      alert('Formulaire soumis avec succès ! (simulation)');
-      this.reset();
-      if (captchaDisplay) {
-        captchaDisplay.textContent = generateCaptcha();
-      }
-      
-      return false;
-    });
-  }
-  
-  // =============================================
-  // AMÉLIORATIONS UX (votre code existant)
-  // =============================================
-  
-  // Smooth scroll pour les ancres
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      if (this.getAttribute('href') !== '#form-demo') {
-        const targetId = this.getAttribute('href');
-        if (targetId.length > 1) {
-          e.preventDefault();
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 80,
-              behavior: 'smooth'
-            });
-          }
-        }
-      }
-    });
-  });
-  
-  // Animation au scroll
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
-      }
-    });
-  }, observerOptions);
-  
-  // Observe les éléments à animer
-  document.querySelectorAll('.contact-section, .contact-intro').forEach(el => {
-    observer.observe(el);
-  });
-});
-
-// =============================================
-// FONCTIONS GLOBALES (votre code existant)
-// =============================================
-
-// Fonction pour ouvrir la modal (optionnel)
-function openModal() {
-  const modal = document.getElementById('form-demo');
-  if (modal) {
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    window.location.hash = '#form-demo';
-  }
 }
 
-// Fonction pour fermer la modal (optionnel)
-function closeModal() {
-  const modal = document.getElementById('form-demo');
-  if (modal) {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-    if (window.location.hash === '#form-demo') {
-      history.replaceState(null, null, ' ');
-    }
-  }
-}
+function setLanguage(lang) { applyTranslations(lang); }
 
-// Initialisation au chargement
-window.addEventListener('load', function() {
-  console.log('Page complètement chargée');
-  
-  // Réappliquer les traductions au cas où
-  const savedLang = localStorage.getItem('holistic_lang') || 'fr';
-  applyTranslations(savedLang);
+document.addEventListener('DOMContentLoaded', function () {
+  let lang = 'fr';
+  try { const s = localStorage.getItem('hv_lang'); if (s && translations[s]) lang = s; } catch(e) {}
+  applyTranslations(lang);
 });
-
-
