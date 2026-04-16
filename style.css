@@ -946,6 +946,7 @@ button[type="submit"]:hover {
   letter-spacing: 0.02em;
   line-height: 1.05;
   margin-bottom: 16px;
+  color: var(--purple);
 }
 
 .section-sub {
