@@ -381,7 +381,7 @@
 
     <!-- Animated SVG: fragmented departments -->
     <div style="overflow-x:auto;margin-top:32px;">
-      <svg id="frag-svg" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg"
+      <svg id="frag-svg" viewBox="0 0 900 570" xmlns="http://www.w3.org/2000/svg"
            style="width:100%;min-width:600px;display:block;"></svg>
     </div>
 
@@ -675,9 +675,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* Canvas size */
-  var W = 900, H = 500;
+  var W = 900, H = 570;
   /* Hub centre */
-  var HX = 450, HY = 250, HR = 56;
+  var HX = 450, HY = 265, HR = 56;
 
   /* ── 8 departments — label is i18n key so it updates on lang switch ── */
   var DEPTS = [
@@ -691,18 +691,15 @@ document.addEventListener('DOMContentLoaded', function () {
     { key:'frag.dept.rd',     sys:'PLM · CAD',      icon:'🧪', c:'#B45309' },
   ];
 
-  var BW = 148, BH = 60;
+  var BW = 128, BH = 56;
   var N = DEPTS.length;
-  var RADIUS = 185; /* base radius */
-  /* Per-dept radius overrides to avoid neighbour collision */
-  var RADII = [205, 185, 185, 185, 205, 185, 185, 185]; /* Production(0) and Energy(4) pushed out */
+  var RADIUS = 218;
 
   /* Compute positions around circle */
   var startAngle = -Math.PI / 2; /* start at top */
   DEPTS.forEach(function(d, i) {
     var angle = startAngle + (2 * Math.PI * i) / N;
-    var r = RADII[i] || RADIUS;
-    d.cx = HX + r * Math.cos(angle); /* box centre x */
+    d.cx = HX + RADIUS * Math.cos(angle); /* box centre x */
     d.cy = HY + RADIUS * Math.sin(angle); /* box centre y */
     d.bx = d.cx - BW / 2;                /* box top-left x */
     d.by = d.cy - BH / 2;                /* box top-left y */
@@ -848,12 +845,26 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ── Bottom label ── */
-  var lbl = el('text', { x:HX, y:H-8, 'text-anchor':'middle',
-    'font-family':"'IBM Plex Mono',monospace",
-    'font-size':'9','letter-spacing':'0.14em',
-    fill:'rgba(239,68,68,0.4)','text-transform':'uppercase' });
-  lbl.textContent = '— DONNÉES FRAGMENTÉES — SYSTÈMES NON CONNECTÉS — PROCESSUS INVISIBLES —';
-  svg.appendChild(lbl);
+  /* ── Bottom banner — visible red pill ── */
+  var bannerG = el('g', {});
+
+  /* Background pill */
+  bannerG.appendChild(el('rect', {
+    x: HX - 330, y: 538, width: 660, height: 26, rx: '13',
+    fill: 'rgba(239,68,68,0.08)', stroke: 'rgba(239,68,68,0.35)', 'stroke-width': '1'
+  }));
+
+  /* Text */
+  var lbl = el('text', { x: HX, y: 553,
+    'text-anchor': 'middle', 'dominant-baseline': 'middle',
+    'font-family': "'IBM Plex Mono',monospace",
+    'font-size': '10', 'font-weight': '600', 'letter-spacing': '0.12em',
+    fill: '#EF4444', 'text-transform': 'uppercase'
+  });
+  lbl.setAttribute('data-i18n-frag', '1');
+  lbl.textContent = (typeof translations !== 'undefined' && translations.fr) ? translations.fr['frag.banner'] : '— DONNÉES FRAGMENTÉES — SYSTÈMES NON CONNECTÉS — PROCESSUS INVISIBLES —';
+  bannerG.appendChild(lbl);
+  svg.appendChild(bannerG);
 
   /* Inject keyframe */
   if (!document.getElementById('hub-ring-kf')) {
@@ -879,6 +890,9 @@ document.addEventListener('DOMContentLoaded', function () {
     /* Update hub sub label */
     var hs = document.getElementById('hub-sub');
     if (hs && t['frag.hub.sub']) hs.textContent = t['frag.hub.sub'];
+    /* Update banner */
+    var fragLbls = svg ? svg.querySelectorAll('[data-i18n-frag]') : [];
+    fragLbls.forEach(function(el) { if (t['frag.banner']) el.textContent = t['frag.banner']; });
     var hn = document.getElementById('hub-name');
     if (hn && t['frag.hub.name']) hn.textContent = t['frag.hub.name'];
   }
