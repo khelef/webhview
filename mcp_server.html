@@ -173,6 +173,163 @@
     </div>
   </div>
 
+  <!-- ══ RCA AGENT DEEP DIVE ══ -->
+  <div style="background:var(--bg-card);border:2px solid var(--border-purple);border-radius:var(--radius-lg);padding:40px;margin-bottom:32px;box-shadow:var(--shadow-card);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--purple),var(--cyan));"></div>
+    <div style="position:absolute;top:16px;right:20px;font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(109,40,217,.35);">MCP Agent</div>
+
+    <!-- Header -->
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
+      <div style="width:44px;height:44px;border-radius:12px;background:var(--purple-soft);border:1px solid var(--border-purple);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🧠</div>
+      <div>
+        <div class="dc-title" style="font-size:22px;margin-bottom:2px;" data-i18n="mcp.rca.title">Agent d'analyse automatisée des causes racines</div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);" data-i18n="mcp.rca.badge">Propulsé par HolistView MCP · Process Intelligence</div>
+      </div>
+    </div>
+    <div class="dc-sub" style="margin-bottom:32px;max-width:740px;" data-i18n="mcp.rca.intro">
+      Lorsqu'un incident survient sur votre ligne de production, l'agent IA interroge automatiquement vos données via le MCP Server, identifie la combinaison causale cachée — invisible à l'analyse humaine — et génère une recommandation corrective précise, en langage naturel, en quelques secondes.
+    </div>
+
+    <!-- Step-by-step flow -->
+    <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:18px;" data-i18n="mcp.rca.flow.label">Déroulement de l'analyse — étape par étape</div>
+
+    <div style="display:flex;flex-direction:column;gap:0;">
+
+      <!-- Step 1 -->
+      <div style="display:grid;grid-template-columns:36px 1fr;gap:16px;align-items:start;padding-bottom:24px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--purple);border:2px solid var(--purple);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">01</div>
+          <div style="width:2px;flex:1;background:linear-gradient(var(--border-purple),transparent);min-height:24px;margin-top:4px;"></div>
+        </div>
+        <div style="padding-top:6px;">
+          <div class="dc-title" style="font-size:14px;margin-bottom:6px;" data-i18n="mcp.rca.s1.title">Détection de l'incident</div>
+          <div class="dc-sub" style="font-size:13px;margin-bottom:10px;" data-i18n="mcp.rca.s1.text">Un opérateur ou une alerte automatique signale une anomalie — taux de rebuts en hausse, ralentissement cadence, dérive qualité. L'agent IA est immédiatement activé.</div>
+          <div style="background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;font-family:var(--font-mono);font-size:11px;color:var(--purple);">
+            🗣 <em style="color:var(--text-2);">"Ligne A — taux de rebuts passe à 7.4%. Analyse les causes."</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div style="display:grid;grid-template-columns:36px 1fr;gap:16px;align-items:start;padding-bottom:24px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--cyan);border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">02</div>
+          <div style="width:2px;flex:1;background:linear-gradient(rgba(8,145,178,.3),transparent);min-height:24px;margin-top:4px;"></div>
+        </div>
+        <div style="padding-top:6px;">
+          <div class="dc-title" style="font-size:14px;margin-bottom:6px;color:var(--cyan);" data-i18n="mcp.rca.s2.title">Interrogation MCP — collecte de contexte</div>
+          <div class="dc-sub" style="font-size:13px;margin-bottom:10px;" data-i18n="mcp.rca.s2.text">L'agent appelle séquentiellement les outils MCP pour collecter toutes les données contextuelles : paramètres process, historique équipements, matières utilisées, conditions environnementales.</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="font-family:var(--font-mono);font-size:10px;padding:6px 12px;background:var(--purple-soft);border-radius:4px;color:var(--purple);">→ get_process_parameters(line="A", window="2h")</div>
+            <div style="font-family:var(--font-mono);font-size:10px;padding:6px 12px;background:var(--cyan-soft);border-radius:4px;color:var(--cyan);">→ get_equipment_status(line="A", include_history=true)</div>
+            <div style="font-family:var(--font-mono);font-size:10px;padding:6px 12px;background:rgba(5,150,105,.08);border-radius:4px;color:var(--green);">→ get_material_batch(line="A", batch_id="B-2024-447")</div>
+            <div style="font-family:var(--font-mono);font-size:10px;padding:6px 12px;background:rgba(217,119,6,.08);border-radius:4px;color:var(--amber);">→ analyze_root_cause(problem="underweight", correlate=true)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div style="display:grid;grid-template-columns:36px 1fr;gap:16px;align-items:start;padding-bottom:24px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--amber);border:2px solid var(--amber);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">03</div>
+          <div style="width:2px;flex:1;background:linear-gradient(rgba(217,119,6,.3),transparent);min-height:24px;margin-top:4px;"></div>
+        </div>
+        <div style="padding-top:6px;">
+          <div class="dc-title" style="font-size:14px;margin-bottom:6px;color:var(--amber);" data-i18n="mcp.rca.s3.title">Corrélation causale — la combinaison cachée</div>
+          <div class="dc-sub" style="font-size:13px;margin-bottom:10px;" data-i18n="mcp.rca.s3.text">L'IA corrèle des centaines de variables simultanément. Elle identifie que le problème n'est pas dû à un seul paramètre hors plage, mais à une combinaison de conditions qui, ensemble, créent la défaillance.</div>
+          <div style="background:rgba(217,119,6,.06);border:1px solid rgba(217,119,6,.25);border-radius:var(--radius-sm);padding:14px 16px;">
+            <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">💡 Combinaison causale identifiée</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="display:flex;align-items:center;gap:10px;font-size:13px;">
+                <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-3);min-width:160px;">Température cuisson</span>
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;color:#EF4444;">&gt; 204 °C</span>
+                <span style="font-size:11px;color:var(--text-3);">— dans la plage autorisée</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:13px;">
+                <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-3);min-width:160px;">Vitesse convoyeur</span>
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;color:#EF4444;">&lt; 5 m/s</span>
+                <span style="font-size:11px;color:var(--text-3);">— dans la plage autorisée</span>
+              </div>
+              <div style="margin-top:6px;padding:8px 10px;background:rgba(239,68,68,.06);border-radius:4px;font-size:12px;color:#EF4444;font-weight:500;" data-i18n="mcp.rca.combo.result">
+                → Combinées, ces deux conditions augmentent les rebuts de 7.4% — invisible à l'analyse individuelle.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div style="display:grid;grid-template-columns:36px 1fr;gap:16px;align-items:start;">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--green);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">04</div>
+        </div>
+        <div style="padding-top:6px;">
+          <div class="dc-title" style="font-size:14px;margin-bottom:6px;color:var(--green);" data-i18n="mcp.rca.s4.title">Recommandation corrective + procédure opérationnelle</div>
+          <div class="dc-sub" style="font-size:13px;margin-bottom:12px;" data-i18n="mcp.rca.s4.text">L'agent génère une recommandation précise en langage naturel, avec les valeurs optimales à appliquer et la procédure opérationnelle step-by-step pour vos équipes terrain.</div>
+          <!-- Agent response mockup -->
+          <div style="background:var(--bg-card);border:1px solid rgba(5,150,105,.3);border-radius:var(--radius-md);overflow:hidden;">
+            <div style="background:rgba(5,150,105,.08);padding:10px 16px;border-bottom:1px solid rgba(5,150,105,.2);display:flex;align-items:center;gap:8px;">
+              <span style="font-size:14px;">🤖</span>
+              <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);" data-i18n="mcp.rca.agent.label">Réponse de l'agent IA — HolistView MCP</span>
+            </div>
+            <div style="padding:16px 18px;">
+              <div class="dc-sub" style="font-size:13px;margin-bottom:14px;font-style:italic;" data-i18n="mcp.rca.agent.response">
+                "J'ai identifié la cause racine du taux de rebuts anormal sur la Ligne A. La combinaison température de cuisson &gt; 204 °C et vitesse convoyeur &lt; 5 m/s provoque une augmentation de 7.4% des rebuts par poids insuffisant. Voici les actions correctives :"
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="display:flex;gap:10px;align-items:flex-start;">
+                  <div style="font-family:var(--font-mono);font-size:10px;font-weight:700;color:var(--green);min-width:20px;">1.</div>
+                  <div class="dc-sub" style="font-size:12px;" data-i18n="mcp.rca.sop1">Régler la température de cuisson entre <strong>199 °C – 203 °C</strong></div>
+                </div>
+                <div style="display:flex;gap:10px;align-items:flex-start;">
+                  <div style="font-family:var(--font-mono);font-size:10px;font-weight:700;color:var(--green);min-width:20px;">2.</div>
+                  <div class="dc-sub" style="font-size:12px;" data-i18n="mcp.rca.sop2">Augmenter la vitesse du convoyeur à <strong>&gt; 5 m/s</strong></div>
+                </div>
+                <div style="display:flex;gap:10px;align-items:flex-start;">
+                  <div style="font-family:var(--font-mono);font-size:10px;font-weight:700;color:var(--green);min-width:20px;">3.</div>
+                  <div class="dc-sub" style="font-size:12px;" data-i18n="mcp.rca.sop3">Effectuer un contrôle visuel sur 5 pièces consécutives</div>
+                </div>
+                <div style="display:flex;gap:10px;align-items:flex-start;">
+                  <div style="font-family:var(--font-mono);font-size:10px;font-weight:700;color:var(--green);min-width:20px;">4.</div>
+                  <div class="dc-sub" style="font-size:12px;" data-i18n="mcp.rca.sop4">Notifier le responsable de quart et consigner dans le registre d'incidents</div>
+                </div>
+              </div>
+              <div style="margin-top:14px;padding:10px 14px;background:rgba(5,150,105,.06);border-radius:var(--radius-sm);display:flex;align-items:center;gap:10px;">
+                <span style="font-size:16px;">📊</span>
+                <div class="dc-sub" style="font-size:12px;" data-i18n="mcp.rca.impact">Réduction attendue : <strong style="color:var(--green);">7.4% → 2.2%</strong> de rebuts · Économies estimées : <strong style="color:var(--green);">~€1M/an</strong> sur cette ligne.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- steps -->
+
+    <!-- Why this matters -->
+    <div style="margin-top:32px;padding-top:28px;border-top:1px solid var(--border);">
+      <div class="dc-title" style="font-size:16px;margin-bottom:16px;" data-i18n="mcp.rca.why.title">Pourquoi c'est impossible sans Process Intelligence</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+        <div style="padding:16px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-sm);">
+          <div style="font-size:20px;margin-bottom:8px;">❌</div>
+          <div class="dc-title" style="font-size:12px;margin-bottom:6px;color:var(--text-3);" data-i18n="mcp.rca.why1.title">IA générique seule</div>
+          <div class="dc-sub" style="font-size:12px;" data-i18n="mcp.rca.why1.text">Ne connaît pas vos lignes, vos paramètres ni vos seuils. Répond avec des généralités inutilisables sur le terrain.</div>
+        </div>
+        <div style="padding:16px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-sm);">
+          <div style="font-size:20px;margin-bottom:8px;">⚠️</div>
+          <div class="dc-title" style="font-size:12px;margin-bottom:6px;color:var(--amber);" data-i18n="mcp.rca.why2.title">Expert humain seul</div>
+          <div class="dc-sub" style="font-size:12px;" data-i18n="mcp.rca.why2.text">Ne peut pas corréler des centaines de variables simultanément. La combinaison causale reste invisible même pour les meilleurs techniciens.</div>
+        </div>
+        <div style="padding:16px;background:var(--purple-soft);border:1px solid var(--border-purple);border-radius:var(--radius-sm);">
+          <div style="font-size:20px;margin-bottom:8px;">✅</div>
+          <div class="dc-title" style="font-size:12px;margin-bottom:6px;" data-i18n="mcp.rca.why3.title">Agent IA + MCP HolistView</div>
+          <div class="dc-sub" style="font-size:12px;" data-i18n="mcp.rca.why3.text">Accès direct à vos données réelles via MCP + corrélation IA sur des milliers de variables = cause identifiée et action corrective en secondes.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
   <!-- ══ USE CASES ══ -->
   <div style="margin-bottom:32px;">
     <div class="dc-title" style="margin-bottom:6px;" data-i18n="mcp.cases.title">Cas d'usage</div>
@@ -184,17 +341,14 @@
       <div class="usecase-card"><div class="usecase-icon">🔮</div><div class="usecase-title" data-i18n="mcp.case.predict">Maintenance prédictive</div><div class="usecase-text" data-i18n="mcp.case.predict.text">L'IA analyse les tendances des capteurs et prédit les risques de défaillance avant qu'ils n'arrivent, en croisant données historiques et temps réel.</div></div>
       <div class="usecase-card"><div class="usecase-icon">🎯</div><div class="usecase-title" data-i18n="mcp.case.optim">Optimisation continue</div><div class="usecase-text" data-i18n="mcp.case.optim.text">Des agents autonomes surveillent vos KPI et proposent des ajustements pour maximiser le TRS en continu.</div></div>
       <div class="usecase-card"><div class="usecase-icon">📚</div><div class="usecase-title" data-i18n="mcp.case.know">Base de connaissances vivante</div><div class="usecase-text" data-i18n="mcp.case.know.text">L'IA capitalise chaque résolution d'incident et enrichit automatiquement la documentation, accessible à tous en langage naturel.</div></div>
-      <div class="usecase-card" style="border-top:3px solid var(--purple);background:var(--purple-soft);">
-        <div class="usecase-icon">🧠</div>
-        <div class="usecase-title" style="color:var(--purple);" data-i18n="mcp.case.rca">Agent — Analyse des causes racines</div>
-        <div class="usecase-text" data-i18n="mcp.case.rca.text">L'agent IA interroge vos données via MCP lors d'un incident, identifie la combinaison causale cachée et génère une recommandation corrective — en langage naturel, en quelques secondes.</div>
-      </div>
+
     </div>
   </div>
 
+
   <!-- CTA -->
   <div style="text-align:center;margin-top:20px;">
-    <a href="index.html#form-demo" class="btn-primary">Voir une démo MCP en action →</a>
+    <a href="index.html#form-demo" class="btn-primary" data-i18n="mcp.cta.btn">Voir une démo MCP en action →</a>
   </div>
 
 </div><!-- solution-page -->
