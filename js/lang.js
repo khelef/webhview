@@ -74,6 +74,9 @@ const translations = {
     "rca.feat.knowledge.title":"Capitalisation du savoir","rca.feat.knowledge.text":"Chaque résolution enrichit la base de connaissances. L'IA devient plus pertinente à chaque incident résolu.",
     "mcp.hero.title":"Serveur MCP<br>Model Context Protocol",
     "mcp.hero.sub":"Exposez vos données industrielles aux agents IA via le protocole ouvert d'Anthropic. Permettez à vos LLMs d'interroger directement vos processus, KPI et historiques — en temps réel.",
+        "mcp.what.p1":"Le <strong style=\"color:var(--purple);font-weight:700;\">Model Context Protocol (MCP)</strong> est un standard ouvert développé par Anthropic qui permet aux modèles de langage d'accéder à des sources de données externes de manière sécurisée et standardisée.",
+    "mcp.what.p2":"HolistView expose un <strong style=\"color:var(--purple);font-weight:700;\">serveur MCP natif</strong> donnant aux agents IA un accès direct à vos données de production : KPI temps réel, historiques, ordres de fabrication, alertes actives.",
+    "mcp.what.p3":"Vos équipes interrogent l'IA en langage naturel — <em>\"Quelle est la cause du ralentissement ligne A ?\"</em> — et obtiennent une réponse fondée sur vos données réelles.",
     "mcp.what.title":"Qu'est-ce que le MCP ?",
     "mcp.what.sub":"Un standard ouvert pour connecter les agents IA à vos données industrielles en temps réel",
     "mcp.arch.title":"Architecture MCP",
@@ -82,6 +85,14 @@ const translations = {
     "mcp.tools.sub":"Chaque outil est appelable par n'importe quel agent IA compatible MCP",
     "mcp.cases.title":"Cas d'usage",
     "mcp.cases.sub":"Ce que vos agents IA peuvent faire avec HolistView MCP",
+        "mcp.case.chat.text":"Vos opérateurs posent des questions en langage naturel sur l'état de la production et obtiennent des réponses instantanées basées sur les vraies données.",
+    "mcp.case.diag.text":"Un agent IA interroge automatiquement les données lors d'une anomalie, identifie la cause probable et propose un plan d'action en quelques secondes.",
+    "mcp.case.report.text":"Générez des rapports de performance complets en langage naturel — synthèse hebdomadaire, analyse mensuelle — en une seule requête.",
+    "mcp.case.predict.text":"L'IA analyse les tendances des capteurs et prédit les risques de défaillance avant qu'ils n'arrivent, en croisant données historiques et temps réel.",
+    "mcp.case.optim.text":"Des agents autonomes surveillent vos KPI et proposent des ajustements pour maximiser le TRS en continu.",
+    "mcp.case.know.text":"L'IA capitalise chaque résolution d'incident et enrichit automatiquement la documentation, accessible à tous en langage naturel.",
+    "mcp.case.rca":"Agent — Analyse des causes racines",
+    "mcp.case.rca.text":"L'agent IA interroge vos données via MCP lors d'un incident, identifie la combinaison causale cachée et génère une recommandation corrective — en langage naturel, en quelques secondes.",
     "mcp.case.chat":"Chatbot opérationnel","mcp.case.diag":"Diagnostic autonome","mcp.case.report":"Reporting intelligent",
     "mcp.case.predict":"Maintenance prédictive","mcp.case.optim":"Optimisation continue","mcp.case.know":"Base de connaissances vivante",
     "societe.title":"Notre société",
@@ -181,8 +192,8 @@ const translations = {
     "home.env4.title":"Double pilotage",
     "home.env4.text":"Un seul tableau de bord pour piloter simultanément votre performance industrielle et la réduction de vos émissions.",
     "home.pillars.eyebrow":"Nos solutions",
-    "home.pillars.title":"Une plateforme,<br>quatre piliers",
-    "home.pillars.sub":"De la connexion des données à l'intelligence des agents IA, HolistView couvre l'intégralité de votre Process Intelligence.",
+    "home.pillars.title":"Une plateforme,<br>trois piliers",
+    "home.pillars.sub":"De la connexion des données à l'intelligence des agents IA via MCP, HolistView couvre l'intégralité de votre Process Intelligence en 3 piliers.",
     "home.pillar1.name":"Connexion des données","home.pillar1.desc":"Connectez toutes vos sources — machines, capteurs, MES, ERP — en un seul flux unifié. 10+ connecteurs natifs : OPC-UA, MQTT, SAP, Odoo, PostgreSQL…",
     "home.pillar2.name":"Surveillance de processus","home.pillar2.desc":"Tracez chaque objet industriel — ordre de fabrication, équipement, matière — et détectez les anomalies avant qu'elles impactent votre production.",
     "home.pillar3.name":"Analyse des causes racines","home.pillar3.desc":"L'IA révèle les causes cachées de vos pertes — même celles que vos experts n'auraient jamais trouvées — et génère des recommandations actionnables.",
@@ -354,6 +365,9 @@ const translations = {
     "rca.feat.knowledge.title":"Knowledge capitalisation","rca.feat.knowledge.text":"Every resolution enriches the knowledge base. AI becomes more relevant with each incident resolved.",
     "mcp.hero.title":"MCP Server<br>Model Context Protocol",
     "mcp.hero.sub":"Expose your industrial data to AI agents via Anthropic's open protocol. Allow your LLMs to directly query your processes, KPIs and history — in real time.",
+        "mcp.what.p1":"The <strong style=\"color:var(--purple);font-weight:700;\">Model Context Protocol (MCP)</strong> is an open standard developed by Anthropic that allows language models to access external data sources in a secure and standardised way.",
+    "mcp.what.p2":"HolistView exposes a <strong style=\"color:var(--purple);font-weight:700;\">native MCP server</strong> giving AI agents direct access to your production data: real-time KPIs, history, work orders, active alerts.",
+    "mcp.what.p3":"Your teams query AI in natural language — <em>\"What is causing the slowdown on Line A?\"</em> — and get answers grounded in your real data.",
     "mcp.what.title":"What is MCP?",
     "mcp.what.sub":"An open standard for connecting AI agents to your industrial data in real time",
     "mcp.arch.title":"MCP Architecture",
@@ -362,6 +376,14 @@ const translations = {
     "mcp.tools.sub":"Each tool can be called by any MCP-compatible AI agent",
     "mcp.cases.title":"Use cases",
     "mcp.cases.sub":"What your AI agents can do with HolistView MCP",
+        "mcp.case.chat.text":"Your operators ask questions in natural language about production status and get instant answers based on real data.",
+    "mcp.case.diag.text":"An AI agent automatically queries data when an anomaly occurs, identifies the likely cause and proposes an action plan in seconds.",
+    "mcp.case.report.text":"Generate comprehensive performance reports in natural language — weekly summary, monthly analysis — in a single request.",
+    "mcp.case.predict.text":"AI analyses sensor trends and predicts failure risks before they occur, by cross-referencing historical and real-time data.",
+    "mcp.case.optim.text":"Autonomous agents monitor your KPIs and propose adjustments to maximise OEE continuously.",
+    "mcp.case.know.text":"AI capitalises on every incident resolution and automatically enriches documentation, accessible to everyone in natural language.",
+    "mcp.case.rca":"Agent — Root cause analysis",
+    "mcp.case.rca.text":"The AI agent queries your data via MCP when an incident occurs, identifies the hidden causal combination and generates a corrective recommendation — in natural language, in seconds.",
     "mcp.case.chat":"Operational chatbot","mcp.case.diag":"Autonomous diagnosis","mcp.case.report":"Intelligent reporting",
     "mcp.case.predict":"Predictive maintenance","mcp.case.optim":"Continuous optimisation","mcp.case.know":"Living knowledge base",
     "societe.title":"Our company",
@@ -426,8 +448,8 @@ const translations = {
     "home.env4.title":"Dual monitoring",
     "home.env4.text":"A single dashboard to simultaneously manage your industrial performance and emissions reduction.",
     "home.pillars.eyebrow":"Our solutions",
-    "home.pillars.title":"One platform,<br>four pillars",
-    "home.pillars.sub":"From data connection to AI agent intelligence, HolistView covers your entire Process Intelligence stack.",
+    "home.pillars.title":"One platform,<br>three pillars",
+    "home.pillars.sub":"From data connection to AI agent intelligence via MCP, HolistView covers your entire Process Intelligence stack in 3 pillars.",
     "home.pillar1.name":"Data connection","home.pillar1.desc":"Connect all your sources — machines, sensors, MES, ERP — into a single unified flow. 10+ native connectors: OPC-UA, MQTT, SAP, Odoo, PostgreSQL…",
     "home.pillar2.name":"Process monitoring","home.pillar2.desc":"Trace every industrial object — work order, equipment, material — and detect anomalies before they impact your production.",
     "home.pillar3.name":"Root cause analysis","home.pillar3.desc":"AI reveals the hidden causes of your losses — even those your experts would never have found — and generates actionable recommendations.",
@@ -598,8 +620,17 @@ function applyTranslations(lang) {
 
 function setLanguage(lang) { applyTranslations(lang); }
 
-document.addEventListener('DOMContentLoaded', function () {
-  let lang = 'fr';
-  try { const s = localStorage.getItem('hv_lang'); if (s && translations[s]) lang = s; } catch(e) {}
-  applyTranslations(lang);
-});
+(function () {
+  function init() {
+    let lang = 'fr';
+    try { const s = localStorage.getItem('hv_lang'); if (s && translations[s]) lang = s; } catch(e) {}
+    applyTranslations(lang);
+  }
+  /* Run immediately if DOM already ready (script loaded at bottom of body),
+     otherwise wait for DOMContentLoaded */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

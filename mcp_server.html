@@ -73,7 +73,6 @@
           <li><a href="data_connexion.html"           data-i18n="solutions.dataConnexion">Connexion &amp; contextualisation des données</a></li>
           <li><a href="data_contextualisation.html"   data-i18n="solutions.dataContext">Surveillance de processus de bout en bout</a></li>
           <li><a href="mcp_server.html"               data-i18n="solutions.mcp">Serveur MCP (Model Context Protocol)</a></li>
-          <li><a href="analyse_des_causes_racine.html" data-i18n="solutions.rootCause">Analyse automatisée des causes racines</a></li>
         </ul>
       </li>
       <li class="nav-item"><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
@@ -91,7 +90,7 @@
 
 <!-- ═══ PAGE HERO ═══ -->
 <div class="page-hero">
-  <div class="eyebrow">Pilier 04</div>
+  <div class="eyebrow">Pilier 03 — MCP</div>
   <h1 class="page-hero-title" style="font-family:var(--font-head);font-size:clamp(32px,4vw,52px);font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--purple);" data-i18n="mcp.hero.title">
     Serveur MCP<br>Model Context Protocol
   </h1>
@@ -112,13 +111,13 @@
   <!-- ══ WHAT IS MCP ══ -->
   <div style="background:var(--bg-card);border:1px solid var(--border-2);border-radius:var(--radius-lg);padding:40px;margin-bottom:32px;box-shadow:var(--shadow-card);position:relative;overflow:hidden;">
     <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple),var(--cyan));"></div>
-    <div class="dc-title" style="margin-bottom:4px;">Qu'est-ce que le MCP ?</div data-i18n="mcp.what.title">
-    <div class="dc-sub" style="margin-bottom:24px;">Un standard ouvert pour connecter les agents IA à vos données industrielles en temps réel</div>
+    <div class="dc-title" style="margin-bottom:4px;" data-i18n="mcp.what.title">Qu'est-ce que le MCP ?</div>
+    <div class="dc-sub" style="margin-bottom:24px;" data-i18n="mcp.what.sub">Un standard ouvert pour connecter les agents IA à vos données industrielles en temps réel</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
       <div>
-        <p class="dc-sub" style="margin-bottom:14px;">Le <strong style="color:var(--purple);font-weight:700;">Model Context Protocol (MCP)</strong> est un standard ouvert développé par Anthropic qui permet aux modèles de langage d'accéder à des sources de données externes de manière sécurisée et standardisée.</p>
-        <p class="dc-sub" style="margin-bottom:14px;">HolistView expose un <strong style="color:var(--purple);font-weight:700;">serveur MCP natif</strong> donnant aux agents IA un accès direct à vos données de production : KPI temps réel, historiques, ordres de fabrication, alertes actives.</p>
-        <p class="dc-sub">Vos équipes interrogent l'IA en langage naturel — <em>"Quelle est la cause du ralentissement ligne A ?"</em> — et obtiennent une réponse fondée sur vos données réelles.</p>
+        <p class="dc-sub" style="margin-bottom:14px;" data-i18n="mcp.what.p1">Le <strong style="color:var(--purple);font-weight:700;">Model Context Protocol (MCP)</strong> est un standard ouvert développé par Anthropic qui permet aux modèles de langage d'accéder à des sources de données externes de manière sécurisée et standardisée.</p>
+        <p class="dc-sub" style="margin-bottom:14px;" data-i18n="mcp.what.p2">HolistView expose un <strong style="color:var(--purple);font-weight:700;">serveur MCP natif</strong> donnant aux agents IA un accès direct à vos données de production : KPI temps réel, historiques, ordres de fabrication, alertes actives.</p>
+        <p class="dc-sub" data-i18n="mcp.what.p3">Vos équipes interrogent l'IA en langage naturel — <em>"Quelle est la cause du ralentissement ligne A ?"</em> — et obtiennent une réponse fondée sur vos données réelles.</p>
       </div>
       <div style="background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-md);padding:22px;">
         <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px;">Exemple de requête</div>
@@ -135,8 +134,8 @@
 
   <!-- ══ ARCHITECTURE DIAGRAM ══ -->
   <div style="background:var(--bg-card);border:1px solid var(--border-2);border-radius:var(--radius-lg);padding:40px;margin-bottom:32px;box-shadow:var(--shadow-card);">
-    <div class="dc-title">Architecture MCP</div data-i18n="mcp.arch.title">
-    <div class="dc-sub" style="margin-bottom:28px;">Les paquets de données voyagent de chaque source industrielle → HolistView MCP Server → vers chaque agent IA</div>
+    <div class="dc-title" data-i18n="mcp.arch.title">Architecture MCP</div>
+    <div class="dc-sub" style="margin-bottom:28px;" data-i18n="mcp.arch.sub">Les paquets de données voyagent de chaque source industrielle → HolistView MCP Server → vers chaque agent IA</div>
     <div style="overflow-x:auto;">
       <canvas id="mcp-canvas" height="400" style="min-width:700px;"></canvas>
     </div>
@@ -145,8 +144,8 @@
   <!-- ══ TOOLS + CODE ══ -->
   <div style="background:var(--bg-card);border:1px solid var(--border-2);border-radius:var(--radius-lg);padding:40px;margin-bottom:32px;box-shadow:var(--shadow-card);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
     <div>
-      <div class="dc-title">Outils MCP exposés</div data-i18n="mcp.tools.title">
-      <div class="dc-sub" style="margin-bottom:22px;">Chaque outil est appelable par n'importe quel agent IA compatible MCP</div>
+      <div class="dc-title" data-i18n="mcp.tools.title">Outils MCP exposés</div>
+      <div class="dc-sub" data-i18n="mcp.tools.sub" style="margin-bottom:22px;">Chaque outil est appelable par n'importe quel agent IA compatible MCP</div>
       <div class="tool-row"><span class="tool-badge" style="color:var(--purple);background:var(--purple-soft);">get_oee</span><span style="font-size:13px;font-weight:300;color:var(--text-2);">TRS / OEE par ligne, période, équipe</span></div>
       <div class="tool-row"><span class="tool-badge" style="color:var(--purple);background:var(--purple-soft);">get_alerts</span><span style="font-size:13px;font-weight:300;color:var(--text-2);">Alertes actives et historique des incidents</span></div>
       <div class="tool-row"><span class="tool-badge" style="color:var(--purple);background:var(--purple-soft);">get_downtime_causes</span><span style="font-size:13px;font-weight:300;color:var(--text-2);">Causes et durées d'arrêts classées</span></div>
@@ -176,15 +175,20 @@
 
   <!-- ══ USE CASES ══ -->
   <div style="margin-bottom:32px;">
-    <div class="dc-title" style="margin-bottom:6px;">Cas d'usage</div data-i18n="mcp.cases.title">
-    <div class="dc-sub" style="margin-bottom:24px;">Ce que vos agents IA peuvent faire avec HolistView MCP</div>
+    <div class="dc-title" style="margin-bottom:6px;" data-i18n="mcp.cases.title">Cas d'usage</div>
+    <div class="dc-sub" style="margin-bottom:24px;" data-i18n="mcp.cases.sub">Ce que vos agents IA peuvent faire avec HolistView MCP</div>
     <div class="usecase-grid">
-      <div class="usecase-card"><div class="usecase-icon">💬</div><div class="usecase-title">Chatbot opérationnel</div><div class="usecase-text">Vos opérateurs posent des questions en langage naturel sur l'état de la production et obtiennent des réponses instantanées basées sur les vraies données.</div></div>
-      <div class="usecase-card"><div class="usecase-icon">🔍</div><div class="usecase-title">Diagnostic autonome</div><div class="usecase-text">Un agent IA interroge automatiquement les données lors d'une anomalie, identifie la cause probable et propose un plan d'action en quelques secondes.</div></div>
-      <div class="usecase-card"><div class="usecase-icon">📊</div><div class="usecase-title">Reporting intelligent</div><div class="usecase-text">Générez des rapports de performance complets en langage naturel — synthèse hebdomadaire, analyse mensuelle — en une seule requête.</div></div>
-      <div class="usecase-card"><div class="usecase-icon">🔮</div><div class="usecase-title">Maintenance prédictive</div><div class="usecase-text">L'IA analyse les tendances des capteurs et prédit les risques de défaillance avant qu'ils n'arrivent, en croisant données historiques et temps réel.</div></div>
-      <div class="usecase-card"><div class="usecase-icon">🎯</div><div class="usecase-title">Optimisation continue</div><div class="usecase-text">Des agents autonomes surveillent vos KPI et proposent des ajustements de paramètres, cadences ou plannings pour maximiser le TRS en continu.</div></div>
-      <div class="usecase-card"><div class="usecase-icon">📚</div><div class="usecase-title">Base de connaissances vivante</div><div class="usecase-text">L'IA capitalise chaque résolution d'incident et enrichit automatiquement la documentation, accessible à tous en langage naturel.</div></div>
+      <div class="usecase-card"><div class="usecase-icon">💬</div><div class="usecase-title" data-i18n="mcp.case.chat">Chatbot opérationnel</div><div class="usecase-text" data-i18n="mcp.case.chat.text">Vos opérateurs posent des questions en langage naturel sur l'état de la production et obtiennent des réponses instantanées basées sur les vraies données.</div></div>
+      <div class="usecase-card"><div class="usecase-icon">🔍</div><div class="usecase-title" data-i18n="mcp.case.diag">Diagnostic autonome</div><div class="usecase-text" data-i18n="mcp.case.diag.text">Un agent IA interroge automatiquement les données lors d'une anomalie, identifie la cause probable et propose un plan d'action en quelques secondes.</div></div>
+      <div class="usecase-card"><div class="usecase-icon">📊</div><div class="usecase-title" data-i18n="mcp.case.report">Reporting intelligent</div><div class="usecase-text" data-i18n="mcp.case.report.text">Générez des rapports de performance complets en langage naturel — synthèse hebdomadaire, analyse mensuelle — en une seule requête.</div></div>
+      <div class="usecase-card"><div class="usecase-icon">🔮</div><div class="usecase-title" data-i18n="mcp.case.predict">Maintenance prédictive</div><div class="usecase-text" data-i18n="mcp.case.predict.text">L'IA analyse les tendances des capteurs et prédit les risques de défaillance avant qu'ils n'arrivent, en croisant données historiques et temps réel.</div></div>
+      <div class="usecase-card"><div class="usecase-icon">🎯</div><div class="usecase-title" data-i18n="mcp.case.optim">Optimisation continue</div><div class="usecase-text" data-i18n="mcp.case.optim.text">Des agents autonomes surveillent vos KPI et proposent des ajustements pour maximiser le TRS en continu.</div></div>
+      <div class="usecase-card"><div class="usecase-icon">📚</div><div class="usecase-title" data-i18n="mcp.case.know">Base de connaissances vivante</div><div class="usecase-text" data-i18n="mcp.case.know.text">L'IA capitalise chaque résolution d'incident et enrichit automatiquement la documentation, accessible à tous en langage naturel.</div></div>
+      <div class="usecase-card" style="border-top:3px solid var(--purple);background:var(--purple-soft);">
+        <div class="usecase-icon">🧠</div>
+        <div class="usecase-title" style="color:var(--purple);" data-i18n="mcp.case.rca">Agent — Analyse des causes racines</div>
+        <div class="usecase-text" data-i18n="mcp.case.rca.text">L'agent IA interroge vos données via MCP lors d'un incident, identifie la combinaison causale cachée et génère une recommandation corrective — en langage naturel, en quelques secondes.</div>
+      </div>
     </div>
   </div>
 
